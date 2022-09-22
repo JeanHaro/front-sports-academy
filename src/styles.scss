@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@900&family=Titan+One&display=swap');
+
+/*
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Titan One', cursive;
+#FCDDBC;
+#D5BDAF;
+#E3D5CA;
+#F5EBE0;
+#D6CCC2;
+#EDEDE9;
+#E1C597;
+#EDF6F9;
+#EDF2F4;
+#E5E5E5;
+#FFFCF2;
+#CCC5B9;
+#403D39;
+#252422;
+#EB5E28;
+#D9D9D9;
+#ADB5BD;
+#CED4DA;
+#BFC0C0;
+*/
+
+:root {
+    --fuentePrincipal: 'Open Sans', sans-serif;
+    --fuenteSecundario: 'Open Sans', sans-serif;
+    --colorPrincipal: #F0F0F0;
+    --colorPrincipalHover: #c2c2c2;
+    --colorSecundario: #DDA15E;
+    --colorTerciario: #D9D9D9;
+    --colorNegro: #222;
+    --colorBlanco: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+    font-family: var(--fuenteSecundario);
+    font-size: 1.6rem;
+}
+
+// Global
+h1, h2, h3, h4, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 4rem;
+    font-family: var(--fuentePrincipal);
+}
+
+h2 {
+    font-size: 3.4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+h4 {
+    font-size: 2.6rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.min-width {
+    min-width: 28rem;
+}
+

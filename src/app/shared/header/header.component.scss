@@ -1,0 +1,199 @@
+// Cabecera
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    position: relative;
+
+    background-color: var(--colorPrincipal);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+
+    @media (min-width: 768px) {
+        padding: 1rem;
+    }
+
+    // Titulo
+    .header__title {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        padding-left: 1rem;
+        color: var(--colorSecundario);
+        font-weight: 700;
+
+        p {
+            margin-top: -0.5rem;
+        }
+    }
+
+    // Menu bar - Mobile
+    .header__mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 55px;
+        height: 80px;
+        cursor: pointer;
+        transition: 0.5s ease;
+
+        @media (min-width: 768px) {
+            display: none;
+            visibility: hidden;
+        }
+
+        &:hover {
+            background-color: var(--colorSecundario);
+
+            span {
+                background-color: var(--colorBlanco);
+
+                &::before,
+                &::after {
+                    background-color:  var(--colorBlanco);
+                }
+            }
+        }
+
+        span {
+            background-color: var(--colorSecundario);
+            width: 24px;
+            height: 3px;
+            border-radius: 2px;
+            transition: 0.5s ease;
+
+            &::after, 
+            &::before {
+                content: '';
+                position: relative;
+
+                display: inline-block;
+
+                background-color: var(--colorSecundario);
+                width: 24px;
+                height: 3px;
+                border-radius: 2px;
+                transition: 0.5s ease;
+            }
+
+            &::before {
+                top: -22px;
+            }
+
+            &::after {
+                top: -20px;
+            }
+        } 
+    }
+
+    // Check mobile
+    #nav-check {
+        display: none;
+        visibility: hidden;
+
+        // Activo
+        &:checked + .header__mobile {
+            background-color: var(--colorSecundario);
+        }
+
+        &:checked + .header__mobile span {
+            background-color: transparent;
+        }
+
+        &:checked + .header__mobile span::before {
+            top: -13px;
+
+            transform: rotate(135deg);
+            background-color: var(--colorBlanco);
+        }
+
+        &:checked +  .header__mobile span::after {
+            top: -31px;
+
+            transform: rotate(-135deg);
+            background-color: var(--colorBlanco);
+        }
+    }
+
+    // Enlaces de navegación
+    .header__navigation {
+        visibility: hidden;
+
+        display: flex;
+        flex-direction: column;
+
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+
+        padding-right: 1rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: 0.5s ease;
+
+        @media (min-width: 768px) {
+            visibility: visible;
+
+            flex-direction: row;
+            align-items: center;
+
+            position: relative;
+            top: 0;
+            left: 0;
+
+            background-color: transparent;
+            width: auto;
+        }
+    
+        // Enlace
+        a {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--colorBlanco);
+
+            transition: 0.5s ease;
+
+            @media (min-width: 768px) {
+                color: var(--colorNegro);
+                padding: 1.5rem 2rem;
+                margin-right: 1rem;
+                border-radius: 0.5rem;
+            }
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.6);
+
+                @media (min-width: 768px) {
+                    background-color: var(--colorSecundario);
+                    color: var(--colorBlanco);
+                }
+            }
+
+            &:last-child {
+                background-color: var(--colorSecundario);
+                color: var(--colorBlanco);
+
+                font-weight: bold;
+                margin: 1rem auto;
+                border-radius: 0.5rem;   
+                width: 50%;
+
+                transition: none;
+
+                &:active {
+                    transform: scale(0.92);
+                }
+            }
+        }
+    }
+
+    // Check mobile - Activo
+    #nav-check:checked ~ .header__navigation {
+        visibility: visible;
+    
+        top: 100%;
+        left: 0;
+    }
+}
