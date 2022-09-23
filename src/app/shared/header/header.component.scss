@@ -6,7 +6,7 @@
     
     position: relative;
 
-    background-color: var(--colorPrincipal);
+    background-color: #495057;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 
     @media (min-width: 768px) {
@@ -129,7 +129,6 @@
         left: -100%;
         width: 100%;
 
-        padding-right: 1rem;
         background-color: rgba(0, 0, 0, 0.5);
         transition: 0.5s ease;
 
@@ -143,6 +142,7 @@
             top: 0;
             left: 0;
 
+            padding-right: 1rem;
             background-color: transparent;
             width: auto;
         }
@@ -156,7 +156,6 @@
             transition: 0.5s ease;
 
             @media (min-width: 768px) {
-                color: var(--colorNegro);
                 padding: 1.5rem 2rem;
                 margin-right: 1rem;
                 border-radius: 0.5rem;
@@ -181,10 +180,6 @@
                 width: 50%;
 
                 transition: none;
-
-                &:active {
-                    transform: scale(0.92);
-                }
             }
         }
     }

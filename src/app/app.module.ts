@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -21,6 +20,13 @@ import { ScheduleListComponent } from './admin/schedule-list/schedule-list.compo
 import { ScheduleEditComponent } from './admin/schedule-edit/schedule-edit.component';
 import { FormListComponent } from './admin/form-list/form-list.component';
 import { FormEditComponent } from './admin/form-edit/form-edit.component';
+
+// Modulos
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
+// Routing
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +52,8 @@ import { FormEditComponent } from './admin/form-edit/form-edit.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
