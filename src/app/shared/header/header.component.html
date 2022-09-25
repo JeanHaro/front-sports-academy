@@ -6,14 +6,14 @@
 
     <input type="checkbox" id="nav-check">
 
-    <label for="nav-check" class="header__mobile">
+    <label for="nav-check" class="header__mobile" (click)="headerFocus()">
         <span></span>
     </label><!-- Menu bar - Mobile -->
 
     <nav class="header__navigation">
-        <a href="#">Inicio</a>
-        <a href="#">Nosotros</a>
-        <a href="#">Contacto</a>
-        <a href="#">Regístrate</a>
+        <a class="active" href="/#inicio">Inicio</a>
+        <a href="/#nosotros">Nosotros</a>
+        <a href="/#contacto">Contacto</a>
+        <a href="#"><fa-icon [icon]="faList"></fa-icon> Regístrate</a>
     </nav><!-- Enlaces de navegación -->
 </header><!-- Cabecera -->

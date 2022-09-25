@@ -3,8 +3,9 @@
     display: flex;
     flex-direction: column;
 
-    background-color: #495057;
+    background-color: var(--colorPrincipal);
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1;
 
     // Contenido Footer
     .footer__up {
@@ -20,7 +21,7 @@
 
             padding: 4rem 2rem;
 
-            > div {
+            > section {
                 flex-basis: calc(33.3% - 4rem);
                 align-self: flex-start;
 
@@ -44,7 +45,7 @@
 
                 a {
                     margin-bottom: 2rem;
-                    color: #c4c4c4;
+                    color: var(--colorTerciario);
 
                     &:hover {
                         color: var(--colorSecundario);
@@ -57,7 +58,7 @@
                         border-radius: 0.5rem;  
                         background-color: var(--colorSecundario);
                         color: var(--colorBlanco);
-                        padding: 2rem;
+                        padding: 1.5rem;
                         margin: 0 auto;
                         
                         &:hover {
@@ -81,7 +82,7 @@
                 div {
                     display: flex;
 
-                    color: #c4c4c4;
+                    color: var(--colorTerciario);
                     margin-bottom: 2rem;
 
                     &:last-child {
@@ -89,7 +90,7 @@
                     }
 
                     a {
-                        color: #c4c4c4;
+                        color: var(--colorTerciario);
                         text-decoration: underline;
                         margin-left: 0.5rem;
 
@@ -116,7 +117,7 @@
                     align-items: center;
 
                     margin-bottom: 2rem;
-                    color: #c4c4c4;
+                    color: var(--colorTerciario);
 
                     fa-icon {
                         font-size: 2.5rem;
@@ -139,5 +140,4 @@
         padding: 1rem;
         text-align: center;
     }
-
 }

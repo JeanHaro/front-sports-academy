@@ -1,0 +1,43 @@
+<section class="home__contact" id="contacto">
+    <div class="home__contact-container">
+        <h2>Contáctanos</h2>
+
+        <p>Completa el siguiente formulario, y un miembro de nuestro equipo se pondrá en contacto con usted</p>
+
+        <form class="home__contact-form">
+            <div class="contact__form-2">
+                <div class="contact__form-name">
+                    <input class="none" type="text" id="contact-name" placeholder="Nombre y Apellido*">
+                </div><!-- Nombre -->
+
+                <div class="contact__form-email">
+                    <input class="none" type="email" id="contact-email" placeholder="Correo electrónico*">
+                </div><!-- Email -->
+            </div><!-- Contenedor de 2 inputs-->
+
+
+            <div class="contact__form-2">
+                <div class="contact__form-phone">
+                    <input class="none" type="tel" id="contact-phone" placeholder="Teléfono o Celular*">
+                </div><!-- Teéfono -->
+
+                <div class="contact__form-affair" (click)="selectClick()">
+                    <input class="none" type="text" id="input-select" readonly [value]="valor" placeholder="Seleccionar*">
+
+                    <div class="option">
+                        <div (mouseover)="viewSelect('Reclamación')">Reclamación</div>
+                        <div (mouseover)="viewSelect('Consultas')">Consultas</div>
+                    </div><!-- Opciones -->
+                </div><!-- Selector -->
+            </div><!-- Contenedor de 2 inputs -->
+
+            <div class="contact__form-message">
+                <textarea class="none" id="contact-message" placeholder="Mensaje*"></textarea>
+            </div><!-- Mensaje -->
+
+            <div class="contact__form-submit">
+                <button class="none btn btn-orange" type="submit">Enviar</button>
+            </div><!-- Botón - Submit -->
+        </form><!-- Formulario -->
+    </div><!-- Contenedor -->
+</section><!-- Contacto -->

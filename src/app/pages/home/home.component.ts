@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+// Font Awesome
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  // Iconos
+  faArrowRight = faArrowRight;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

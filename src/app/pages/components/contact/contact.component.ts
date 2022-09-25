@@ -12,4 +12,18 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Variable
+  valor = '';
+
+  viewSelect (a: string) {
+    this.valor = a;
+  }
+
+  // Añadir la clase de active cuando se le de click
+  selectClick() {
+    let select = document.querySelector('.contact__form-affair');
+
+    select?.classList.toggle('active');
+  }
+
 }
