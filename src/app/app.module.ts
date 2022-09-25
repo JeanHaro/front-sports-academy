@@ -1,17 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// Componentes
 import { AppComponent } from './app.component';
+
+// Componentes - Auth
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
+
+// Componentes - Pages
 import { HomeComponent } from './pages/home/home.component';
-import { ContactComponent } from './pages/components/contact/contact.component';
 import { FormComponent } from './pages/form/form.component';
+import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
+import { ContactComponent } from './pages/components/contact/contact.component';
 import { AboutUsComponent } from './pages/components/about-us/about-us.component';
 import { CardUsComponent } from './pages/components/card-us/card-us.component';
+
+// Componentes - Shared
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+
+// Componentes - Admin
 import { NavComponent } from './admin/nav/nav.component';
 import { ScheduleFormComponent } from './admin/schedule-form/schedule-form.component';
 import { StudentsListComponent } from './admin/students-list/students-list.component';

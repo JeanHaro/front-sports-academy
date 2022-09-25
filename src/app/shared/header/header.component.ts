@@ -58,15 +58,19 @@ export class HeaderComponent implements OnInit, OnChanges {
     const nosotros = document.getElementById('nosotros');
 
     if (innerWidth >= 768) {
-      if (valor < inicio!.scrollHeight - 300) {
+      if (valor > 0) {
         enlaces[0].classList.add('active');
         enlaces[1].classList.remove('active');
         enlaces[2].classList.remove('active');
-      } else if (valor < (inicio!.scrollHeight + nosotros!.scrollHeight)) {
+      } 
+
+      if (valor > inicio!.scrollHeight - 300) {
         enlaces[0].classList.remove('active');
         enlaces[1].classList.add('active');
         enlaces[2].classList.remove('active');
-      } else {
+      } 
+
+      if (valor > (inicio!.scrollHeight + nosotros!.scrollHeight)) {
         enlaces[0].classList.remove('active');
         enlaces[1].classList.remove('active');
         enlaces[2].classList.add('active');
