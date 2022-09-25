@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Componentes - Pages
+import { PagesComponent } from './pages/pages.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormComponent } from './pages/form/form.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
@@ -21,10 +22,19 @@ import { StudentsListComponent } from './admin/students-list/students-list.compo
 import { StudentFormComponent } from './admin/student-form/student-form.component';
 import { StudentEditComponent } from './admin/student-edit/student-edit.component';
 
+
 const routes: Routes = [
-  // Pages
-  { path: 'home', component: HomeComponent },
-  { path: 'home/form', component: FormComponent },
+  // path inicial
+  {  
+    path: '', 
+    component: PagesComponent,
+    children: [
+      // Pages
+      { path: 'home', component: HomeComponent },
+      { path: 'form', component: FormComponent },
+      { path: '', redirectTo: '/home', pathMatch: 'full' }
+    ] 
+  },
 
   // Auth
   { path: 'login', component: LoginComponent },
@@ -44,8 +54,6 @@ const routes: Routes = [
   { path: 'admin/student/create', component: StudentFormComponent },
   { path: 'admin/student/edit/:id', component: StudentEditComponent },
 
-  // Inicial
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
   // 404 - Not found
   { path: '**', component: NopagefoundComponent}
 ];

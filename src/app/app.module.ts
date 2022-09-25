@@ -9,6 +9,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 
 // Componentes - Pages
+import { PagesComponent } from './pages/pages.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormComponent } from './pages/form/form.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
@@ -38,7 +39,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +61,7 @@ import { AppRoutingModule } from './app-routing.module';
     FormListComponent,
     FormEditComponent,
     CardUsComponent,
+    PagesComponent,
   ],
   imports: [
     BrowserModule,
