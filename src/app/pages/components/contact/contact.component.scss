@@ -61,16 +61,7 @@ h2 {
             // Input y Textarea
             input,
             textarea {
-                width: 100%;
-                padding: 1.5rem;
-                border-radius: 0.5rem;
-                background-color: transparent;
-                border: 1px solid var(--colorCuaternario);
                 color: var(--colorPrincipal);
-
-                &:focus {
-                    border: 1px solid var(--colorSecundario);
-                }
             }
 
             textarea {
@@ -128,7 +119,6 @@ h2 {
 
                 input {
                     cursor: pointer;
-                    font-size: 1.6rem;
 
                     transition: 0.5s ease;
                 }

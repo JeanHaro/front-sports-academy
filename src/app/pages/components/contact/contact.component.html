@@ -7,22 +7,22 @@
         <form class="home__contact-form">
             <div class="contact__form-2">
                 <div class="contact__form-name">
-                    <input class="none" type="text" id="contact-name" placeholder="Nombre y Apellido*">
+                    <input class="none input" type="text" id="contact-name" placeholder="Ingrese su nombre*">
                 </div><!-- Nombre -->
 
                 <div class="contact__form-email">
-                    <input class="none" type="email" id="contact-email" placeholder="Correo electrónico*">
+                    <input class="none input" type="email" id="contact-email" placeholder="Ingrese su correo electrónico*">
                 </div><!-- Email -->
             </div><!-- Contenedor de 2 inputs-->
 
 
             <div class="contact__form-2">
                 <div class="contact__form-phone">
-                    <input class="none" type="tel" id="contact-phone" placeholder="Teléfono o Celular*">
+                    <input class="none input" type="tel" id="contact-phone" placeholder="Ingrese su celular*">
                 </div><!-- Teéfono -->
 
                 <div class="contact__form-affair" (click)="selectClick()">
-                    <input class="none" type="text" id="input-select" readonly [value]="valor" placeholder="Seleccionar*">
+                    <input class="none input" type="text" id="input-select" readonly [value]="valor" placeholder="Seleccionar*">
 
                     <div class="option">
                         <div (mouseover)="viewSelect('Reclamación')">Reclamación</div>
@@ -32,7 +32,7 @@
             </div><!-- Contenedor de 2 inputs -->
 
             <div class="contact__form-message">
-                <textarea class="none" id="contact-message" placeholder="Mensaje*"></textarea>
+                <textarea class="none input" id="contact-message" placeholder="Ingrese el mensaje*"></textarea>
             </div><!-- Mensaje -->
 
             <div class="contact__form-submit">

@@ -1,1 +1,37 @@
-<p>login works!</p>
+<main class="login">
+    <video muted autoplay loop>
+        <source src="../../../assets/video/video-portada-2.mp4" type="video/mp4">
+    </video><!-- Video -->
+
+    <div class="login__container">
+        <section class="login__title">
+            <h1>Forcrack</h1>
+            <p>Perú</p>
+        </section><!-- Sección Izquierda -->
+    
+        <section class="login__form">
+            <nav class="login__form-link">
+                <a routerLink="/login" routerLinkActive="active" class="btn">Iniciar sesión</a>
+                <a routerLink="/register" routerLinkActive="active" class="btn">Regístrate</a>
+            </nav><!-- Enlaces -->
+    
+            <h2>¡Bienvenido!</h2>
+    
+            <form class="login__form-content">
+                <div class="login__form-email">
+                    <input class="none input login-input" type="email" name="" id="email-login" required>
+                    <label for="email-login" class="login-label">Correo electrónico</label>
+                </div>
+    
+                <div class="login__form-password">
+                    <input class="none input login-input" type="password" name="" id="password-login" required>
+                    <label for="password-login" class="login-label">Contraseña</label>
+                </div>
+    
+                <div class="login__form-submit">
+                    <button type="submit" class="btn btn-orange">Iniciar sesión</button>
+                </div>
+            </form><!-- Formulario -->
+        </section><!-- Sección derecha -->
+    </div><!-- Contenedor -->
+</main><!-- Login -->
