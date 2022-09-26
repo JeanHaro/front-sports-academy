@@ -5,6 +5,7 @@ import {
   faLocationDot,
   faEnvelope,
   faPhone,
+  faMonument,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { 
@@ -27,6 +28,9 @@ export class FooterComponent implements OnInit {
   faSquareWhatsapp = faSquareWhatsapp;
   faSquareFacebook = faSquareFacebook;
   faInstagram = faInstagram;
+
+  // Variables
+  year: number = new Date().getFullYear();
 
   constructor() { }
 
