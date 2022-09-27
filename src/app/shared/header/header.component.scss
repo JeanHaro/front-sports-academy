@@ -198,6 +198,10 @@
                 border-radius: 0.5rem;   
                 width: 50%;
 
+                @media (min-width: 768px) {
+                    width: 100%;
+                }
+
                 fa-icon {
                     margin-right: 0.5rem;
                 }

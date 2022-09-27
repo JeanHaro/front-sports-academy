@@ -29,14 +29,6 @@
             z-index: 0;
         }
 
-        .home__invisible {
-            height: 8rem;
-
-            @media (min-width: 768px) {
-                height: 8.8rem;
-            }
-        }
-
         // Video
         video {
             position: absolute;

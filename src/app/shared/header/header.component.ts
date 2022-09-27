@@ -1,4 +1,6 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
+
+import { Router, Event, NavigationEnd } from '@angular/router';
 
 // Font Awesome
 import { faList } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +15,15 @@ export class HeaderComponent implements OnInit, OnChanges {
   // Iconos
   faList = faList;
 
-  constructor() { }
+  nombreRuta!: string;
+  constructor (private router: Router) {
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        let ruta = event.url; // url
+        this.nombreRuta = ruta.substring(1, 5);
+      }
+    })
+  }
 
   ngOnInit(): void {
     this.scroll()
@@ -83,6 +93,10 @@ export class HeaderComponent implements OnInit, OnChanges {
     } else {
       (valor > 198) ? header?.classList.add('header__scroll') : header?.classList.remove('header__scroll');
     }
+    
+  }
+
+  obtenerParms() {
     
   }
 }
