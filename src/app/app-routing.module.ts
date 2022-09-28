@@ -4,29 +4,47 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 // Quicklink
 import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink';
 
-// Componente - NoPageFound
-import { NopagefoundComponent } from './nopagefound/nopagefound.component';
-
-// Routing
-import { PagesRoutingModule } from './pages/pages.routing';
-import { AuthRoutingModule } from './auth/auth.routing';
-import { AdminRoutingModule } from './admin/admin.routing';
+// Componentes
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  // 404 - Not found
-  { path: '**', component: NopagefoundComponent},
+  // Path inicial
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) 
+      },
+      {
+        path: 'form',
+        loadChildren: () => import('./pages/form/form.module').then(m => m.FormModule)
+      }
+    ]
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./nopagefound/nopagefound.module').then(m => m.NopagefoundModule)
+  }
 ];
 
 @NgModule({
   imports: [
-    QuicklinkModule,
-    RouterModule.forRoot(routes, {
-      preloadingStrategy: QuicklinkStrategy
-    }),
-    PagesRoutingModule,
-    AuthRoutingModule,
-    AdminRoutingModule,
-  ],
+    RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

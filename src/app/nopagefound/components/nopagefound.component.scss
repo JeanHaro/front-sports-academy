@@ -1,0 +1,69 @@
+.not-found {
+    background-image: url('../../../assets/img/portada-404.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+    }
+
+    .not-found__content {
+        position: relative;
+
+        color: var(--colorBlanco);
+        text-align: center;
+        z-index: 1;
+
+        h1 {
+            display: flex;
+            align-items: center;
+            font-size: 10rem;
+
+            img {
+                height: 8rem;
+                margin: 0 0.5rem;
+            }
+
+            @media (min-width: 400px) {
+                font-size: 15rem;
+
+                img {
+                    height: 10rem;
+                }
+            }
+
+            @media (min-width: 1000px) {
+                font-size: 25rem;
+                
+                img {
+                    height: 14rem;
+                }
+            }
+        }
+
+        p {
+            margin: 1rem 0 2rem;
+        }
+
+        a {
+            @media (min-width: 1000px) {
+                display: inline-block;
+                width: 50%;
+            }
+        }
+    }
+}

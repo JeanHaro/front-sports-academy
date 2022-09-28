@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit, OnChanges {
       if (event instanceof NavigationEnd) {
         let ruta = event.url; // url
         this.nombreRuta = ruta.substring(1, 5);
+        console.log(this.nombreRuta);
       }
     })
   }
@@ -51,6 +52,7 @@ export class HeaderComponent implements OnInit, OnChanges {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           this.actionScroll(numberScroll);
+
           ticking = false;
         });
     
@@ -93,10 +95,6 @@ export class HeaderComponent implements OnInit, OnChanges {
     } else {
       (valor > 198) ? header?.classList.add('header__scroll') : header?.classList.remove('header__scroll');
     }
-    
-  }
-
-  obtenerParms() {
     
   }
 }

@@ -1,0 +1,158 @@
+// Global
+h2 {
+    text-align: center;
+    color: var(--colorNegro);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+// Contacto
+.home__contact {
+    padding: 2rem;
+    background-color: var(--colorContacto);
+
+    // Contenedor
+    .home__contact-container {
+        padding: 2rem;
+        max-width: 1024px;
+        margin: auto;
+
+        p {
+            text-align: left;
+            line-height: 2.5rem;
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+        }
+
+        // Formulario
+        .home__contact-form {
+            display: flex;
+            flex-direction: column;
+
+            // Contenedor de 2 inputs y div sueltos
+            > div {
+                margin-bottom: 1rem;
+
+                @media (min-width: 768px) {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                // Div sueltos
+                > div {
+                    margin-bottom: 1rem;
+
+                    @media (min-width: 768px) {
+                        flex-basis: calc(50% - 1rem);
+                        margin-bottom: 0;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            // Input y Textarea
+            input,
+            textarea {
+                color: var(--colorPrincipal);
+            }
+
+            textarea {
+                resize: vertical;
+            }
+
+            // Selector
+            .contact__form-affair {
+                position: relative;
+
+                &.active .option {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+                &.active::before {
+                    right: 20px;
+                }
+
+                &.active::after {
+                    right: 29px;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 25px;
+                    right: 30px;
+
+                    width: 14px;
+                    height: 2px;
+
+                    background-color: var(--colorCuaternario);
+                    transform: rotate(40deg);
+                    z-index: 10;
+
+                    transition: 0.5s;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 25px;
+                    right: 20px;
+
+                    width: 14px;
+                    height: 2px;
+
+                    background-color: var(--colorCuaternario);
+                    transform: rotate(-40deg);
+                    z-index: 10;
+                    
+                    transition: 0.5s;
+                }
+
+                input {
+                    cursor: pointer;
+
+                    transition: 0.5s ease;
+                }
+
+                // Opciones
+                .option {
+                    position: absolute;
+                    top: 100%;
+
+                    overflow: hidden;
+                    visibility: hidden;
+                    opacity: 0;
+
+                    width: 100%;
+                    background-color: var(--colorTerciario);
+                    border-radius: 0 0 0.5rem 0.5rem;
+                
+                    transition: 0.25s ease;
+
+                    > div {
+                        padding: 1.2rem 2rem;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: var(--colorSecundario);
+                            color: var(--colorBlanco);
+                        }
+                    }
+                }
+            }
+
+            button {    
+                width: 100%;
+            }
+        }
+    }
+}

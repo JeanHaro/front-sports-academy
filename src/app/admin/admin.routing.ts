@@ -1,8 +1,5 @@
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from "@angular/core";
-
-// Quicklink
-import { QuicklinkModule, QuicklinkStrategy } from 'ngx-quicklink'
 
 // Componentes
 import { LayoutComponent } from "./layout/layout.component";
@@ -10,7 +7,7 @@ import { LayoutComponent } from "./layout/layout.component";
 const routes: Routes = [
     // Path inicial
     {
-        path: 'admin',
+        path: '',
         component: LayoutComponent,
         children: [
             { 
@@ -18,7 +15,7 @@ const routes: Routes = [
                 loadChildren: () => import('./schedule/schedule.module').then(m => m.ScheduleModule)
             },
             { 
-                path: 'form', 
+                path: 'forms', 
                 loadChildren: () => import('./form/form.module').then(m => m.FormModule)
             },
             { 
@@ -30,12 +27,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-    imports: [
-        QuicklinkModule,
-        RouterModule.forRoot(routes, {
-            preloadingStrategy: QuicklinkStrategy
-        }),
-    ],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
 

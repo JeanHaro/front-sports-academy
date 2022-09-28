@@ -3,14 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // Componentes
 import { AppComponent } from './app.component';
-
-// Componentes - NoPageFound
-import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+import { LayoutComponent } from './layout/layout.component';
 
 // Modulos
-import { PagesModule } from './pages/pages.module';
-import { AuthModule } from './auth/auth.module';
-import { AdminModule } from './admin/admin.module';
+import { SharedModule } from './shared/shared.module';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -18,14 +14,12 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NopagefoundComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PagesModule,
-    AuthModule,
-    AdminModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,25 @@
+<section class="home__about" id="nosotros">
+    <div class="home__about-img">
+        <img src="../../../assets/img/portada.jpg" alt="Imagen de una pelota en una cancha">
+    </div><!-- Imagen -->
+
+    <div class="home__about-information">
+        <h2>¿Quiénes somos?</h2>
+        <p>Somos una escuela formativa de fútbol, que busca un adecuado desarrollo integral del menor y su entorno, aplicando nuestros conocimientos y experiencia en el área deportiva 
+        y humana, siendo respaldadas por un equipo multidisciplinario calificado.</p>
+    </div><!-- Información -->
+</section><!-- Nosotros -->
+
+<section class="home__us max-width">
+    <h2>Tenemos como</h2>
+
+    <div class="home__card-us">
+        <app-card-us 
+            *ngFor="let us of nosotros" 
+            [title]="us.title" 
+            [img]="us.image" 
+            [description]="us.description"
+            [altImage]="us.altImage"
+        ></app-card-us>
+    </div><!-- Misión y Visión -->
+</section><!-- Tenemos -->
