@@ -86,7 +86,7 @@ body {
     }
 }
 
-// Global
+// -------------- Global --------------
 h1, h2, h3, h4, p, ul {
     margin: 0;
     padding: 0;
@@ -143,6 +143,11 @@ video {
     min-width: 28rem;
 }
 
+.medium-width {
+    max-width: 1024px;
+    margin: auto;
+}
+
 .max-width {
     max-width: 180rem;
     margin: auto;
@@ -184,12 +189,14 @@ video {
     }
 }
 
+.border-orange {
+    border-color: var(--colorSecundario) !important;
+}
+
 // Contenedor del input
 .content-input {
     margin-bottom: 2rem;
     width: 100%;
-
-    position: relative;
 }
 
 .input {
@@ -199,34 +206,10 @@ video {
     background-color: transparent;
     border: 1px solid var(--colorCuaternario);
 
-    &:focus {
+    &:focus,
+    &:valid {
         border-color: var(--colorSecundario);
     }
-
-    &:focus + label,
-    &:valid + label {
-        transform: translate(5px, -14px) scale(0.8);
-        color: var(--colorSecundario);
-        background-color: rgba(74, 80, 87, 0.7);
-    }
-}
-
-.label-top {
-    transform: translate(5px, -14px) scale(0.8) !important;
-    color: var(--colorSecundario) !important;
-    background-color: #E5E5E5 !important;
-    padding: 0 0.2rem !important;
-}
-
-.label {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    cursor: pointer;
-    color: var(--colorCuaternario);
-    transform: translate(10px, 15px);
-    transition: transform .25s;
 }
 
 // Pages - parte invisible
@@ -238,7 +221,7 @@ video {
     }
 }
 
-// Componente - Auth
+// -------------- Componente - Auth --------------
 // Login y Register
 .auth {
     position: relative;

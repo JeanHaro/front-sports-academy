@@ -7,26 +7,22 @@
         <form class="home__contact-form">
             <div class="contact__form-2">
                 <div class="contact__form-name content-input">
-                    <input class="none input" type="text" id="contact-name" required>
-                    <label class="label" for="contact-name">Ingrese su nombre*</label>
+                    <input class="none input" type="text" id="contact-name" placeholder="Ingrese su nombre*" required>
                 </div><!-- Nombre -->
 
                 <div class="contact__form-email content-input">
-                    <input class="none input" type="email" id="contact-email" required>
-                    <label class="label" for="contact-email">Ingrese su correo electrónico*</label>
+                    <input class="none input" type="email" id="contact-email" placeholder="Ingrese su correo electrónico*" required>
                 </div><!-- Email -->
             </div><!-- Contenedor de 2 inputs-->
 
 
             <div class="contact__form-2">
                 <div class="contact__form-phone content-input">
-                    <input class="none input" type="tel" id="contact-phone" required>
-                    <label class="label" for="contact-phone">Ingrese su celular*</label>
+                    <input class="none input" type="tel" id="contact-phone" placeholder="Ingrese su celular*" required>
                 </div><!-- Teléfono -->
 
                 <div class="contact__form-affair content-input" (click)="selectClick($event)">
-                    <input class="none input" type="text" id="input-select" readonly [value]="valores.valueAffairs" required>
-                    <label class="label" for="input-select">Seleccionar asunto*</label>
+                    <input class="none input" type="text" id="input-select" placeholder="Seleccionar asunto*" [value]="valores.valueAffairs" readonly required>
 
                     <div class="option">
                         <div (mouseover)="viewSelect('Reclamación')">Reclamación</div>
@@ -36,8 +32,7 @@
             </div><!-- Contenedor de 2 inputs -->
 
             <div class="contact__form-message content-input">
-                <textarea class="none input" id="contact-message" required></textarea>
-                <label class="label" for="contact-message">Ingrese el mensaje*</label>
+                <textarea class="none input" id="contact-message" placeholder="Ingrese el mensaje*" required></textarea>
             </div><!-- Mensaje -->
 
             <div class="contact__form-submit">

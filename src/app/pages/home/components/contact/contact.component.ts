@@ -17,14 +17,14 @@ export class ContactComponent implements OnInit {
     valueAffairs: ''
   }
 
-  // Entregará los valores que se seleccione en el select
+    // Entregará los valores que se seleccione en el select
   viewSelect (affairs: string) {
     this.valores.valueAffairs = affairs;
-
-    let labelAffairs = document.querySelector('.contact__form-affair label');
+    
+    let inputAffairs = document.querySelector('.contact__form-affair input');
 
     // Si el valor no es vacío
-    if (this.valores.valueAffairs != '') labelAffairs?.classList.add('label-top');
+    if (this.valores.valueAffairs != '') inputAffairs?.classList.add('border-orange');
   }
 
   // Añadir la clase de active cuando se le de click

@@ -2,7 +2,7 @@
     <div class="form-registration__image">
         <div class="home__invisible"></div>
 
-        <section class="form__container-information">
+        <section class="form__container-information medium-width">
             <h3>Información general</h3>
 
             <div class="form__information-important">
@@ -27,7 +27,7 @@
         </section><!-- Información General -->
     </div><!-- Contenido imagen -->
 
-    <div class="form-registration__container">
+    <div class="form-registration__container medium-width">
         <section class="form__container-information">
             <h3>Formulario</h3>
 
@@ -39,37 +39,31 @@
         <form class="form__container-register">
             <div class="form__register-2">
                 <div class="form__register-names content-input">
-                    <input class="none input" type="text" id="form-names" required>
-                    <label class="label" for="form-names">Nombres*</label>
+                    <input class="none input" type="text" id="form-names" placeholder="Nombres*" required>
                 </div><!-- Nombres -->
 
                 <div class="form__register-lastName content-input">
-                    <input class="none input" type="text" id="form-lastName" required>
-                    <label class="label" for="form-lastName">Apellidos*</label>
+                    <input class="none input" type="text" id="form-lastName" placeholder="Apellidos*" required>
                 </div><!-- Apellidos -->
             </div><!-- Contenedor de 2 inputs-->
 
             <div class="form__register-2">
                 <div class="form__register-email content-input">
-                    <input class="none input" type="email" id="form-email" required>
-                    <label class="label" for="form-email">Correo electrónico*</label>
+                    <input class="none input" type="email" id="form-email" placeholder="Correo electrónico*" required>
                 </div><!-- Email -->
 
                 <div class="form__register-phone content-input">
-                    <input class="none input" type="tel" id="form-phone" required>
-                    <label class="label" for="form-phone">Celular*</label>
+                    <input class="none input" type="tel" id="form-phone" placeholder="Celular*" required>
                 </div><!-- Celular -->
             </div><!-- Contenedor de 2 inputs -->
 
             <div class="form__register-2">
                 <div class="form__register-dni content-input">
-                    <input class="none input" type="number" id="form-dni" required>
-                    <label class="label" for="form-dni">DNI*</label>
+                    <input class="none input" type="number" id="form-dni" placeholder="DNI*" required>
                 </div><!-- DNI -->
 
                 <div class="form__register-age select content-input" (click)="selectClick($event)">
-                    <input class="none input" type="text" id="form-age" readonly [value]="valores.valueAge">
-                    <label class="label" for="form-age">Rango de edad*</label>
+                    <input class="none input" type="text" id="form-age" placeholder="Rango de edad*" [value]="valores.valueAge" readonly>
 
                     <div class="option">
                         <div (mouseover)="viewSelect('5 a 6 años', valores.valueTurn, valores.valueHour)">5 a 6 años</div>
@@ -80,8 +74,7 @@
 
             <div class="form__register-2">
                 <div class="form__register-turn select content-input" (click)="selectClick($event)">
-                    <input class="none input" type="text" id="form-turn" [value]="valores.valueTurn" readonly>
-                    <label class="label" for="form-turn">Turno*</label>
+                    <input class="none input" type="text" id="form-turn" placeholder="Turno*" [value]="valores.valueTurn" readonly>
 
                     <div class="option">
                         <div (mouseover)="viewSelect(valores.valueAge, 'Mañana', valores.valueHour)">Mañana</div>
@@ -91,8 +84,7 @@
                 </div><!-- Selector de edad -->
 
                 <div class="form__register-hour select content-input" (click)="selectClick($event)">
-                    <input class="none input" type="datetime" id="form-hour" [value]="valores.valueHour" readonly>
-                    <label class="label" for="form-hour">Hora*</label>
+                    <input class="none input" type="datetime" id="form-hour" placeholder="Hora*" [value]="valores.valueHour" readonly>
 
                     <div class="option">
                         <div (mouseover)="viewSelect(valores.valueAge, valores.valueTurn, '8:00 - 9:00')">8:00 - 9:00</div>

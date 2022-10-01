@@ -67,8 +67,6 @@
             color: var(--colorBlanco);
             padding: 1rem;
             border-radius: 0.5rem;
-            max-width: 1024px;
-            margin: auto;
             z-index: 1;
 
             h3 {
@@ -82,9 +80,6 @@
     .form-registration__container {
         padding: 1rem 2rem;
         background-color: var(--colorEntorno);
-
-        max-width: 1024px;
-        margin: auto;
 
         display: flex;
         flex-direction: column;
@@ -109,13 +104,6 @@
             // Input
             .input {      
                 color: var(--colorNegro);
-                
-                &:focus + label,
-                &:valid + label {
-                    transform: translate(5px, -14px) scale(0.8);
-                    background-color: var(--colorEntorno);
-                    padding: 0 0.2rem;
-                }
             }
 
             // Selector

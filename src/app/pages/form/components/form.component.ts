@@ -16,7 +16,7 @@ export class FormComponent implements OnInit {
   valores = {
     valueAge: '',
     valueTurn: '',
-    valueHour: ''
+    valueHour: '',
   }
 
   // Entregará los valores que se seleccione en el select
@@ -25,14 +25,14 @@ export class FormComponent implements OnInit {
     this.valores.valueTurn = turn;
     this.valores.valueHour = hour;
 
-    let labelAge = document.querySelector('.form__register-age label');
-    let labelTurn = document.querySelector('.form__register-turn label');
-    let labelHour = document.querySelector('.form__register-hour label');
+    let inputAge = document.querySelector('.form__register-age input');
+    let inputTurn = document.querySelector('.form__register-turn input');
+    let inputHour = document.querySelector('.form__register-hour input');
 
     // Si el valor no es vacío
-    if (this.valores.valueAge != '') labelAge?.classList.add('label-top');
-    if (this.valores.valueTurn != '') labelTurn?.classList.add('label-top');
-    if (this.valores.valueHour != '') labelHour?.classList.add('label-top')
+    if (this.valores.valueAge != '') inputAge?.classList.add('border-orange');
+    if (this.valores.valueTurn != '') inputTurn?.classList.add('border-orange');
+    if (this.valores.valueHour != '') inputHour?.classList.add('border-orange');
   }
 
   // Añadir la clase de active al contenedor de los select, cuando se le de click
