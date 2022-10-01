@@ -29,20 +29,6 @@
             z-index: 0;
         }
 
-        // Video
-        video {
-            position: absolute;
-            top: 0;
-            
-            height: 100%;
-
-            @media (min-width: 1200px) {
-                min-width: 100%;
-                min-height: 100%;
-                object-fit: cover;
-            }
-        } 
-
         // Información
         .home__top-content {
             position: relative;

@@ -1,36 +1,36 @@
-<main class="login">
+<main class="auth">
     <video muted autoplay loop>
         <source src="../../../assets/video/video-portada-2.mp4" type="video/mp4">
     </video><!-- Video -->
 
-    <div class="login__container">
-        <section class="login__title">
-            <div routerLink="/home">
+    <div class="auth__container">
+        <section class="auth__title">
+            <div class="auth__title-logo" routerLink="/home">
                 <h1>Forcrack</h1>
                 <p>Perú</p>
             </div>
         </section><!-- Sección Izquierda -->
     
-        <section class="login__form">
-            <nav class="login__form-link">
-                <a routerLink="/login" routerLinkActive="active" class="btn">Iniciar sesión</a>
-                <a routerLink="/register" routerLinkActive="active" class="btn">Regístrate</a>
+        <section class="auth__form">
+            <nav class="auth__form-link">
+                <a routerLink="/auth/login" routerLinkActive="active" class="btn">Iniciar sesión</a>
+                <a routerLink="/auth/register" routerLinkActive="active" class="btn">Regístrate</a>
             </nav><!-- Enlaces -->
     
             <h2>¡Bienvenido!</h2>
     
-            <form class="login__form-content">
-                <div class="login__form-email">
-                    <input class="none input login-input" type="email" name="" id="email-login" required>
-                    <label for="email-login" class="login-label">Correo electrónico</label>
+            <form class="auth__form-content">
+                <div class="auth__form-email">
+                    <input class="none input" type="email" name="" id="email-auth" required>
+                    <label for="email-auth" class="label">Correo electrónico</label>
                 </div>
     
-                <div class="login__form-password">
-                    <input class="none input login-input" type="password" name="" id="password-login" required>
-                    <label for="password-login" class="login-label">Contraseña</label>
+                <div class="auth__form-password">
+                    <input class="none input" type="password" name="" id="password-auth" required autocomplete="on">
+                    <label for="password-auth" class="label">Contraseña</label>
                 </div>
     
-                <div class="login__form-submit">
+                <div class="auth__form-submit">
                     <button type="submit" class="btn btn-orange">Iniciar sesión</button>
                 </div>
             </form><!-- Formulario -->

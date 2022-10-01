@@ -1,7 +1,109 @@
-<main class="form">
-    <section>
+<main class="form-registration">
+    <div class="form-registration__image">
         <div class="home__invisible"></div>
-        <p>Hola</p>
-        
-    </section>
-</main>
+
+        <section class="form__container-information">
+            <h3>Información general</h3>
+
+            <div class="form__information-important">
+                <span>*</span>
+                <p>Días definido de <strong>Lunes</strong> a <strong>Viernes</strong></p>
+            </div><!-- Información importante -->
+
+            <div class="form__information-important">
+                <span>*</span>
+                <p>Niños y jóvenes de <strong>5</strong> a <strong>16</strong> años de edad</p>
+            </div><!-- Información importante -->
+
+            <div class="form__information-important">
+                <span>*</span>
+                <p>Fecha de inicio: {{ 16 }} de {{ 07 }} del {{ 2022 }}</p>
+            </div><!-- Información importante -->
+
+            <div class="form__information-important">
+                <span>*</span>
+                <p>Para dudas: <a href="#">Click aquí</a></p>
+            </div><!-- Información importante -->
+        </section><!-- Información General -->
+    </div><!-- Contenido imagen -->
+
+    <div class="form-registration__container">
+        <section class="form__container-information">
+            <h3>Formulario</h3>
+
+            <div class="form__information-important">
+                <p>Completa y envía el formulario para comenzar el proceso de matrícula</p>
+            </div>
+        </section><!-- Información Formulario -->
+
+        <form class="form__container-register">
+            <div class="form__register-2">
+                <div class="form__register-names content-input">
+                    <input class="none input" type="text" id="form-names" required>
+                    <label class="label" for="form-names">Nombres*</label>
+                </div><!-- Nombres -->
+
+                <div class="form__register-lastName content-input">
+                    <input class="none input" type="text" id="form-lastName" required>
+                    <label class="label" for="form-lastName">Apellidos*</label>
+                </div><!-- Apellidos -->
+            </div><!-- Contenedor de 2 inputs-->
+
+            <div class="form__register-2">
+                <div class="form__register-email content-input">
+                    <input class="none input" type="email" id="form-email" required>
+                    <label class="label" for="form-email">Correo electrónico*</label>
+                </div><!-- Email -->
+
+                <div class="form__register-phone content-input">
+                    <input class="none input" type="tel" id="form-phone" required>
+                    <label class="label" for="form-phone">Celular*</label>
+                </div><!-- Celular -->
+            </div><!-- Contenedor de 2 inputs -->
+
+            <div class="form__register-2">
+                <div class="form__register-dni content-input">
+                    <input class="none input" type="number" id="form-dni" required>
+                    <label class="label" for="form-dni">DNI*</label>
+                </div><!-- DNI -->
+
+                <div class="form__register-age select content-input" (click)="selectClick($event)">
+                    <input class="none input" type="text" id="form-age" readonly [value]="valores.valueAge">
+                    <label class="label" for="form-age">Rango de edad*</label>
+
+                    <div class="option">
+                        <div (mouseover)="viewSelect('5 a 6 años', valores.valueTurn, valores.valueHour)">5 a 6 años</div>
+                        <div (mouseover)="viewSelect('7 a 8 años', valores.valueTurn, valores.valueHour)">7 a 8 años</div>
+                    </div><!-- Opciones -->
+                </div><!-- Selector de edad -->
+            </div><!-- Contenedor de 2 inputs-->
+
+            <div class="form__register-2">
+                <div class="form__register-turn select content-input" (click)="selectClick($event)">
+                    <input class="none input" type="text" id="form-turn" [value]="valores.valueTurn" readonly>
+                    <label class="label" for="form-turn">Turno*</label>
+
+                    <div class="option">
+                        <div (mouseover)="viewSelect(valores.valueAge, 'Mañana', valores.valueHour)">Mañana</div>
+                        <div (mouseover)="viewSelect(valores.valueAge, 'Tarde', valores.valueHour)">Tarde</div>
+                        <div (mouseover)="viewSelect(valores.valueAge, 'Noche', valores.valueHour)">Noche</div>
+                    </div><!-- Opciones -->
+                </div><!-- Selector de edad -->
+
+                <div class="form__register-hour select content-input" (click)="selectClick($event)">
+                    <input class="none input" type="datetime" id="form-hour" [value]="valores.valueHour" readonly>
+                    <label class="label" for="form-hour">Hora*</label>
+
+                    <div class="option">
+                        <div (mouseover)="viewSelect(valores.valueAge, valores.valueTurn, '8:00 - 9:00')">8:00 - 9:00</div>
+                        <div (mouseover)="viewSelect(valores.valueAge, valores.valueTurn, '9:15 - 10:15')">9:15 - 10:15</div>
+                    </div><!-- Opciones -->
+                </div><!-- Selector de edad -->
+            </div><!-- Contenedor de 2 inputs-->
+
+            <div class="form__register-submit">
+                <button class="btn btn-orange" type="submit">Enviar Formulario</button>
+            </div>
+        </form><!-- Formulario -->
+    </div><!-- Contenedor del formulario -->
+</main><!-- Registrarse  -->

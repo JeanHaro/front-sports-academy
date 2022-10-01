@@ -13,17 +13,28 @@ export class ContactComponent implements OnInit {
   }
 
   // Variable
-  valor = '';
+  valores = {
+    valueAffairs: ''
+  }
 
-  viewSelect (a: string) {
-    this.valor = a;
+  // Entregará los valores que se seleccione en el select
+  viewSelect (affairs: string) {
+    this.valores.valueAffairs = affairs;
+
+    let labelAffairs = document.querySelector('.contact__form-affair label');
+
+    // Si el valor no es vacío
+    if (this.valores.valueAffairs != '') labelAffairs?.classList.add('label-top');
   }
 
   // Añadir la clase de active cuando se le de click
-  selectClick() {
-    let select = document.querySelector('.contact__form-affair');
+  selectClick ($event: Event) {
+    let selectAffairs = document.querySelector('.contact__form-affair');
 
-    select?.classList.toggle('active');
+    // Etiqueta
+    let valorObject = $event.currentTarget;
+    // Si la etiqueta es igual al elemento
+    if (valorObject === selectAffairs) selectAffairs?.classList.toggle('active');
   }
 
 }

@@ -120,6 +120,20 @@ img {
     max-width: 100%;
 }
 
+// Video
+video {
+    position: absolute;
+    top: 0;
+    
+    height: 100%;
+
+    @media (min-width: 1200px) {
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+    }
+} 
+
 .none {
     outline: none;
     border: none;
@@ -170,6 +184,14 @@ img {
     }
 }
 
+// Contenedor del input
+.content-input {
+    margin-bottom: 2rem;
+    width: 100%;
+
+    position: relative;
+}
+
 .input {
     width: 100%;
     padding: 1.5rem;
@@ -178,8 +200,33 @@ img {
     border: 1px solid var(--colorCuaternario);
 
     &:focus {
-        border: 1px solid var(--colorSecundario);
+        border-color: var(--colorSecundario);
     }
+
+    &:focus + label,
+    &:valid + label {
+        transform: translate(5px, -14px) scale(0.8);
+        color: var(--colorSecundario);
+        background-color: rgba(74, 80, 87, 0.7);
+    }
+}
+
+.label-top {
+    transform: translate(5px, -14px) scale(0.8) !important;
+    color: var(--colorSecundario) !important;
+    background-color: #E5E5E5 !important;
+    padding: 0 0.2rem !important;
+}
+
+.label {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    cursor: pointer;
+    color: var(--colorCuaternario);
+    transform: translate(10px, 15px);
+    transition: transform .25s;
 }
 
 // Pages - parte invisible
@@ -192,8 +239,8 @@ img {
 }
 
 // Componente - Auth
-// Login
-.login {
+// Login y Register
+.auth {
     position: relative;
 
     min-height: 100vh;
@@ -218,21 +265,11 @@ img {
 
     // Video
     video {
-        position: absolute;
-        top: 0;
-
-        height: 100%;
         filter: blur(2rem);
-
-        @media (min-width: 1200px) {
-            min-width: 100%;
-            min-height: 100%;
-            object-fit: cover;
-        }
     }
 
     // Contenedor
-    .login__container {
+    .auth__container {
         display: flex;
         align-items: center;
 
@@ -259,7 +296,7 @@ img {
         }
 
         // Sección Izquierda
-        .login__title {
+        .auth__title {
             display: none;
             visibility: hidden;
 
@@ -269,6 +306,7 @@ img {
                 
                 background-image: url('./assets/img/portada.jpg');
                 background-size: cover;
+
                 flex-basis: calc(50%);
 
                 position: relative;
@@ -283,7 +321,7 @@ img {
                 padding: 2rem;
             }
 
-            > div {
+            .auth__title-logo {
                 cursor: pointer;
             }
 
@@ -300,8 +338,9 @@ img {
 
             h1, p {
                 position: relative;
-                z-index: 1;
+
                 text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+                z-index: 1;
             }
 
             p {
@@ -310,7 +349,7 @@ img {
         }
 
         // Sección derecha
-        .login__form {
+        .auth__form {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -319,7 +358,6 @@ img {
             box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
             width: 100%;
             padding: 4rem 1rem;
-            vertical-align: middle;
 
             @media (min-width: 400px) {
                 width: 40rem;
@@ -335,7 +373,7 @@ img {
             }
 
             // Enlaces
-            .login__form-link {
+            .auth__form-link {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -345,6 +383,7 @@ img {
                     background-color: var(--colorTerciario);
                     color: var(--colorNegro);
                     padding: 1rem;
+                    
                     transition: 0.5s ease;
 
                     &.active,
@@ -366,52 +405,27 @@ img {
             h2 {
                 text-align: center;
                 color: var(--colorBlanco);
-                margin-top: 3rem;
+                margin: 3rem 0 2rem;
             }
 
             // Formulario
-            .login__form-content {
-                color: var(--colorBlanco);
-                
-                .login__form-email {
-                    margin-top: 2rem;
-                }
-
-                .login__form-email,
-                .login__form-password {
+            .auth__form-content {
+                .auth__form-email,
+                .auth__form-password {
                     margin-bottom: 2rem;
                     width: 100%;
 
                     position: relative;
 
-                    label {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-
-                        cursor: text;
-                        color: var(--colorCuaternario);
-                        transform: translate(10px, 15px);
-                        transition: transform .25s;
-                    }
-
-                    input:focus + label,
-                    input:valid + label {
-                        transform: translate(10px, -14px) scale(0.8);
-                        color: var(--colorSecundario);
-                        background-color: rgba(74, 80, 87, 0.7);
-                    }
-                }
-
-                > div {
                     input {
                         color: var(--colorBlanco);
                     }
-
-                    button {
-                        width: 100%;
-                    }
                 }
+
+                button {
+                    width: 100%;
+                }
+                
             }
         }
     }

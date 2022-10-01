@@ -11,13 +11,13 @@
     </label><!-- Menu bar - Mobile -->
 
     <nav class="header__navigation">
-        <a *ngIf="nombreRuta !== 'form'; else elseHome;" class="active" href="/home#inicio">Inicio</a>
+        <a *ngIf="nombreRuta !== '/form'; else elseHome;" class="active" href="/home#inicio">Inicio</a>
         <ng-template #elseHome>
             <a routerLink="/home">Inicio</a>
         </ng-template>
         
-        <a *ngIf="nombreRuta !== 'form'" href="/home#nosotros">Nosotros</a>
-        <a *ngIf="nombreRuta !== 'form'" href="/home#contacto">Contacto</a>
+        <a *ngIf="nombreRuta !== '/form'" href="/home#nosotros">Nosotros</a>
+        <a *ngIf="nombreRuta !== '/form'" href="/home#contacto">Contacto</a>
         <a routerLink="/form"><fa-icon [icon]="faList"></fa-icon> Regístrate</a>
     </nav><!-- Enlaces de navegación -->
 </header><!-- Cabecera -->

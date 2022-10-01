@@ -1,0 +1,205 @@
+// Registrarse
+.form-registration {
+    // Información General e Información Formulario
+    .form__container-information {
+        h3 {
+            text-align: center;
+            color: var(--colorNegro);
+            padding: 2rem 0;
+            border-bottom: 5px solid var(--colorTerciario);
+        }
+
+        // Información importante
+        .form__information-important {
+            display: flex;
+            align-items: center;
+
+            padding: 1rem 0;
+
+            span {
+                color: #e44040;
+                margin-right: 1rem;
+            }
+
+            p {
+                line-height: 2.5rem;
+            }
+
+            a {
+                color: var(--colorSecundario);
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    // Contenido imagen
+    .form-registration__image {
+        background-image: url('../../../../assets/img/portada-form-1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center bottom;
+        background-attachment: fixed;
+
+        position: relative;
+
+        padding: 4rem 0;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        // Información General
+        .form__container-information {
+            position: relative;
+
+            background-color: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+            color: var(--colorBlanco);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            max-width: 1024px;
+            margin: auto;
+            z-index: 1;
+
+            h3 {
+                color: var(--colorBlanco);
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    // Contenedor del formulario
+    .form-registration__container {
+        padding: 1rem 2rem;
+        background-color: var(--colorEntorno);
+
+        max-width: 1024px;
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        // Formulario
+        .form__container-register {
+            padding: 1rem 0;
+
+            @media (min-width: 768px) {
+                // Contenedor de 2 inputs
+                .form__register-2 {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    
+                    .content-input {
+                        flex-basis: calc(50% - 1rem);
+                    }
+                }
+            }
+
+            // Input
+            .input {      
+                color: var(--colorNegro);
+                
+                &:focus + label,
+                &:valid + label {
+                    transform: translate(5px, -14px) scale(0.8);
+                    background-color: var(--colorEntorno);
+                    padding: 0 0.2rem;
+                }
+            }
+
+            // Selector
+            .select {
+                position: relative;
+
+                &.active .option {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+                &.active::before {
+                    right: 20px;
+                }
+
+                &.active::after {
+                    right: 29px;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 25px;
+                    right: 30px;
+
+                    width: 14px;
+                    height: 2px;
+
+                    background-color: var(--colorCuaternario);
+                    transform: rotate(40deg);
+
+                    transition: 0.5s;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 25px;
+                    right: 20px;
+
+                    width: 14px;
+                    height: 2px;
+
+                    background-color: var(--colorCuaternario);
+                    transform: rotate(-40deg);
+                    
+                    transition: 0.5s;
+                }
+
+                input {
+                    cursor: pointer;
+                    z-index: 15;
+                    transition: 0.5s ease;
+                }
+
+                // Opciones
+                .option {
+                    position: absolute;
+                    top: 100%;
+
+                    overflow: hidden;
+                    visibility: hidden;
+                    opacity: 0;
+
+                    width: 100%;
+                    background-color: var(--colorTerciario);
+                    border-radius: 0 0 0.5rem 0.5rem;
+                    z-index: 10;
+
+                    div {
+                        padding: 1.2rem 2rem;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: var(--colorSecundario);
+                            color: var(--colorBlanco);
+                        }
+                    }
+                }
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}

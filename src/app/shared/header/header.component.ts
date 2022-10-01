@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 import { Router, Event, NavigationEnd } from '@angular/router';
 
@@ -15,33 +15,36 @@ export class HeaderComponent implements OnInit, OnChanges {
   // Iconos
   faList = faList;
 
+  // Variables 
   nombreRuta!: string;
+
   constructor (private router: Router) {
+    // Obtener la ruta
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        let ruta = event.url; // url
-        this.nombreRuta = ruta.substring(1, 5);
-        console.log(this.nombreRuta);
+        this.nombreRuta = event.url; // url
       }
     })
   }
 
+  // Ejecuta el metodo al iniciar
   ngOnInit(): void {
-    this.scroll()
+    this.scroll();
   }
 
+  // Ver los nuevos cambios
   ngOnChanges(changes: SimpleChanges): void {
-    this.scroll()
+    this.scroll();
   }
 
-  // Cambia del color del header aldarle click
+  // Cambia del color del header al abrir el menuBar - Mobile
   headerFocus() {
     let header = document.querySelector('.header');
 
     header?.classList.toggle('header-on');
   }
 
-  // Ejecuta la acción y detecta la posición del scroll
+  // Ejecuta la acción actionScroll y detecta la posición del scroll
   scroll() {
     let numberScroll = 0;
     let ticking = false;
@@ -69,7 +72,8 @@ export class HeaderComponent implements OnInit, OnChanges {
     const inicio = document.getElementById('inicio');
     const nosotros = document.getElementById('nosotros');
 
-    if (innerWidth >= 768) {
+    // Pantallas mayor e igual de 768 y no está en la ruta /form
+    if (innerWidth >= 768 && this.nombreRuta != "/form") {
       if (valor > 0) {
         enlaces[0].classList.add('active');
         enlaces[1].classList.remove('active');
@@ -89,12 +93,17 @@ export class HeaderComponent implements OnInit, OnChanges {
       }
     }
 
-    // Cambia el color del header al dar scroll, mediante la clase
-    if (innerWidth < 768) {
-      (valor > 54) ?  header?.classList.add('header__scroll') : header?.classList.remove('header__scroll');
+    // Cambia el color del header al dar scroll
+    // Si la ruta no es /form
+    if (this.nombreRuta != "/form") {
+      // Si la pantalla es menor a 768
+      if (innerWidth < 768) {
+        (valor > 54) ?  header?.classList.add('header__scroll') : header?.classList.remove('header__scroll');
+      } else {
+        (valor > 198) ? header?.classList.add('header__scroll') : header?.classList.remove('header__scroll');
+      }
     } else {
-      (valor > 198) ? header?.classList.add('header__scroll') : header?.classList.remove('header__scroll');
+      (valor > 48) ? header?.classList.add('header__scroll') : header?.classList.remove('header__scroll');
     }
-    
   }
 }
