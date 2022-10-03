@@ -1,2 +1,88 @@
-<router-outlet></router-outlet>
-<p>hola</p>
+<main class="admin">
+  <input type="checkbox" id="admin-check"> <!-- Input checkbox -->
+
+  <label class="admin__sidenav-close" for="admin-check"></label><!-- Fondo oscuro - cerrar nav -->
+
+  <section class="sidenav">
+    <h3>Menú</h3>
+
+    <nav class="sidenav__link">
+      <div class="sidenav__link-schedule">
+        <div class="sidenav__link-title" id="title-schedule" (click)="showNav($event)">
+          <div>
+            <fa-icon [icon]="faCalendarDays"></fa-icon>
+            <p>Horario</p>
+          </div>
+
+          <fa-icon [icon]="faChevronDown"></fa-icon>
+        </div><!-- Tipo -->
+
+        <ul class="hidden">
+          <li>
+            <a class="sidenav__link-list" routerLink="schedule" routerLinkActive="active">Lista de horarios</a>
+          </li>
+        </ul><!-- Categorias -->
+      </div><!-- Horario -->
+
+      <div class="sidenav__link-form">
+        <div class="sidenav__link-title" id="title-form" (click)="showNav($event)">
+          <div>
+            <fa-icon [icon]="faListCheck"></fa-icon>
+            <p>Matrícula</p>
+          </div>
+
+          <fa-icon [icon]="faChevronDown"></fa-icon>
+        </div><!-- Tipo -->
+
+        <ul class="hidden">
+          <li>
+            <a routerLink="forms" routerLinkActive="active">Lista de matrícula</a>
+          </li>
+        </ul><!-- Categorias -->
+      </div><!-- Matrícula  -->
+
+      <div class="sidenav__link-student">
+        <div class="sidenav__link-title" id="title-student" (click)="showNav($event)">
+          <div>
+            <fa-icon [icon]="faUser"></fa-icon>
+            <p>Alumnos</p>
+          </div>
+
+          <fa-icon [icon]="faChevronDown"></fa-icon>
+        </div><!-- Tipo -->
+
+        <ul class="hidden">
+          <li>
+            <a routerLink="students" routerLinkActive="active" >Lista de Alumnos</a>
+          </li>
+        </ul><!-- Categorias -->
+      </div><!-- Alumnos -->
+
+      <div class="sidenav__link-student">
+        <a class="sidenav__link-title">
+          <div>
+            <fa-icon [icon]="faRightFromBracket"></fa-icon>
+            <p>Cerrar sesión</p>
+          </div>
+        </a>
+      </div><!-- Cerrar sesión -->
+    </nav><!-- Enlaces -->
+  </section><!-- Sidenav -->
+
+  <div class="admin__content">
+    <div class="admin__content-header">
+      <label for="admin-check" class="admin__header-bar">
+        <span></span>
+      </label><!-- Menu bar - Mobile -->
+
+      <div class="admin__header-title">
+        <h1>Forcrack</h1>
+        <p>Perú</p>
+      </div><!-- Titulo -->
+    </div><!-- Cabecera -->
+
+    <div class="admin__content-information">
+      <router-outlet></router-outlet>
+    </div><!-- Información -->
+  </div><!-- Contenido -->
+</main><!-- Admin -->

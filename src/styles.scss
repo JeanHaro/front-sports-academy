@@ -112,12 +112,21 @@ h4 {
     font-family: var(--fuenteSecundario);
 }
 
+h5 {
+    font-size: 2rem;
+    font-family: var(--fuenteSecundario);
+}
+
 a {
     text-decoration: none;
 }
 
 img {
     max-width: 100%;
+}
+
+ul {
+    list-style: none;
 }
 
 // Video
@@ -137,6 +146,17 @@ video {
 .none {
     outline: none;
     border: none;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+    transition: 5s ease-in;
+}
+
+.visible {
+    display: block !important;
+    visibility: visible !important;
 }
 
 .min-width {
@@ -191,6 +211,10 @@ video {
 
 .border-orange {
     border-color: var(--colorSecundario) !important;
+}
+
+.color-white {
+    color: var(--colorBlanco);
 }
 
 // Contenedor del input
