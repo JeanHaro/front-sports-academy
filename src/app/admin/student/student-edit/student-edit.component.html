@@ -1,1 +1,86 @@
-<p>student-edit works!</p>
+<div class="form__admin max-width">
+    <h3>Editar Registro</h3>
+
+    <form class="form__admin-container">
+        <div class="form__admin-3">
+            <div class="form__admin-names content-input">
+                <label for="form-names">Nombres<span>*</span></label>
+                <input class="none input" type="text" id="form-names" placeholder="Nombres" required>
+            </div><!-- Nombres -->
+
+            <div class="form__admin-lastname content-input">
+                <label for="form-lastname">Apellidos<span>*</span></label>
+                <input class="none input" type="text" id="form-lastname" placeholder="Apellidos" required>
+            </div><!-- Apellidos -->
+
+            <div class="form__admin-email content-input">
+                <label for="form-email">Correo Electrónico<span>*</span></label>
+                <input class="none input" type="email" id="form-email" placeholder="Correo electrónico" required>
+            </div><!-- Correo Electrónico -->
+        </div><!-- Contenedor de 3 inputs -->
+
+        <div class="form__admin-2">
+            <div class="form__admin-cel content-input">
+                <label for="form-cel">Celular<span>*</span></label>
+                <input class="none input" type="number" id="form-cel" placeholder="Edad mínima" required>
+            </div><!-- Celular -->
+
+
+            <div class="form__admin-dni content-input">
+                <label for="form-dni">DNI<span>*</span></label>
+                <input class="none input" type="number" id="age-end" placeholder="form-dni" required>
+            </div><!-- DNI -->
+        </div><!-- Contenedor de 2 inputs -->
+
+        <div class="form__admin-2">
+            <div class="form__admin-2">
+                <div class="form__admin-payOne select content-input" (click)="selectClick($event)">
+                    <label for="form-payOne">Pago 1<span>*</span></label>
+                    <input class="none input" type="text" id="form-payOne" placeholder="Pago 1" [value]="valores.valuePayOne" readonly>
+    
+                    <div class="option">
+                        <div (mouseover)="viewSelect('Pagado')">Pagado</div>
+                        <div (mouseover)="viewSelect('No Pagado')">No Pagado</div>
+                    </div><!-- Opciones -->
+                </div><!-- Pago 1 -->
+    
+                <div class="form__admin-payTwo select content-input" (click)="selectClick($event)">
+                    <label for="form-payTwo">Pago 2<span>*</span></label>
+                    <input class="none input" type="text" id="form-payTwo" placeholder="Pago 2" [value]="valores.valuePayTwo" readonly>
+    
+                    <div class="option">
+                        <div (mouseover)="viewSelect(undefined, 'Pagado')">Pagado</div>
+                        <div (mouseover)="viewSelect(undefined, 'No Pagado')">No Pagado</div>
+                    </div><!-- Opciones -->
+                </div><!-- Pago 2 -->
+            </div><!-- Contenedor de 2 inputs-->
+
+            <div class="form__admin-2">
+                <div class="form__admin-payThree select content-input" (click)="selectClick($event)">
+                    <label for="form-payThree">Pago 3<span>*</span></label>
+                    <input class="none input" type="text" id="form-payThree" placeholder="Pago 3" [value]="valores.valuePayThree" readonly>
+    
+                    <div class="option">
+                        <div (mouseover)="viewSelect(undefined, undefined, 'Pagado')">Pagado</div>
+                        <div (mouseover)="viewSelect(undefined, undefined, 'No Pagado')">No Pagado</div>
+                    </div><!-- Opciones -->
+                </div><!-- Pago 3 -->
+    
+                <div class="form__admin-payFour select content-input" (click)="selectClick($event)">
+                    <label for="form-payFour">Pago 4<span>*</span></label>
+                    <input class="none input" type="text" id="form-payFour" placeholder="Pago 4" [value]="valores.valuePayFour" readonly>
+    
+                    <div class="option">
+                        <div (mouseover)="viewSelect(undefined, undefined, undefined, 'Pagado')">Pagado</div>
+                        <div (mouseover)="viewSelect(undefined, undefined, undefined, 'No Pagado')">No Pagado</div>
+                    </div><!-- Opciones -->
+                </div><!-- Pago 4 -->
+            </div><!-- Contenedor de 2 inputs-->
+        </div><!-- Contenedor de 2 inputs -->
+        
+        <div class="form__admin-submit">
+            <button class="btn btn-orange" type="submit">Editar Registro</button>
+            <button class="btn btn-white" routerLink="/admin/students" type="submit">Cancelar</button>
+        </div><!-- Botones -->
+    </form><!-- Formulario -->
+</div><!-- Formulario - Admin -->

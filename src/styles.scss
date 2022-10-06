@@ -36,7 +36,9 @@ font-family: 'Titan One', cursive;
     --colorNegro: #222;
     --colorBlanco: #fff;
     --colorEntorno: #E5E5E5;
-    --colorContacto: #CED4DA; 
+    --colorContacto: #CED4DA;
+    --colorWarn: #E63946;
+    --colorCheck:#0EAD69;
 }
 
 html {
@@ -72,7 +74,7 @@ body {
     } 
     
     &::-webkit-scrollbar:horizontal {
-        height: 10px;
+        height: 7px;
     }
     
     &::-webkit-scrollbar-thumb {
@@ -209,6 +211,36 @@ video {
     }
 }
 
+.btn-warn {
+    background-color: var(--colorWarn);
+    color: var(--colorBlanco);
+    transition: 0.5s ease;
+
+    &:hover {
+        background-color: #be2935;
+    }
+}
+
+.btn-white {
+    background-color: var(--colorTerciario);
+    color: var(--colorBlanco);
+    transition: 0.5s ease;
+
+    &:hover {
+        background-color: #aaaaaa;
+    }
+}
+
+.btn-green { 
+    background-color: var(--colorCheck);
+    color: var(--colorBlanco);
+    transition: 0.5s ease;
+
+    &:hover {
+        background-color: #2e8861;
+    }
+}
+
 .border-orange {
     border-color: var(--colorSecundario) !important;
 }
@@ -228,6 +260,7 @@ video {
     padding: 1.5rem;
     border-radius: 0.5rem;
     background-color: transparent;
+    color: var(--colorNegro);
     border: 1px solid var(--colorCuaternario);
 
     &:focus,
@@ -245,7 +278,7 @@ video {
     }
 }
 
-// -------------- Componente - Auth --------------
+// ------------------- Auth 
 // Login y Register
 .auth {
     position: relative;
@@ -433,6 +466,126 @@ video {
                     width: 100%;
                 }
                 
+            }
+        }
+    }
+}
+
+// ------------------- Admin
+// --------- Lista administrativa ---------
+.admin-list {
+    margin: 1rem;
+
+    .btn-create {
+        margin-bottom: 2rem;
+    }
+
+    // Contenedor tabla
+    .admin-list__table {
+        border-radius: 0.5rem;
+        overflow: scroll;
+        max-height: calc(100vh - 22rem);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+
+        // Scroll
+        &::-webkit-scrollbar {
+            -webkit-appearance: none;
+        }
+        
+        &::-webkit-scrollbar:vertical {
+            width: 7px;
+        }
+        
+        &::-webkit-scrollbar-button:increment,
+        &::-webkit-scrollbar-button {
+            display: none;
+        } 
+        
+        &::-webkit-scrollbar:horizontal {
+            height: 7px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--colorSecundario);
+            border-radius: 20px;
+            border: 2px solid transparent;
+        }
+        
+        &::-webkit-scrollbar-track {
+            border-radius: 20px;  
+        }
+
+        // Tabla de horarios
+        table {
+            position: relative;
+
+            background-color: var(--colorBlanco);
+            border-collapse: collapse;
+            width: 100%;
+            z-index: 1;
+
+            // Cabecera
+            thead {
+                tr {
+                    position: sticky;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+
+                    background-color: var(--colorPrincipal);
+                    color: var(--colorBlanco);
+                    z-index: 10;
+                }
+            }
+
+            // Lista
+            tbody {
+                tr {
+                    &:nth-child(2n) {
+                        background-color: var(--colorEntorno);
+                    }
+                }
+            }
+
+            tr {
+                display: flex;
+
+                @media (min-width: 1900px) {
+                    display: table-row;
+                }
+            }
+
+            td, th {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                text-align: center;
+                padding: 2rem;
+                width: 20rem;
+
+                @media (min-width: 1900px) {
+                    display: table-cell;
+                    width: auto;
+                }
+            }
+
+            td {
+                padding: 1rem 2rem;
+            }
+
+            // Contenedor de Botones
+            .admin-list__table-btn {
+                display: flex;
+                justify-content: center;
+
+                button {
+                    margin-right: 1rem;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
             }
         }
     }

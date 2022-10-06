@@ -1,1 +1,59 @@
-<p>students-list works!</p>
+<div class="admin-list">
+    <button class="btn btn-orange btn-create" routerLink="create">Crear Registro</button>
+
+    <div class="admin-list__table">
+        <table>        
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo Electrónico</th>
+                    <th>Celular</th>
+                    <th>DNI</th>
+                    <th>Horario</th>
+                    <th>Matrícula</th>
+                    <th>Pago 1</th>
+                    <th>Pago 2</th>
+                    <th>Pago 3</th>
+                    <th>Pago 4</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead><!-- Cabecera -->
+    
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Prueba</td>
+                    <td>Prueba</td>
+                    <td>prueba@hotmail.com</td>
+                    <td>999666333</td>
+                    <td>65186532</td>
+                    <td>
+                        <a class="btn btn-white" href="#">Ver</a>
+                    </td>
+                    <td>
+                        Pagado
+                    </td>
+                    <td>
+                        Pagado
+                    </td>
+                    <td>
+                        Pagado
+                    </td>
+                    <td>
+                        Pagado
+                    </td>
+                    <td>
+                        Pagado
+                    </td>
+                    <td class="admin-list__table-btn">
+                        <button class="btn btn-orange" routerLink="edit/123">Editar</button>
+                        <button class="btn btn-warn">Eliminar</button>
+                    </td><!-- Contenedor de Botones -->
+                </tr>
+            </tbody><!-- Lista -->
+        </table><!-- Tabla de Horarios -->
+    </div><!-- Contenedor Tabla -->
+</div><!-- Horario-->
+

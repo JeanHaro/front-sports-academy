@@ -1,1 +1,73 @@
-<p>Holas</p>
+<div class="form__admin max-width">
+    <h3>Editar Horario</h3>
+
+    <form class="form__admin-container">
+        <div class="form__admin-3">
+            <div class="form__admin-names content-input">
+                <label for="form-name">Nombre<span>*</span></label>
+                <input class="none input" type="text" id="form-name" placeholder="Nombre" required>
+            </div><!-- Nombre -->
+
+            <div>
+                <div class="form__admin-schedule content-input">
+                    <label for="form-schedule">N° Matrículas<span>*</span></label>
+                    <input class="none input" type="number" id="form-schedule" placeholder="N° de matriculas" required>
+                </div><!-- Cantidad Matricula  -->
+            </div>
+
+            <div class="form__admin-turn select content-input" (click)="selectClick($event)">
+                <label for="form-turn">Turno<span>*</span></label>
+                <input class="none input" type="text" id="form-turn" placeholder="Turno" [value]="valores.valueTurn" readonly>
+
+                <div class="option">
+                    <div (mouseover)="viewSelect('Mañana')">Mañana</div>
+                    <div (mouseover)="viewSelect('Tarde')">Tarde</div>
+                    <div (mouseover)="viewSelect('Noche')">Noche</div>
+                </div><!-- Opciones -->
+            </div><!-- Selector de Turno -->
+        </div><!-- Contenedor de 3 inputs -->
+
+        <div class="form__admin-2">
+            <div class="form__admin-2">
+                <div class="form__admin-age content-input">
+                    <label for="age-start">Edad mínima<span>*</span></label>
+                    <input class="none input" type="number" id="age-start" placeholder="Edad mínima" required>
+                </div><!-- Edad Inicial -->
+    
+                <div class="form__admin-age content-input">
+                    <label for="age-end">Edad máxima<span>*</span></label>
+                    <input class="none input" type="number" id="age-end" placeholder="Edad máxima" required>
+                </div><!-- Edad Final -->
+            </div><!-- Edades -->
+
+            <div class="form__admin-2">
+                <div class="form__admin-hour content-input">
+                    <label for="hour-start">Hora inicial<span>*</span></label>
+                    <input class="none input" type="time" id="hour-start" placeholder="Hora Inicial" required>
+                </div><!-- Hora Inicio -->
+    
+                <div class="form__admin-hour content-input">
+                    <label for="hour-end">Hora final<span>*</span></label>
+                    <input class="none input" type="time" id="hour-end" placeholder="Hora Final" required>
+                </div><!-- Hora Fin -->
+            </div><!-- Horas -->
+        </div><!-- Contenedor de 2 inputs -->
+
+        <div class="form__admin-2">
+            <div class="form__admin-date content-input">
+                <label for="date-start">Fecha inicial<span>*</span></label>
+                <input class="none input" type="date" id="date-start" placeholder="Fecha Inicial" required>
+            </div><!-- Fecha Inicial -->
+
+            <div class="form__admin-date content-input">
+                <label for="date-end">Fecha final<span>*</span></label>
+                <input class="none input" type="date" id="date-end" placeholder="Fecha Final" required>
+            </div><!-- Fecha Final -->
+        </div><!-- Contenedor de 2 inputs-->
+
+        <div class="form__admin-submit">
+            <button class="btn btn-orange" type="submit">Editar Horario</button>
+            <button class="btn btn-white" routerLink="/admin/schedule" type="submit">Cancelar</button>
+        </div><!-- Botones -->
+    </form><!-- Formulario -->
+</div><!-- Formulario - Admin -->

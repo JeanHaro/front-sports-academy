@@ -1,0 +1,168 @@
+// Formulario - Admin 
+.form__admin {
+    margin: 0.5rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    height: calc(100vh - 15rem);
+    overflow: hidden;
+    overflow-y: scroll;
+
+    @media (min-height: 1150px) {
+        height: 100%;
+    }
+
+    @media (min-width: 1000px) {
+        height: 100%;
+        margin: auto;
+    }
+
+    // Scroll
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+    
+    &::-webkit-scrollbar:vertical {
+        width: 7px;
+    }
+    
+    &::-webkit-scrollbar-button:increment,
+    &::-webkit-scrollbar-button {
+        display: none;
+    } 
+    
+    &::-webkit-scrollbar:horizontal {
+        height: 7px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--colorEntorno);
+        border-radius: 20px;
+        border: 2px solid transparent;
+    }
+    
+    &::-webkit-scrollbar-track {
+        border-radius: 20px;  
+    }
+
+    h3 {
+        margin-bottom: 2rem;
+    }
+
+    // Formulario
+    .form__admin-container {
+        span {
+            color: #e44040;
+        }
+
+        input {
+            margin-top: 1rem;
+        }
+
+        input[type="time"] {
+            padding: 1.25rem;
+        }
+
+        @media (min-width: 1000px) {
+            // Contenedor de 3 inputs
+            .form__admin-3 {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 1rem;
+            }
+    
+            // Contenedor de 2 inputs
+            .form__admin-2 {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 1rem;
+            }
+        }
+
+        // Selector
+        .select {
+            position: relative;
+
+            &.active .option {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            &.active::before {
+                right: 20px;
+            }
+
+            &.active::after {
+                right: 29px;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 54px;
+                right: 30px;
+
+                width: 14px;
+                height: 2px;
+
+                background-color: var(--colorCuaternario);
+                transform: rotate(40deg);
+
+                transition: 0.5s;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 54px;
+                right: 20px;
+
+                width: 14px;
+                height: 2px;
+
+                background-color: var(--colorCuaternario);
+                transform: rotate(-40deg);
+                
+                transition: 0.5s;
+            }
+
+            input {
+                cursor: pointer;
+                z-index: 15;
+                transition: 0.5s ease;
+            }
+
+            // Opciones
+            .option {
+                position: absolute;
+                top: 100%;
+
+                overflow: hidden;
+                visibility: hidden;
+                opacity: 0;
+
+                width: 100%;
+                background-color: var(--colorTerciario);
+                border-radius: 0 0 0.5rem 0.5rem;
+                z-index: 10;
+
+                div {
+                    padding: 1.2rem 2rem;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: var(--colorSecundario);
+                        color: var(--colorBlanco);
+                    }
+                }
+            }
+        }
+
+        // Botones
+        .form__admin-submit {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 1rem;
+        }
+    }
+}
