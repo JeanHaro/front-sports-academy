@@ -5,6 +5,7 @@ import { NgModule } from "@angular/core";
 import { StudentsListComponent } from "./students-list/students-list.component";
 import { StudentFormComponent } from "./student-form/student-form.component";
 import { StudentEditComponent } from "./student-edit/student-edit.component";
+import { StudentsUniqueComponent } from "./students-unique/students-unique.component";
 
 const routes: Routes = [
     {
@@ -18,6 +19,10 @@ const routes: Routes = [
     {
         path: 'edit/:id',
         component: StudentEditComponent
+    },
+    {
+        path: ':id',
+        component: StudentsUniqueComponent
     }
 ]
 

@@ -10,12 +10,12 @@ import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AdminRoutingModule
   ]
 })
 export class AdminModule { }

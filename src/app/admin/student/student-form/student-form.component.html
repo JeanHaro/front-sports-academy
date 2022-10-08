@@ -22,15 +22,48 @@
         <div class="form__admin-2">
             <div class="form__admin-cel content-input">
                 <label for="form-cel">Celular<span>*</span></label>
-                <input class="none input" type="number" id="form-cel" placeholder="Edad mínima" required>
+                <input class="none input" type="number" id="form-cel" placeholder="Celular" required>
             </div><!-- Celular -->
 
 
             <div class="form__admin-dni content-input">
                 <label for="form-dni">DNI<span>*</span></label>
-                <input class="none input" type="number" id="age-end" placeholder="form-dni" required>
+                <input class="none input" type="number" id="age-end" placeholder="DNI" required>
             </div><!-- DNI -->
         </div><!-- Contenedor de 2 inputs -->
+
+        <div class="form__admin-3">
+            <div class="form__admin-age select content-input" (click)="selectClick($event)">
+                <label for="form-age">Edad<span>*</span></label>
+                <input class="none input" type="text" id="form-age" placeholder="Rango de edad" [value]="valores.valueAge" readonly>
+
+                <div class="option">
+                    <div (mouseover)="viewCategories('5 a 6 años')">5 a 6 años</div>
+                    <div (mouseover)="viewCategories('7 a 8 años')">7 a 8 años</div>
+                </div><!-- Opciones -->
+            </div><!-- Selector de edad -->
+
+            <div class="form__admin-turn select content-input" (click)="selectClick($event)">
+                <label for="form-turn">Turno<span>*</span></label>
+                <input class="none input" type="text" id="form-turn" placeholder="Turno" [value]="valores.valueTurn" readonly>
+
+                <div class="option">
+                    <div (mouseover)="viewCategories(undefined, 'Mañana')">Mañana</div>
+                    <div (mouseover)="viewCategories(undefined, 'Tarde')">Tarde</div>
+                    <div (mouseover)="viewCategories(undefined, 'Noche')">Noche</div>
+                </div><!-- Opciones -->
+            </div><!-- Selector de turno -->
+
+            <div class="form__admin-hour select content-input" (click)="selectClick($event)">
+                <label for="form-hour">Hour<span>*</span></label>
+                <input class="none input" type="datetime" id="form-hour" placeholder="Hora" [value]="valores.valueHour" readonly>
+
+                <div class="option">
+                    <div (mouseover)="viewCategories(undefined, undefined, '8:00 - 9:00')">8:00 - 9:00</div>
+                    <div (mouseover)="viewCategories(undefined, undefined, '9:15 - 10:15')">9:15 - 10:15</div>
+                </div><!-- Opciones -->
+            </div><!-- Selector de hora -->
+        </div><!-- Contenedor de 3 inputs-->
 
         <div class="form__admin-2">
             <div class="form__admin-2">
@@ -39,8 +72,8 @@
                     <input class="none input" type="text" id="form-payOne" placeholder="Pago 1" [value]="valores.valuePayOne" readonly>
     
                     <div class="option">
-                        <div (mouseover)="viewSelect('Pagado')">Pagado</div>
-                        <div (mouseover)="viewSelect('No Pagado')">No Pagado</div>
+                        <div (mouseover)="viewPay('Pagado')">Pagado</div>
+                        <div (mouseover)="viewPay('No Pagado')">No Pagado</div>
                     </div><!-- Opciones -->
                 </div><!-- Pago 1 -->
     
@@ -49,8 +82,8 @@
                     <input class="none input" type="text" id="form-payTwo" placeholder="Pago 2" [value]="valores.valuePayTwo" readonly>
     
                     <div class="option">
-                        <div (mouseover)="viewSelect(undefined, 'Pagado')">Pagado</div>
-                        <div (mouseover)="viewSelect(undefined, 'No Pagado')">No Pagado</div>
+                        <div (mouseover)="viewPay(undefined, 'Pagado')">Pagado</div>
+                        <div (mouseover)="viewPay(undefined, 'No Pagado')">No Pagado</div>
                     </div><!-- Opciones -->
                 </div><!-- Pago 2 -->
             </div><!-- Contenedor de 2 inputs-->
@@ -61,8 +94,8 @@
                     <input class="none input" type="text" id="form-payThree" placeholder="Pago 3" [value]="valores.valuePayThree" readonly>
     
                     <div class="option">
-                        <div (mouseover)="viewSelect(undefined, undefined, 'Pagado')">Pagado</div>
-                        <div (mouseover)="viewSelect(undefined, undefined, 'No Pagado')">No Pagado</div>
+                        <div (mouseover)="viewPay(undefined, undefined, 'Pagado')">Pagado</div>
+                        <div (mouseover)="viewPay(undefined, undefined, 'No Pagado')">No Pagado</div>
                     </div><!-- Opciones -->
                 </div><!-- Pago 3 -->
     
@@ -71,8 +104,8 @@
                     <input class="none input" type="text" id="form-payFour" placeholder="Pago 4" [value]="valores.valuePayFour" readonly>
     
                     <div class="option">
-                        <div (mouseover)="viewSelect(undefined, undefined, undefined, 'Pagado')">Pagado</div>
-                        <div (mouseover)="viewSelect(undefined, undefined, undefined, 'No Pagado')">No Pagado</div>
+                        <div (mouseover)="viewPay(undefined, undefined, undefined, 'Pagado')">Pagado</div>
+                        <div (mouseover)="viewPay(undefined, undefined, undefined, 'No Pagado')">No Pagado</div>
                     </div><!-- Opciones -->
                 </div><!-- Pago 4 -->
             </div><!-- Contenedor de 2 inputs-->

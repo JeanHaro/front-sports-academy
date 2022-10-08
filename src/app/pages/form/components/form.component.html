@@ -69,7 +69,7 @@
                         <div (mouseover)="viewSelect('5 a 6 años', valores.valueTurn, valores.valueHour)">5 a 6 años</div>
                         <div (mouseover)="viewSelect('7 a 8 años', valores.valueTurn, valores.valueHour)">7 a 8 años</div>
                     </div><!-- Opciones -->
-                </div><!-- Selector de edad -->
+                </div><!-- Selector de hora -->
             </div><!-- Contenedor de 2 inputs-->
 
             <div class="form__register-2">
@@ -81,7 +81,7 @@
                         <div (mouseover)="viewSelect(valores.valueAge, 'Tarde', valores.valueHour)">Tarde</div>
                         <div (mouseover)="viewSelect(valores.valueAge, 'Noche', valores.valueHour)">Noche</div>
                     </div><!-- Opciones -->
-                </div><!-- Selector de edad -->
+                </div><!-- Selector de turno -->
 
                 <div class="form__register-hour select content-input" (click)="selectClick($event)">
                     <input class="none input" type="datetime" id="form-hour" placeholder="Hora*" [value]="valores.valueHour" readonly>
@@ -90,7 +90,7 @@
                         <div (mouseover)="viewSelect(valores.valueAge, valores.valueTurn, '8:00 - 9:00')">8:00 - 9:00</div>
                         <div (mouseover)="viewSelect(valores.valueAge, valores.valueTurn, '9:15 - 10:15')">9:15 - 10:15</div>
                     </div><!-- Opciones -->
-                </div><!-- Selector de edad -->
+                </div><!-- Selector de hora -->
             </div><!-- Contenedor de 2 inputs-->
 
             <div class="form__register-submit">

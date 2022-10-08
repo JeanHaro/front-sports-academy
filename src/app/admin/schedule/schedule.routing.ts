@@ -5,6 +5,7 @@ import { NgModule } from "@angular/core";
 import { ScheduleListComponent } from "./schedule-list/schedule-list.component";
 import { ScheduleFormComponent } from "./schedule-form/schedule-form.component";
 import { ScheduleEditComponent } from "./schedule-edit/schedule-edit.component";
+import { ScheduleUniqueComponent } from "./schedule-unique/schedule-unique.component";
 
 const routes: Routes = [
     {
@@ -18,6 +19,10 @@ const routes: Routes = [
     {
         path: 'edit/:id',
         component: ScheduleEditComponent
+    },
+    {
+        path: ':id',
+        component: ScheduleUniqueComponent
     }
 ]
 

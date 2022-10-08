@@ -1,5 +1,8 @@
 <div class="admin-list">
-    <button class="btn btn-orange btn-create" routerLink="create">Crear Registro</button>
+    <button (click)="toReturn()" class="btn btn-white btn-create">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+        Atrás
+    </button>
 
     <div class="admin-list__table">
         <table>        

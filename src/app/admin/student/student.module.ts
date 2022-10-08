@@ -5,6 +5,10 @@ import { CommonModule } from '@angular/common';
 import { StudentsListComponent } from './students-list/students-list.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentEditComponent } from './student-edit/student-edit.component';
+import { StudentsUniqueComponent } from './students-unique/students-unique.component';
+
+// Modulos
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // Routing
 import { StudentRoutingModule } from './student.routing';
@@ -13,10 +17,12 @@ import { StudentRoutingModule } from './student.routing';
   declarations: [
     StudentsListComponent,
     StudentFormComponent,
-    StudentEditComponent
+    StudentEditComponent,
+    StudentsUniqueComponent
   ],
   imports: [
     CommonModule,
+    FontAwesomeModule,
     StudentRoutingModule
   ]
 })

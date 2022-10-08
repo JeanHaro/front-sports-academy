@@ -1,5 +1,8 @@
 <div class="admin-list">
-    <button class="btn btn-orange btn-create" routerLink="create">Crear Horario</button>
+    <button (click)="toReturn()" class="btn btn-white btn-create">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+        Atrás
+    </button>
 
     <div class="admin-list__table">
         <table>        
@@ -14,7 +17,6 @@
                     <th>Inicio</th>
                     <th>Fin</th>
                     <th>Registros</th>
-                    <th>Acciones</th>
                 </tr>
             </thead><!-- Cabecera -->
     
@@ -31,10 +33,6 @@
                     <td>
                         <a class="btn btn-white" routerLink="/admin/students/123">Ver</a>
                     </td>
-                    <td class="admin-list__table-btn">
-                        <button class="btn btn-orange" routerLink="edit/123">Editar</button>
-                        <button class="btn btn-warn">Eliminar</button>
-                    </td><!-- Contenedor de Botones -->
                 </tr>
             </tbody><!-- Lista -->
         </table><!-- Tabla de Horarios -->
