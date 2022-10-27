@@ -7,10 +7,10 @@ import { LayoutComponent } from './layout/layout.component';
 
 // Modulos
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
-
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

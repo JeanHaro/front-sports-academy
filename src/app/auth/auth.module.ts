@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Formulario
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// HTTPs
+import { HttpClientModule } from '@angular/common/http';
 
 // Componentes
 import { LoginComponent } from './login/login.component';
@@ -19,7 +22,9 @@ import { AuthRoutingModule } from './auth.routing';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class AuthModule { }
