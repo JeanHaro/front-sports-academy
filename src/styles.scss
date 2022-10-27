@@ -263,7 +263,6 @@ video {
     color: var(--colorNegro);
     border: 1px solid var(--colorCuaternario);
 
-    &:focus,
     &:valid {
         border-color: var(--colorSecundario);
     }
