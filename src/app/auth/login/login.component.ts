@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Formulario
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
@@ -25,7 +26,8 @@ export class LoginComponent {
 
   constructor (
     private fb: FormBuilder,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private router: Router
   ) { }
 
   // TODO: Iniciar sesión
@@ -33,7 +35,7 @@ export class LoginComponent {
     this.adminService.login(this.loginForm.value)
     .subscribe({
       next: (resp) => {
-        console.log(resp);
+        this.router.navigateByUrl('/admin');
       },
       error: (err) => {
         Swal.fire({

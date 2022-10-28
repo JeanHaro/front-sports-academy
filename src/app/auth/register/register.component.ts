@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Fomrularios
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
@@ -26,7 +27,8 @@ export class RegisterComponent {
 
   constructor (
     private fb: FormBuilder,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private router: Router
   ) { }
 
   // TODO: Crear admin
@@ -43,8 +45,7 @@ export class RegisterComponent {
     this.adminService.crearAdmin(this.registerForm.value)
     .subscribe({
       next: (resp) => {
-        console.log('Admin creado');
-        console.log(resp);
+        this.router.navigateByUrl('/admin');
       },
       error: (err) => {
         Swal.fire({
