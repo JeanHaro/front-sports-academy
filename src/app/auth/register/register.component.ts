@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 // Fomrularios
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
+// SweetAlert2
+import Swal from 'sweetalert2';
+
 // Servicios
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -43,7 +46,13 @@ export class RegisterComponent {
         console.log('Admin creado');
         console.log(resp);
       },
-      error: (err) => console.warn(err.error.msg)
+      error: (err) => {
+        Swal.fire({
+          title: 'Error', 
+          text: err.error.msg, 
+          icon: 'error'
+        })
+      }
     })
   }
 
