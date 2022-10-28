@@ -19,13 +19,13 @@
     
             <h2>¡Bienvenido!</h2>
     
-            <form class="auth__form-content">
+            <form class="auth__form-content" autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="auth__form-email">
-                    <input class="none input" type="email"  id="email-auth" placeholder="Corre electrónico*" required>
+                    <input class="none input" type="email"  id="email-auth" placeholder="Corre electrónico*" required formControlName="email">
                 </div>
     
                 <div class="auth__form-password">
-                    <input class="none input" type="password" id="password-auth" placeholder="Contraseña*" required autocomplete="on">
+                    <input class="none input" type="password" id="password-auth" placeholder="Contraseña*" required formControlName="password" autocomplete="on">
                 </div>
     
                 <div class="auth__form-submit">

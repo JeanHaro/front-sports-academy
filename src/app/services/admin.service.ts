@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 // Interfaces
 import { RegisterForm } from '../interfaces/register-form.interface';
+import { LoginForm } from '../interfaces/login-form.interface';
 
 // Environment
 import { environment } from 'src/environments/environment';
@@ -21,5 +22,10 @@ export class AdminService {
   // TODO: Crear Admin
   crearAdmin (formData: RegisterForm) {
     return this.http.post(`${base_url}/admin`, formData);
+  }
+
+  // TODO: Iniciar sesión
+  login (formData: LoginForm) {
+    return this.http.post(`${base_url}/auth`, formData);
   }
 }
