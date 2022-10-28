@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 // Rxjs
 import { Observable, of } from 'rxjs';
@@ -21,7 +22,16 @@ const base_url = environment.base_url;
 })
 export class AdminService {
 
-  constructor (private http: HttpClient) { }
+  constructor (
+    private http: HttpClient,
+    private router: Router
+  ) { }
+
+  // TODO: Cerrar sesión
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/auth/login')
+  }
 
   // TODO: Validamos token
   validarToken(): Observable<boolean> {

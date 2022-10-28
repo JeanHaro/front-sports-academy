@@ -9,6 +9,9 @@ import {
   faRightFromBracket
 } from '@fortawesome/free-solid-svg-icons';
 
+// Servicios
+import { AdminService } from 'src/app/services/admin.service';
+
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -23,7 +26,7 @@ export class LayoutComponent {
   faUser = faUser;
   faRightFromBracket = faRightFromBracket;
 
-  constructor () {}
+  constructor (private adminService: AdminService) {}
 
   // Sidebar - Enlaces
   showNav ($event: MouseEvent) {
@@ -52,5 +55,10 @@ export class LayoutComponent {
       titleStudent?.classList.toggle('color-white');
       listStudent?.classList.toggle('hidden');
     }
+  }
+
+  // TODO: Cerrar sesión
+  logout() {
+    this.adminService.logout();
   }
 }
