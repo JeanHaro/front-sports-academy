@@ -271,6 +271,7 @@ video {
 .text-warn {
     color: var(--colorWarn);
     margin-top: 0.5rem;
+    font-size: 1.4rem;
 }
 
 // Pages - parte invisible
@@ -733,7 +734,6 @@ video {
             // Opciones
             .option {
                 position: absolute;
-                top: 100%;
 
                 overflow: hidden;
                 visibility: hidden;

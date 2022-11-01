@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Formularios
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// HTTPs
+import { HttpClientModule } from '@angular/common/http';
+
 // Componentes
 import { ScheduleListComponent } from "./schedule-list/schedule-list.component";
 import { ScheduleFormComponent } from "./schedule-form/schedule-form.component";
@@ -23,7 +29,10 @@ import { ScheduleRoutingModule } from './schedule.routing';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    ScheduleRoutingModule
+    ScheduleRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ScheduleModule { }

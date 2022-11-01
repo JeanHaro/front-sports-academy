@@ -1,21 +1,24 @@
 <div class="form__admin max-width">
     <h3>Crear Horario</h3>
 
-    <form class="form__admin-container">
+    <form autocomplete="off" [formGroup]="scheduleForm" (ngSubmit)="createSchedule()" class="form__admin-container">
         <div class="form__admin-3">
             <div class="form__admin-names content-input">
                 <label for="form-name">Nombre<span>*</span></label>
-                <input class="none input" type="text" id="form-name" placeholder="Nombre" required>
+                <input class="none input" type="text" placeholder="Nombre" required formControlName="nombre">
+                <p class="text-warn" *ngIf="campoNoValido('nombre')">* El nombre es obligatorio</p>
             </div><!-- Nombre -->
 
             <div class="form__admin-schedule content-input">
                 <label for="form-schedule">N° Matrículas<span>*</span></label>
-                <input class="none input" type="number" id="form-schedule" placeholder="N° de matriculas" required>
+                <input class="none input" type="number" placeholder="N° de matriculas" required formControlName="cant_matriculas">
+                <p class="text-warn" *ngIf="campoNoValido('cant_matriculas')">* El número de matrículas es obligatorio</p>
             </div><!-- Cantidad Matricula  -->
 
             <div class="form__admin-turn select content-input" (click)="selectClick($event)">
                 <label for="form-turn">Turno<span>*</span></label>
-                <input class="none input" type="text" id="form-turn" placeholder="Turno" [value]="valores.valueTurn" readonly>
+                <input class="none input" type="text" placeholder="Turno" [value]="valores.valueTurn" readonly formControlName="turno">
+                <p class="text-warn" *ngIf="campoNoValido('turno')">* El turno es obligatorio</p>
 
                 <div class="option">
                     <div (mouseover)="viewSelect('Mañana')">Mañana</div>
@@ -29,24 +32,28 @@
             <div class="form__admin-2">
                 <div class="form__admin-age content-input">
                     <label for="age-start">Edad mínima<span>*</span></label>
-                    <input class="none input" type="number" id="age-start" placeholder="Edad mínima" required>
+                    <input class="none input" type="number" min="1" placeholder="Edad mínima" required formControlName="edad_min">
+                    <p class="text-warn" *ngIf="campoNoValido('edad_min')">* La edad mínima es obligatoria</p>
                 </div><!-- Edad Inicial -->
     
                 <div class="form__admin-age content-input">
                     <label for="age-end">Edad máxima<span>*</span></label>
-                    <input class="none input" type="number" id="age-end" placeholder="Edad máxima" required>
+                    <input class="none input" type="number" min="1" placeholder="Edad máxima" required formControlName="edad_max">
+                    <p class="text-warn" *ngIf="campoNoValido('edad_max')">* La edad máxima es obligatoria</p>
                 </div><!-- Edad Final -->
             </div><!-- Edades -->
 
             <div class="form__admin-2">
                 <div class="form__admin-hour content-input">
                     <label for="hour-start">Hora inicial<span>*</span></label>
-                    <input class="none input" type="time" id="hour-start" placeholder="Hora Inicial" required>
+                    <input class="none input" type="time" name="hour-start" min="08:00" max="21:00" (change)="timeValue($event)" placeholder="Hora Inicial" required>
+                    <p class="text-warn" *ngIf="campoNoValido('hora_inicial')">* La hora inicial es obligatoria y debe ser valida</p>
                 </div><!-- Hora Inicio -->
     
                 <div class="form__admin-hour content-input">
                     <label for="hour-end">Hora final<span>*</span></label>
-                    <input class="none input" type="time" id="hour-end" placeholder="Hora Final" required>
+                    <input class="none input" type="time" name="hour-end" min="08:00" max="21:00" (change)="timeValue($event)" placeholder="Hora Final" required>
+                    <p class="text-warn" *ngIf="campoNoValido('hora_final')">* La hora final es obligatoria y debe ser valida</p>
                 </div><!-- Hora Fin -->
             </div><!-- Horas -->
         </div><!-- Contenedor de 2 inputs -->
@@ -54,12 +61,14 @@
         <div class="form__admin-2">
             <div class="form__admin-date content-input">
                 <label for="date-start">Fecha inicial<span>*</span></label>
-                <input class="none input" type="date" id="date-start" placeholder="Fecha Inicial" required>
+                <input class="none input" type="date" name="date-start" [min]="todayDate" (change)="dateValue($event)" placeholder="Fecha Inicial" required>
+                <p class="text-warn" *ngIf="campoNoValido('fecha_inicial')">* La fecha inicial es obligatoria</p>
             </div><!-- Fecha Inicial -->
 
             <div class="form__admin-date content-input">
                 <label for="date-end">Fecha final<span>*</span></label>
-                <input class="none input" type="date" id="date-end" placeholder="Fecha Final" required>
+                <input class="none input" type="date" name="date-end" [min]="todayDate" (change)="dateValue($event)" placeholder="Fecha Final" required>
+                <p class="text-warn" *ngIf="campoNoValido('fecha_final')">* La fecha final es obligatoria</p>
             </div><!-- Fecha Final -->
         </div><!-- Contenedor de 2 inputs-->
 

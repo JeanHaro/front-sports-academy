@@ -32,7 +32,7 @@ export class RegisterComponent {
   ) { }
 
   // TODO: Crear admin
-  crearAdmin() {
+  createAdmin() {
     this.formSubmitted = true;
     console.log(this.registerForm.value);
 

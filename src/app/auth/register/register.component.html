@@ -19,7 +19,7 @@
     
             <h2>¡Crea tu cuenta!</h2>
     
-            <form class="auth__form-content" autocomplete="off" [formGroup]="registerForm" (ngSubmit)="crearAdmin()">
+            <form class="auth__form-content" autocomplete="off" [formGroup]="registerForm" (ngSubmit)="createAdmin()">
                 <div class="auth__form-email">
                     <input class="none input" type="email" name="" id="email-register" required placeholder="Correo electrónico*" formControlName="email">
                     <p class="text-warn" *ngIf="campoNoValido('email')">* El email es obligatorio y tiene que ser válido</p>
