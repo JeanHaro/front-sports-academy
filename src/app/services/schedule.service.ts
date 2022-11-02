@@ -20,7 +20,19 @@ export class ScheduleService {
     private http: HttpClient
   ) { }
 
-  crearHorario (formData: ScheduleForm) {
+  // TODO: Obtener todos los horarios
+  getAllSchedule() {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.get(`${base_url}/horario`, {
+      headers: {
+        'x-token': token
+      }
+    })
+  }
+
+  // TODO: Crear horario
+  createSchedule (formData: ScheduleForm) {
     const token = localStorage.getItem('token') || '';
 
     return this.http.post(`${base_url}/horario`, formData, {

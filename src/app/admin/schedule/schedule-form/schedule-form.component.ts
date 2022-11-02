@@ -80,7 +80,7 @@ export class ScheduleFormComponent {
   
 
   // TODO: Crear horario
-  createSchedule() {
+  crearHorario() {
     this.formSubmitted = true;
 
     // Verificar que el formulario es correcto al crear
@@ -88,7 +88,7 @@ export class ScheduleFormComponent {
       return;
     }
 
-    this.scheduleService.crearHorario(this.scheduleForm.value)
+    this.scheduleService.createSchedule(this.scheduleForm.value)
     .subscribe({
       next: (resp) => {
         this.router.navigateByUrl('/admin/schedule');
