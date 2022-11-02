@@ -33,7 +33,7 @@
                     </td>
                     <td class="admin-list__table-btn">
                         <button class="btn btn-orange" [routerLink]="['edit', horario.uid]">Editar</button>
-                        <button class="btn btn-warn">Eliminar</button>
+                        <button class="btn btn-warn" (click)="eliminarHorario(horario.uid)">Eliminar</button>
                     </td><!-- Contenedor de Botones -->
                 </tr>
             </tbody><!-- Lista -->

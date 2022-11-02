@@ -43,4 +43,17 @@ export class ScheduleListComponent implements OnInit {
       }
     })
   }
+
+  // TODO: Eliminar Horario
+  eliminarHorario (id: string) {
+    this.scheduleService.deleteSchedule(id)
+    .subscribe({
+      next: (resp) => {
+        this.obtenerHorarios();
+      },
+      error: (err) => {
+        Swal.fire('Error', err.error.msg, 'error');
+      }
+    })
+  }
 }

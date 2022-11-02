@@ -41,4 +41,15 @@ export class ScheduleService {
       }
     });
   }
+
+  // TODO: Eliminar horario
+  deleteSchedule (id: string) {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.delete(`${base_url}/horario/${id}`, {
+      headers: {
+        'x-token': token
+      }
+    })
+  }
 }
