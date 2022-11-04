@@ -24,7 +24,18 @@ export class ScheduleService {
   getAllSchedule() {
     const token = localStorage.getItem('token') || '';
 
-    return this.http.get(`${base_url}/horario`, {
+    return this.http.get<ScheduleForm>(`${base_url}/horario`, {
+      headers: {
+        'x-token': token
+      }
+    })
+  }
+
+  // TODO: Obtener horario
+  getSchedule (id: string) {
+    const token = localStorage.getItem('token') || '';
+    
+    return this.http.get<ScheduleForm>(`${base_url}/horario/${id}`, {
       headers: {
         'x-token': token
       }
@@ -36,6 +47,17 @@ export class ScheduleService {
     const token = localStorage.getItem('token') || '';
 
     return this.http.post(`${base_url}/horario`, formData, {
+      headers: {
+        'x-token': token
+      }
+    });
+  }
+
+  // TODO: Actualizar horario
+  updateSchedule (id: string, changes: Partial<ScheduleForm>) {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.put(`${base_url}/horario/${id}`, changes, {
       headers: {
         'x-token': token
       }

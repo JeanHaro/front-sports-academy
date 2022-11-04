@@ -38,11 +38,7 @@ export class LoginComponent {
         this.router.navigateByUrl('/admin');
       },
       error: (err) => {
-        Swal.fire({
-          title: 'Error', 
-          text: err.error.msg, 
-          icon: 'error'
-        })
+        Swal.fire('Error', err.error.msg, 'error');
       }
     })
   }

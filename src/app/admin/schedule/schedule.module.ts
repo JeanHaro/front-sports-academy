@@ -18,6 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // Routing
 import { ScheduleRoutingModule } from './schedule.routing';
+import { SharedModule } from 'src/app/shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { ScheduleRoutingModule } from './schedule.routing';
   imports: [
     CommonModule,
     FontAwesomeModule,
+    SharedModule,
     ScheduleRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,

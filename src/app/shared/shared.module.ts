@@ -5,6 +5,9 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+// Pipes
+import { FormDatePipe } from './pipes/form-date.pipe';
+
 // Modulos
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
@@ -12,7 +15,8 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FormDatePipe
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    FormDatePipe
   ]
 })
 export class SharedModule { }

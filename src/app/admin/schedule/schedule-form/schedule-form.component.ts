@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-// Fecha
-import { formatDate } from '@angular/common';
-
 // SweetAlert2
 import Swal from 'sweetalert2';
 
 // Formularios
-import { AbstractControl, AbstractControlOptions, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // Servicios
 import { ScheduleService } from 'src/app/services/schedule.service';
@@ -24,8 +21,6 @@ export class ScheduleFormComponent {
   formSubmitted = false;
   scheduleForm!: FormGroup;
   todayDate = new Date().toISOString().split("T")[0];
-  minTime = '08:00';
-  maxTime = '21:00';
 
   // Valores de los select
   valores = {
@@ -54,7 +49,6 @@ export class ScheduleFormComponent {
   // TODO: Obtener y mandar fechas
   dateValue (event: any) {
     let fecha = event.target.value;
-    // let formatoFecha = formatDate(fecha, 'dd-MM-yyyy', 'en');
 
     if (event.target.name === 'date-start') {
       return this.scheduleForm.get('fecha_inicial')?.setValue(fecha);

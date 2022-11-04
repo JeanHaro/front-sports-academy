@@ -26,8 +26,8 @@
                     <td>{{ horario.hora_inicial }} - {{ horario.hora_final }}</td>
                     <td>{{ horario.edad_min }} - {{ horario.edad_max }} años</td>
                     <td>{{ horario.cant_matriculas }}</td>
-                    <td>{{ horario.fecha_inicial | date:'dd/MM/yyyy' }}</td>
-                    <td>{{ horario.fecha_final | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ horario.fecha_inicial | formDate }}</td>
+                    <td>{{ horario.fecha_final | formDate }}</td>
                     <td>
                         <a class="btn btn-white" routerLink="/admin/students/123">Ver</a>
                     </td>
