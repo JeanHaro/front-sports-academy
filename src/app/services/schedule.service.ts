@@ -22,13 +22,7 @@ export class ScheduleService {
 
   // TODO: Obtener todos los horarios
   getAllSchedule() {
-    const token = localStorage.getItem('token') || '';
-
-    return this.http.get<ScheduleForm>(`${base_url}/horario`, {
-      headers: {
-        'x-token': token
-      }
-    })
+    return this.http.get<ScheduleForm>(`${base_url}/horario`);
   }
 
   // TODO: Obtener horario

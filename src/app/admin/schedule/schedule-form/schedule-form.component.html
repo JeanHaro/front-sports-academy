@@ -32,13 +32,13 @@
             <div class="form__admin-2">
                 <div class="form__admin-age content-input">
                     <label for="age-start">Edad mínima<span>*</span></label>
-                    <input class="none input" type="number" min="1" placeholder="Edad mínima" required formControlName="edad_min">
+                    <input class="none input" type="number" min="5" max="16" placeholder="Edad mínima" required formControlName="edad_min">
                     <p class="text-warn" *ngIf="campoNoValido('edad_min')">* La edad mínima es obligatoria</p>
                 </div><!-- Edad Inicial -->
     
                 <div class="form__admin-age content-input">
                     <label for="age-end">Edad máxima<span>*</span></label>
-                    <input class="none input" type="number" min="1" placeholder="Edad máxima" required formControlName="edad_max">
+                    <input class="none input" type="number" min="5" max="16" placeholder="Edad máxima" required formControlName="edad_max">
                     <p class="text-warn" *ngIf="campoNoValido('edad_max')">* La edad máxima es obligatoria</p>
                 </div><!-- Edad Final -->
             </div><!-- Edades -->

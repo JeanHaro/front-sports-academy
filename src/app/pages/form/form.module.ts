@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Formularios
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // Componentes
 import { FormComponent } from './components/form.component';
 
@@ -13,7 +16,9 @@ import { FormRoutingModule } from './form.routing';
   ],
   imports: [
     CommonModule,
-    FormRoutingModule
+    FormRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FormModule { }

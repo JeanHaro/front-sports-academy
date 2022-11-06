@@ -126,7 +126,7 @@
                 &::before {
                     content: '';
                     position: absolute;
-                    top: 25px;
+                    top: 26px;
                     right: 30px;
 
                     width: 14px;
@@ -141,7 +141,7 @@
                 &::after {
                     content: '';
                     position: absolute;
-                    top: 25px;
+                    top: 26px;
                     right: 20px;
 
                     width: 14px;
@@ -162,7 +162,6 @@
                 // Opciones
                 .option {
                     position: absolute;
-                    top: 100%;
 
                     overflow: hidden;
                     visibility: hidden;

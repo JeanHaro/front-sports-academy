@@ -36,59 +36,66 @@
             </div>
         </section><!-- Información Formulario -->
 
-        <form class="form__container-register">
+        <form autocomplete="off" [formGroup]="enrollmentForm" (ngSubmit)="crearMatricula()" class="form__container-register">
             <div class="form__register-2">
                 <div class="form__register-names content-input">
-                    <input class="none input" type="text" id="form-names" placeholder="Nombres*" required>
+                    <p class="text-warn text-warn-top" *ngIf="campoNoValido('nombre')">* El nombre es obligatorio</p>
+                    <input class="none input" type="text" id="form-names" placeholder="Nombres*" required formControlName="nombre">
                 </div><!-- Nombres -->
 
                 <div class="form__register-lastName content-input">
-                    <input class="none input" type="text" id="form-lastName" placeholder="Apellidos*" required>
+                    <p class="text-warn text-warn-top" *ngIf="campoNoValido('apellido')">* El apellido es obligatorio</p>
+                    <input class="none input" type="text" id="form-lastName" placeholder="Apellidos*" required formControlName="apellido">
                 </div><!-- Apellidos -->
             </div><!-- Contenedor de 2 inputs-->
 
             <div class="form__register-2">
                 <div class="form__register-email content-input">
-                    <input class="none input" type="email" id="form-email" placeholder="Correo electrónico*" required>
+                    <p class="text-warn text-warn-top" *ngIf="campoNoValido('email')">* El correo electrónico es obligatorio</p>
+
+                    <input class="none input" type="email" id="form-email" placeholder="Correo electrónico*" required formControlName="email">
                 </div><!-- Email -->
 
                 <div class="form__register-phone content-input">
-                    <input class="none input" type="tel" id="form-phone" placeholder="Celular*" required>
+                    <p class="text-warn text-warn-top" *ngIf="campoNoValido('celular')">* El celular es obligatorio</p>
+                    <input class="none input" type="tel" id="form-phone" placeholder="Celular*" required formControlName="celular">
                 </div><!-- Celular -->
             </div><!-- Contenedor de 2 inputs -->
 
             <div class="form__register-2">
                 <div class="form__register-dni content-input">
-                    <input class="none input" type="number" id="form-dni" placeholder="DNI*" required>
+                    <p class="text-warn text-warn-top" *ngIf="campoNoValido('dni')">* El dni es obligatorio</p>
+
+                    <input class="none input" type="number" id="form-dni" placeholder="DNI*" required formControlName="dni">
                 </div><!-- DNI -->
 
-                <div class="form__register-age select content-input" (click)="selectClick($event)">
-                    <input class="none input" type="text" id="form-age" placeholder="Rango de edad*" [value]="valores.valueAge" readonly>
-
-                    <div class="option">
-                        <div (mouseover)="viewSelect('5 a 6 años', valores.valueTurn, valores.valueHour)">5 a 6 años</div>
-                        <div (mouseover)="viewSelect('7 a 8 años', valores.valueTurn, valores.valueHour)">7 a 8 años</div>
-                    </div><!-- Opciones -->
+                <div class="form__register-age content-input" (click)="selectClick($event);">
+                    <p class="text-warn text-warn-top" *ngIf="campoNoValido('edad')">* La edad es obligatoria</p>
+                    <input class="none input" type="number" min="5" max="16" (keyup)="obtenerHora()" id="form-age" placeholder="Edad*" required formControlName="edad">
                 </div><!-- Selector de hora -->
             </div><!-- Contenedor de 2 inputs-->
 
             <div class="form__register-2">
                 <div class="form__register-turn select content-input" (click)="selectClick($event)">
-                    <input class="none input" type="text" id="form-turn" placeholder="Turno*" [value]="valores.valueTurn" readonly>
+                    <p class="text-warn text-warn-top" *ngIf="campoNoValido('turno')">* El turno es obligatorio</p>
+                    <input class="none input" type="text" id="form-turn" placeholder="Turno*" [value]="valores.valueTurn" readonly formControlName="turno">
 
                     <div class="option">
-                        <div (mouseover)="viewSelect(valores.valueAge, 'Mañana', valores.valueHour)">Mañana</div>
-                        <div (mouseover)="viewSelect(valores.valueAge, 'Tarde', valores.valueHour)">Tarde</div>
-                        <div (mouseover)="viewSelect(valores.valueAge, 'Noche', valores.valueHour)">Noche</div>
+                        <div (mouseover)="viewSelect('Mañana', valores.valueHour); obtenerHora()">Mañana</div>
+                        <div (mouseover)="viewSelect('Tarde', valores.valueHour); obtenerHora()">Tarde</div>
+                        <div (mouseover)="viewSelect('Noche', valores.valueHour); obtenerHora()">Noche</div>
                     </div><!-- Opciones -->
                 </div><!-- Selector de turno -->
 
                 <div class="form__register-hour select content-input" (click)="selectClick($event)">
-                    <input class="none input" type="datetime" id="form-hour" placeholder="Hora*" [value]="valores.valueHour" readonly>
+                    <p class="text-warn text-warn-top" *ngIf="campoNoValido('hora')">* La hora es obligatoria</p>
+                    <input class="none input" type="datetime" name="form-hour" placeholder="Hora*"  [value]="valores.valueHour" readonly formControlName="hora">
 
                     <div class="option">
-                        <div (mouseover)="viewSelect(valores.valueAge, valores.valueTurn, '8:00 - 9:00')">8:00 - 9:00</div>
-                        <div (mouseover)="viewSelect(valores.valueAge, valores.valueTurn, '9:15 - 10:15')">9:15 - 10:15</div>
+                        <div *ngFor="let hora of horas" (mouseover)="viewSelect(valores.valueTurn, hora.hora_inicial + ' - ' + hora.hora_final); obtenerID()">
+                            {{ hora.hora_inicial }} - {{ hora.hora_final }}
+                        </div>
+                        <div class="text-warn" *ngIf="horas.length === 0">No hay horario</div>
                     </div><!-- Opciones -->
                 </div><!-- Selector de hora -->
             </div><!-- Contenedor de 2 inputs-->
