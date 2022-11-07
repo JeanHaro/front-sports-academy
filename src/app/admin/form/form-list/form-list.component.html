@@ -15,23 +15,23 @@
                 </tr>
             </thead><!-- Cabecera -->
     
-            <tbody>
+            <tbody *ngFor="let matricula of matriculas">
                 <tr>
-                    <td>1</td>
-                    <td>Prueba</td>
-                    <td>Prueba</td>
-                    <td>prueba@hotmail.com</td>
-                    <td>999666333</td>
-                    <td>65186532</td>
+                    <td>{{ matricula.order }}</td>
+                    <td>{{ matricula.nombre }}</td>
+                    <td>{{ matricula.apellido }}</td>
+                    <td>{{ matricula.email }}</td>
+                    <td>{{ matricula.celular }}</td>
+                    <td>{{ matricula.dni }}</td>
                     <td>
-                        <a class="btn btn-white" routerLink="/admin/schedule/123">Ver</a>
+                        <a class="btn btn-white" [routerLink]="['/admin/schedule', matricula.horario]">Ver</a>
                     </td>
-                    <td>
-                        No Pagado
-                    </td>
+                    <td *ngIf="!matricula.matricula; else elseCheck">No pagado</td>
+                    <ng-template #elseCheck>Pagado</ng-template>
+                    
                     <td class="admin-list__table-btn">
-                        <button class="btn btn-green">Aceptar</button>
-                        <button class="btn btn-warn">Eliminar</button>
+                        <button class="btn btn-green" (click)="aceptarMatricula(matricula.uid)">Aceptar</button>
+                        <button class="btn btn-warn" (click)="eliminarMatricula(matricula.uid)">Eliminar</button>
                     </td><!-- Contenedor de Botones -->
                 </tr>
             </tbody><!-- Lista -->

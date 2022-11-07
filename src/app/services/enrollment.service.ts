@@ -17,6 +17,17 @@ export class EnrollmentService {
 
   constructor (private http: HttpClient) { }
 
+  // TODO: Obtener todas las matrículas
+  getAllSchedule() {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.get<EnrollmentForm>(`${base_url}/matricula`, {
+      headers: {
+        'x-token': token
+      }
+    });
+  }
+
   // TODO: Crear horario
   createEnrollment (formData: EnrollmentForm) {
     return this.http.post(`${base_url}/matricula`, formData);

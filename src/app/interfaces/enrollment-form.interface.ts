@@ -8,4 +8,5 @@ export interface EnrollmentForm {
     codigo: string;
     matricula: boolean;
     horario: string;
+    order?: number;
 }
