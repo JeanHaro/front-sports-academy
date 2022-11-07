@@ -57,16 +57,16 @@
                 </div><!-- Email -->
 
                 <div class="form__register-phone content-input">
-                    <p class="text-warn text-warn-top" *ngIf="campoNoValido('celular')">* El celular es obligatorio</p>
+                    <p class="text-warn text-warn-top" *ngIf="verificarCelular()">* El celular es obligatorio y debe ser valido</p>
                     <input class="none input" type="tel" id="form-phone" placeholder="Celular*" required formControlName="celular">
                 </div><!-- Celular -->
             </div><!-- Contenedor de 2 inputs -->
 
             <div class="form__register-2">
                 <div class="form__register-dni content-input">
-                    <p class="text-warn text-warn-top" *ngIf="campoNoValido('dni')">* El dni es obligatorio</p>
+                    <p class="text-warn text-warn-top" *ngIf="verificarDNI()">* El dni es obligatorio y debe ser valido</p>
 
-                    <input class="none input" type="number" id="form-dni" placeholder="DNI*" required formControlName="dni">
+                    <input class="none input" type="number" placeholder="DNI*" required formControlName="dni">
                 </div><!-- DNI -->
 
                 <div class="form__register-age content-input" (click)="selectClick($event);">

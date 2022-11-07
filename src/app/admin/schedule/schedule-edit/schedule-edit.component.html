@@ -12,7 +12,7 @@
             <div>
                 <div class="form__admin-schedule content-input">
                     <label for="form-schedule">N° Matrículas<span>*</span></label>
-                    <input class="none input" type="number" min="5" placeholder="N° de matriculas" required formControlName="cant_matriculas">
+                    <input class="none input" type="number" min="0" placeholder="N° de matriculas" required formControlName="cant_matriculas">
                     <p class="text-warn" *ngIf="campoNoValido('cant_matriculas')">* El número de matrículas es obligatorio</p>
                 </div><!-- Cantidad Matricula  -->
             </div>
