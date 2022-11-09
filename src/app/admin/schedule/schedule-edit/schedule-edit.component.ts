@@ -121,7 +121,7 @@ export class ScheduleEditComponent implements OnInit {
   // TODO: Obtener los datos del backend
   obtenerHorario (id: string) {
     this.scheduleService.getSchedule(id)
-    .subscribe( {
+    .subscribe({
       next: (horario) => {
         const valores = Object.entries(horario);
         this.horario = valores[1][1];

@@ -29,7 +29,7 @@ export class ScheduleService {
   getSchedule (id: string) {
     const token = localStorage.getItem('token') || '';
     
-    return this.http.get<ScheduleForm>(`${base_url}/horario/${id}`, {
+    return this.http.get(`${base_url}/horario/${id}`, {
       headers: {
         'x-token': token
       }

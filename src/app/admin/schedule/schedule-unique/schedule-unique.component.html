@@ -8,7 +8,6 @@
         <table>        
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>Nombre</th>
                     <th>Turno</th>
                     <th>Hora</th>
@@ -16,23 +15,18 @@
                     <th>#Matrículas</th>
                     <th>Inicio</th>
                     <th>Fin</th>
-                    <th>Registros</th>
                 </tr>
             </thead><!-- Cabecera -->
     
-            <tbody>
+            <tbody *ngIf="horario">
                 <tr>
-                    <td>1</td>
-                    <td>Horario 1</td>
-                    <td>Mañana</td>
-                    <td>8:00 - 9:00</td>
-                    <td>8 - 9 años</td>
-                    <td>25</td>
-                    <td>03/10/2022</td>
-                    <td>03/02/2023</td>
-                    <td>
-                        <a class="btn btn-white" routerLink="/admin/students/123">Ver</a>
-                    </td>
+                    <td>{{ horario.nombre }}</td>
+                    <td>{{ horario.turno }}</td>
+                    <td>{{ horario.hora_inicial }} - {{ horario.hora_final }}</td>
+                    <td>{{ horario.edad_min }} - {{ horario.edad_max }} años</td>
+                    <td>{{ horario.cant_matriculas }}</td>
+                    <td>{{ horario.fecha_inicial | formDate }}</td>
+                    <td>{{ horario.fecha_final | formDate }}</td>
                 </tr>
             </tbody><!-- Lista -->
         </table><!-- Tabla de Horarios -->
