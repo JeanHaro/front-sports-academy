@@ -8,6 +8,7 @@ import { EnrollmentForm } from '../interfaces/enrollment-form.interface';
 // Environment
 import { environment } from 'src/environments/environment';
 
+// URL de peticiones
 const base_url = environment.base_url;
 
 @Injectable({
@@ -18,7 +19,7 @@ export class EnrollmentService {
   constructor (private http: HttpClient) { }
 
   // TODO: Obtener todas las matrículas
-  getAllSchedule() {
+  getAllEnrollment() {
     const token = localStorage.getItem('token') || '';
 
     return this.http.get<EnrollmentForm>(`${base_url}/matricula`, {
@@ -26,6 +27,17 @@ export class EnrollmentService {
         'x-token': token
       }
     });
+  }
+
+  // TODO: Obtener matricula
+  getEnrollment (id: string) {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.get<EnrollmentForm>(`${base_url}/matricula/${id}`, {
+      headers: {
+        'x-token': token
+      }
+    })
   }
 
   // TODO: Crear matrícula

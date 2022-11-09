@@ -35,6 +35,12 @@
                     </td><!-- Contenedor de Botones -->
                 </tr>
             </tbody><!-- Lista -->
+
+            <tbody>
+                <tr *ngIf="matriculas.length == 0">
+                    <td colspan="9">No hay matrículas</td>
+                </tr>
+            </tbody><!-- Lista -->
         </table><!-- Tabla de Horarios -->
     </div><!-- Contenedor Tabla -->
 </div><!-- Tabla - Admin -->

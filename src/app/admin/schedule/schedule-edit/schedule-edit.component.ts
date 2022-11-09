@@ -151,7 +151,7 @@ export class ScheduleEditComponent implements OnInit {
         Swal.fire('Error', err.error.msg, 'error');
       }
     })
-    }
+  }
 
   // TODO: Si el campo no es valido
   campoNoValido (campo: string): boolean {

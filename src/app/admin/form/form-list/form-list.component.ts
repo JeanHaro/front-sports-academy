@@ -5,9 +5,11 @@ import Swal from 'sweetalert2';
 
 // Interface
 import { EnrollmentForm } from 'src/app/interfaces/enrollment-form.interface';
+import { StudentForm } from 'src/app/interfaces/student-form.interface';
 
 // Servicios
 import { EnrollmentService } from 'src/app/services/enrollment.service';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-form-list',
@@ -18,8 +20,12 @@ export class FormListComponent implements OnInit {
 
   // Variables
   matriculas: EnrollmentForm[] = [];
+  matricula!: EnrollmentForm;
 
-  constructor (private enrollmentService: EnrollmentService) { }
+  constructor (
+    private enrollmentService: EnrollmentService,
+    private studentService: StudentService
+  ) { }
 
   ngOnInit(): void {
     this.obtenerMatriculas();
@@ -27,7 +33,7 @@ export class FormListComponent implements OnInit {
 
   // TODO: Obtener Matriculas
   obtenerMatriculas() {
-    this.enrollmentService.getAllSchedule()
+    this.enrollmentService.getAllEnrollment()
     .subscribe({
       next: (items) => {
         let matriculas = Object.entries(items);
@@ -44,11 +50,64 @@ export class FormListComponent implements OnInit {
     })
   }
 
-  // TODO: Eliminar Horario
-  aceptarMatricula (id: string) {
-    
+  // TODO: Obtener los datos del backend
+  obtenerMatricula (id: string) {
+    this.enrollmentService.getEnrollment(id)
+    .subscribe({
+      next: (matric) => {
+        const valor = Object.entries(matric);
+        this.matricula = valor[1][1];
+
+        this.enviarRegistro(this.matricula);
+      },
+      error: (err) => {
+        console.log(err);
+        Swal.fire('Error', err.error.msg, 'error');
+      }
+    });
   }
 
+  // TODO: Aceptar Matrícula (Eliminar matrícula y Crear registro)
+  aceptarMatricula (id: string) {
+    this.enrollmentService.getEnrollment(id)
+    .subscribe({
+      next: (matric) => {
+        const valor = Object.entries(matric);
+        this.matricula = valor[1][1];
+
+        const { horario, matricula, ...campos } = this.matricula;
+
+        const horarioID = Object(this.matricula.horario)._id;
+
+        let res: EnrollmentForm = { 
+          horario: horarioID, 
+          matricula: true,
+          ...campos 
+        };
+
+        this.enviarRegistro(res);
+      },
+      error: (err) => {
+        console.log(err);
+        Swal.fire('Error', err.error.msg, 'error');
+      }
+    });
+
+    this.eliminarMatricula(id);
+  }
+
+  // TODO: Mandar registro
+  enviarRegistro (student: StudentForm) {
+    this.studentService.createStudent(student)
+    .subscribe({
+      next: (resp) => {
+        Swal.fire('Aceptado', 'Alumno registrado', 'success');
+      },
+      error: (err) => {
+        Swal.fire('Aceptado', err.error.msg, 'success');
+      }
+    })
+  }
 
   // TODO: Eliminar Matricula
   eliminarMatricula (id: string) {
@@ -58,5 +117,4 @@ export class FormListComponent implements OnInit {
       error: (err) => Swal.fire('Error', err.error.msg, 'error')
     })
   }
-
 }

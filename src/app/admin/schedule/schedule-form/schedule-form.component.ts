@@ -82,6 +82,8 @@ export class ScheduleFormComponent {
       return;
     }
 
+    console.log(this.scheduleForm.value);
+
     this.scheduleService.createSchedule(this.scheduleForm.value)
     .subscribe({
       next: (resp) => {
