@@ -28,8 +28,19 @@ export class EnrollmentService {
     });
   }
 
-  // TODO: Crear horario
+  // TODO: Crear matrícula
   createEnrollment (formData: EnrollmentForm) {
     return this.http.post(`${base_url}/matricula`, formData);
+  }
+
+  // TODO: Eliminar matrícula
+  deleteEnrollment (id: string) {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.delete(`${base_url}/matricula/${id}`, {
+      headers: {
+        'x-token': token
+      }
+    });
   }
 }

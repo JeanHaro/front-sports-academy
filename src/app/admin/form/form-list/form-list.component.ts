@@ -52,7 +52,11 @@ export class FormListComponent implements OnInit {
 
   // TODO: Eliminar Matricula
   eliminarMatricula (id: string) {
-    
+    this.enrollmentService.deleteEnrollment(id)
+    .subscribe({
+      next: (resp) => this.obtenerMatriculas(),
+      error: (err) => Swal.fire('Error', err.error.msg, 'error')
+    })
   }
 
 }
