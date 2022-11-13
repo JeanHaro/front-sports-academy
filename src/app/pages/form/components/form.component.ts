@@ -119,7 +119,7 @@ export class FormComponent implements OnInit {
             
             return true;
           } 
-        }
+        } 
         
         this.valores.valueHour = '';
 

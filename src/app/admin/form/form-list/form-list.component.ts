@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // SweetAlert2
 import Swal from 'sweetalert2';
@@ -19,7 +19,7 @@ import { StudentService } from 'src/app/services/student.service';
   templateUrl: './form-list.component.html',
   styleUrls: ['./form-list.component.scss']
 })
-export class FormListComponent implements OnInit, OnChanges {
+export class FormListComponent implements OnInit {
 
   // Variables
   matriculas: EnrollmentForm[] = [];
@@ -31,10 +31,6 @@ export class FormListComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
-    this.obtenerMatriculas();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
     this.obtenerMatriculas();
   }
 
@@ -125,7 +121,17 @@ export class FormListComponent implements OnInit, OnChanges {
         const valor = Object.entries(matric);
         this.matricula = valor[1][1];
 
-        if (Object(this.matricula.horario).fecha_inicial <= today) {
+        let inicio = Object(this.matricula.horario).fecha_inicial;
+
+        // Fecha inicio
+        let yearS = new Date(inicio).getUTCFullYear();
+        let monthS = new Date(inicio).getUTCMonth();
+        let dayS = new Date(inicio).getUTCDate();
+        // date-fns
+        let fecha_inicio = format(new Date(yearS, monthS, dayS), 'yyyy-MM-dd');
+
+        // Si fecha inicio es menor a la fecha de hoy
+        if (fecha_inicio < today) {
           this.eliminarMatricula(id);
         }
       },
