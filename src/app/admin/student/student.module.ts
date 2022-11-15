@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Formularios
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // Componentes
 import { StudentsListComponent } from './students-list/students-list.component';
 import { StudentFormComponent } from './student-form/student-form.component';
@@ -23,7 +26,9 @@ import { StudentRoutingModule } from './student.routing';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    StudentRoutingModule
+    StudentRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class StudentModule { }

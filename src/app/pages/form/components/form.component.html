@@ -40,32 +40,30 @@
             <div class="form__register-2">
                 <div class="form__register-names content-input">
                     <p class="text-warn text-warn-top" *ngIf="campoNoValido('nombre')">* El nombre es obligatorio</p>
-                    <input class="none input" type="text" id="form-names" placeholder="Nombres*" required formControlName="nombre">
+                    <input class="none input" type="text" placeholder="Nombres*" required formControlName="nombre">
                 </div><!-- Nombres -->
 
                 <div class="form__register-lastName content-input">
                     <p class="text-warn text-warn-top" *ngIf="campoNoValido('apellido')">* El apellido es obligatorio</p>
-                    <input class="none input" type="text" id="form-lastName" placeholder="Apellidos*" required formControlName="apellido">
+                    <input class="none input" type="text" placeholder="Apellidos*" required formControlName="apellido">
                 </div><!-- Apellidos -->
             </div><!-- Contenedor de 2 inputs-->
 
             <div class="form__register-2">
                 <div class="form__register-email content-input">
                     <p class="text-warn text-warn-top" *ngIf="campoNoValido('email')">* El correo electrónico es obligatorio</p>
-
-                    <input class="none input" type="email" id="form-email" placeholder="Correo electrónico*" required formControlName="email">
+                    <input class="none input" type="email" placeholder="Correo electrónico*" required formControlName="email">
                 </div><!-- Email -->
 
                 <div class="form__register-phone content-input">
                     <p class="text-warn text-warn-top" *ngIf="verificarCelular()">* El celular es obligatorio y debe ser valido</p>
-                    <input class="none input" type="tel" id="form-phone" placeholder="Celular*" required formControlName="celular">
+                    <input class="none input" type="tel" placeholder="Celular*" required formControlName="celular">
                 </div><!-- Celular -->
             </div><!-- Contenedor de 2 inputs -->
 
             <div class="form__register-2">
                 <div class="form__register-dni content-input">
                     <p class="text-warn text-warn-top" *ngIf="verificarDNI()">* El dni es obligatorio y debe ser valido</p>
-
                     <input class="none input" type="number" placeholder="DNI*" required formControlName="dni">
                 </div><!-- DNI -->
 
@@ -78,7 +76,7 @@
             <div class="form__register-2">
                 <div class="form__register-turn select content-input" (click)="selectClick($event)">
                     <p class="text-warn text-warn-top" *ngIf="campoNoValido('turno')">* El turno es obligatorio</p>
-                    <input class="none input" type="text" id="form-turn" placeholder="Turno*" [value]="valores.valueTurn" readonly formControlName="turno">
+                    <input class="none input" type="text" placeholder="Turno*" [value]="valores.valueTurn" readonly formControlName="turno">
 
                     <div class="option">
                         <div (mouseover)="viewSelect('Mañana', valores.valueHour); obtenerHora()">Mañana</div>
