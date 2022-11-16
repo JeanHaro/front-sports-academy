@@ -1,0 +1,29 @@
+tr {
+    display: flex !important;
+
+    @media (min-width: 2050px) {
+        display: table-row !important;
+    }
+}
+
+td, th {
+    display: flex !important;
+
+    padding: 2rem !important;
+    width: 20rem !important;
+
+    &:nth-child(1) {
+        width: 8rem !important;
+    }
+
+    @media (min-width: 2050px) {
+        display: table-cell !important;
+        width: auto !important;
+    }
+}
+
+// Contenedor de Botones
+.admin-list__table-btn {
+    display: flex !important;
+    justify-content: center !important;
+}

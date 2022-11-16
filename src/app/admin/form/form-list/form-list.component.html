@@ -15,8 +15,8 @@
                 </tr>
             </thead><!-- Cabecera -->
     
-            <tbody *ngFor="let matricula of matriculas">
-                <tr>
+            <tbody>
+                <tr *ngFor="let matricula of matriculas">
                     <td>{{ matricula.order }}</td>
                     <td>{{ matricula.nombre }}</td>
                     <td>{{ matricula.apellido }}</td>
@@ -27,7 +27,7 @@
                         <a class="btn btn-white" [routerLink]="['/admin/schedule', matricula.horario]">Ver</a>
                     </td>
                     <td *ngIf="!matricula.matricula; else elseCheck">No pagado</td>
-                    <ng-template #elseCheck>Pagado</ng-template>
+                    <ng-template #elseCheck><td>Pagado</td></ng-template>
                     
                     <td class="admin-list__table-btn">
                         <button class="btn btn-green" (click)="aceptarMatricula(matricula.uid)">Aceptar</button>

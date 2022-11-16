@@ -18,6 +18,17 @@ export class StudentService {
 
   constructor (private http: HttpClient) { }
 
+  // TODO: Obtener registros
+  getAllStudent() {
+    const token = localStorage.getItem('token') || '';
+    
+    return this.http.get<StudentForm>(`${base_url}/registro`, {
+      headers: {
+        'x-token': token
+      }
+    });
+  }
+
   // TODO: Crear registro
   createStudent (formData: StudentForm) {
     const token = localStorage.getItem('token') || '';
