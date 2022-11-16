@@ -21,7 +21,7 @@ export class StudentService {
   // TODO: Obtener registros
   getAllStudent() {
     const token = localStorage.getItem('token') || '';
-    
+
     return this.http.get<StudentForm>(`${base_url}/registro`, {
       headers: {
         'x-token': token
@@ -34,6 +34,17 @@ export class StudentService {
     const token = localStorage.getItem('token') || '';
 
     return this.http.post(`${base_url}/registro`, formData, {
+      headers: {
+        'x-token': token
+      }
+    })
+  }
+
+  // TODO: Eliminar registro
+  deleteStudent (id: string) {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.delete(`${base_url}/registro/${id}`, {
       headers: {
         'x-token': token
       }

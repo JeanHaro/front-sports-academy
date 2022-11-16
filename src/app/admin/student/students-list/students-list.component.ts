@@ -43,4 +43,13 @@ export class StudentsListComponent implements OnInit {
     })
   }
 
+  // TODO: Eliminar Registro
+  eliminarRegistro (id: string) {
+    this.studentService.deleteStudent(id)
+    .subscribe({
+      next: (resp) => this.obtenerRegistros(),
+      error: (err) => Swal.fire('Error', err.error.msg, 'error')
+    })
+  }
+
 }
