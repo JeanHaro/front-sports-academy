@@ -22,6 +22,10 @@ td, th {
     }
 }
 
+td {
+    padding: 1rem 2rem !important;
+}
+
 // Contenedor de Botones
 .admin-list__table-btn {
     display: flex !important;

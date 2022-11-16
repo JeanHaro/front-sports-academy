@@ -1,66 +1,71 @@
 <div class="form__admin max-width">
     <h3>Crear Registro</h3>
 
-    <form class="form__admin-container">
+    <form autocomplete="off" [formGroup]="studentForm" (ngSubmit)="actualizarRegistro()" class="form__admin-container">
         <div class="form__admin-3">
             <div class="form__admin-names content-input">
                 <label for="form-names">Nombres<span>*</span></label>
-                <input class="none input" type="text" id="form-names" placeholder="Nombres" required>
+                <input class="none input" type="text" placeholder="Nombres" required formControlName="nombre">
+                <p class="text-warn" *ngIf="campoNoValido('nombre')">* El nombre es obligatorio</p>
             </div><!-- Nombres -->
 
             <div class="form__admin-lastname content-input">
                 <label for="form-lastname">Apellidos<span>*</span></label>
-                <input class="none input" type="text" id="form-lastname" placeholder="Apellidos" required>
+                <input class="none input" type="text" placeholder="Apellidos" required formControlName="apellido">
+                <p class="text-warn" *ngIf="campoNoValido('apellido')">* El apellido es obligatorio</p>
             </div><!-- Apellidos -->
 
             <div class="form__admin-email content-input">
                 <label for="form-email">Correo Electrónico<span>*</span></label>
-                <input class="none input" type="email" id="form-email" placeholder="Correo electrónico" required>
+                <input class="none input" type="email" placeholder="Correo electrónico" required formControlName="email">
+                <p class="text-warn" *ngIf="campoNoValido('email')">* El correo electrónico es obligatorio</p>
             </div><!-- Correo Electrónico -->
         </div><!-- Contenedor de 3 inputs -->
 
         <div class="form__admin-2">
             <div class="form__admin-cel content-input">
                 <label for="form-cel">Celular<span>*</span></label>
-                <input class="none input" type="number" id="form-cel" placeholder="Celular" required>
+                <input class="none input" type="number" placeholder="Celular" required formControlName="celular">
+                <p class="text-warn" *ngIf="verificarCelular()">* El celular es obligatorio y debe ser valido</p>
             </div><!-- Celular -->
-
 
             <div class="form__admin-dni content-input">
                 <label for="form-dni">DNI<span>*</span></label>
-                <input class="none input" type="number" id="age-end" placeholder="DNI" required>
+                <input class="none input" type="number" placeholder="DNI" required formControlName="dni">
+                <p class="text-warn" *ngIf="verificarDNI()">* El dni es obligatorio y debe ser valido</p>
             </div><!-- DNI -->
         </div><!-- Contenedor de 2 inputs -->
 
         <div class="form__admin-3">
-            <div class="form__admin-age select content-input" (click)="selectClick($event)">
+            <div class="form__admin-age content-input" (click)="selectClick($event)">
                 <label for="form-age">Edad<span>*</span></label>
-                <input class="none input" type="text" id="form-age" placeholder="Rango de edad" [value]="valores.valueAge" readonly>
+                <input class="none input" type="number" min="5" max="16" (keyup)="obtenerHora()" placeholder="Edad*" required formControlName="edad">
+                <p class="text-warn" *ngIf="campoNoValido('edad')">* La edad es obligatoria</p>
 
-                <div class="option">
-                    <div (mouseover)="viewCategories('5 a 6 años')">5 a 6 años</div>
-                    <div (mouseover)="viewCategories('7 a 8 años')">7 a 8 años</div>
-                </div><!-- Opciones -->
             </div><!-- Selector de edad -->
 
             <div class="form__admin-turn select content-input" (click)="selectClick($event)">
                 <label for="form-turn">Turno<span>*</span></label>
-                <input class="none input" type="text" id="form-turn" placeholder="Turno" [value]="valores.valueTurn" readonly>
+                <input class="none input" type="text" placeholder="Turno" [value]="valores.valueTurn" readonly formControlName="turno">
+                <p class="text-warn" *ngIf="campoNoValido('turno')">* El turno es obligatorio</p>
 
                 <div class="option">
-                    <div (mouseover)="viewCategories(undefined, 'Mañana')">Mañana</div>
-                    <div (mouseover)="viewCategories(undefined, 'Tarde')">Tarde</div>
-                    <div (mouseover)="viewCategories(undefined, 'Noche')">Noche</div>
+                    <div (mouseover)="viewCategories('Mañana', valores.valueHour); obtenerHora()">Mañana</div>
+                    <div (mouseover)="viewCategories('Tarde', valores.valueHour); obtenerHora()">Tarde</div>
+                    <div (mouseover)="viewCategories('Noche', valores.valueHour); obtenerHora()">Noche</div>
                 </div><!-- Opciones -->
             </div><!-- Selector de turno -->
 
             <div class="form__admin-hour select content-input" (click)="selectClick($event)">
-                <label for="form-hour">Hour<span>*</span></label>
-                <input class="none input" type="datetime" id="form-hour" placeholder="Hora" [value]="valores.valueHour" readonly>
+                <label for="form-hour">Hora<span>*</span></label>
+                <input class="none input" type="datetime" placeholder="Hora" [value]="valores.valueHour" readonly formControlName="hora">
+                <p class="text-warn" *ngIf="campoNoValido('hora')">* La hora es obligatoria</p>
 
                 <div class="option">
-                    <div (mouseover)="viewCategories(undefined, undefined, '8:00 - 9:00')">8:00 - 9:00</div>
-                    <div (mouseover)="viewCategories(undefined, undefined, '9:15 - 10:15')">9:15 - 10:15</div>
+                    <div *ngFor="let hora of horas" (mouseover)="viewCategories(valores.valueTurn, hora.hora_inicial + ' - ' + hora.hora_final); obtenerID()">
+                        {{ hora.hora_inicial }} - {{ hora.hora_final }}
+                    </div>
+                    <div class="text-warn" *ngIf="horas.length === 0">No hay horario</div>
                 </div><!-- Opciones -->
             </div><!-- Selector de hora -->
         </div><!-- Contenedor de 3 inputs-->

@@ -6,6 +6,7 @@ export interface StudentForm {
     celular: number;
     dni: number;
     codigo: string;
+    edad: number;
     matricula?: boolean;
     pago1?: boolean;
     pago2?: boolean;

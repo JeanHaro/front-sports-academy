@@ -29,11 +29,33 @@ export class StudentService {
     });
   }
 
+  // TODO: Obtener registro
+  getStudent (id: string) {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.get<StudentForm>(`${base_url}/registro/${id}`, {
+      headers: {
+        'x-token': token
+      }
+    });
+  }
+
   // TODO: Crear registro
   createStudent (formData: StudentForm) {
     const token = localStorage.getItem('token') || '';
 
     return this.http.post(`${base_url}/registro`, formData, {
+      headers: {
+        'x-token': token
+      }
+    })
+  }
+
+  // TODO: Actualizar registro
+  updateStudent (id: string, formData: StudentForm) {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.put(`${base_url}/registro/${id}`, formData, {
       headers: {
         'x-token': token
       }

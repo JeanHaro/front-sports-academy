@@ -6,6 +6,7 @@ export interface EnrollmentForm {
     celular: number;
     dni: number;
     codigo: string;
+    edad: number;
     matricula: boolean;
     horario: string;
     order?: number;

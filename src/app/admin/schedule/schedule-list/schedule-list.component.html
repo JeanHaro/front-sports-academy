@@ -18,8 +18,8 @@
                 </tr>
             </thead><!-- Cabecera -->
     
-            <tbody *ngFor="let horario of horarios">
-                <tr>
+            <tbody>
+                <tr *ngFor="let horario of horarios">
                     <td>{{ horario.order }}</td>
                     <td>{{ horario.nombre }}</td>
                     <td>{{ horario.turno }}</td>
