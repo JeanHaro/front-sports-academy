@@ -307,7 +307,7 @@ export class StudentEditComponent implements OnInit {
 
     this.studentService.updateStudent(this.id, this.studentForm.value)
     .subscribe((resp) => {
-        this.router.navigate(['/admin/students']);
+      history.go(-1);
     })
   }
 
@@ -385,5 +385,9 @@ export class StudentEditComponent implements OnInit {
     if (valorObject === selectPayTwo) selectPayTwo?.classList.toggle('active');
     if (valorObject === selectPayThree) selectPayThree?.classList.toggle('active');
     if (valorObject === selectPayFour) selectPayFour?.classList.toggle('active');
+  }
+
+  toReturn() {
+    history.go(-1);
   }
 }

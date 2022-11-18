@@ -24,31 +24,41 @@
             </thead><!-- Cabecera -->
     
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Prueba</td>
-                    <td>Prueba</td>
-                    <td>prueba@hotmail.com</td>
-                    <td>999666333</td>
-                    <td>65186532</td>
-                    <td>
+                <tr *ngFor="let registro of registros">
+                    <td>{{ registro.order }}</td>
+                    <td>{{ registro.nombre }}</td>
+                    <td>{{ registro.apellido }}</td>
+                    <td>{{ registro.email }}</td>
+                    <td>{{ registro.celular }}</td>
+                    <td>{{ registro.dni }}</td>
+                    <td *ngIf="registro.matricula; else elseMatricula">
                         Pagado
                     </td>
-                    <td>
+                    <ng-template #elseMatricula><td>No pagado</td></ng-template>
+
+                    <td *ngIf="registro.pago1; else elseMatricula">
                         Pagado
                     </td>
-                    <td>
+                    <ng-template #elseMatricula><td>No pagado</td></ng-template>
+
+                    <td *ngIf="registro.pago2; else elseMatricula">
                         Pagado
                     </td>
-                    <td>
+                    <ng-template #elseMatricula><td>No pagado</td></ng-template>
+                    
+                    <td *ngIf="registro.pago3; else elseMatricula">
                         Pagado
                     </td>
-                    <td>
+                    <ng-template #elseMatricula><td>No pagado</td></ng-template>
+
+                    <td *ngIf="registro.pago4; else elseMatricula">
                         Pagado
                     </td>
+                    <ng-template #elseMatricula><td>No pagado</td></ng-template>
+
                     <td class="admin-list__table-btn">
-                        <button class="btn btn-orange" routerLink="edit/123">Editar</button>
-                        <button class="btn btn-warn">Eliminar</button>
+                        <button class="btn btn-orange" [routerLink]="['/admin/students/edit', registro.uid]">Editar</button>
+                        <button class="btn btn-warn" (click)="eliminarRegistro(registro.uid)">Eliminar</button>
                     </td><!-- Contenedor de Botones -->
                 </tr>
             </tbody><!-- Lista -->
