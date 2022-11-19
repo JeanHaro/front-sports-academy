@@ -4,6 +4,11 @@ import { Router } from '@angular/router';
 // SweetAlert2
 import Swal from 'sweetalert2';
 
+// PDFMake
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+
 // Date-fns
 import { format } from 'date-fns';
 
@@ -176,6 +181,7 @@ export class FormComponent implements OnInit {
         this.formSubmitted = false;
         this.enrollmentForm.reset();
         this.router.navigateByUrl('/form');
+        this.crearPDF();
 
         Swal.fire('Correcto', 'Formulario enviado' , 'success');
       },
@@ -183,6 +189,20 @@ export class FormComponent implements OnInit {
         Swal.fire('Error', err.error.msg, 'error');
       }
     })
+  }
+
+  // TODO: Generar PDF
+  crearPDF() {
+    const pdfDefinition: any = {
+      content: [
+        {
+          text: 'Hola mundo'
+        }
+      ],
+    }
+
+    const pdf = pdfMake.createPdf(pdfDefinition);
+    pdf.open();
   }
 
   // TODO: Si el campo no es valido
@@ -197,8 +217,8 @@ export class FormComponent implements OnInit {
   verificarDNI() {
     const dni = this.enrollmentForm.get('dni')?.value;
 
-    // Si la cantidad de números  no es 7
-    if (String(dni).length !== 7 && this.formSubmitted) return true;
+    // Si la cantidad de números  no es 8
+    if (String(dni).length !== 8 && this.formSubmitted) return true;
 
     return false;
   }
@@ -208,7 +228,7 @@ export class FormComponent implements OnInit {
     return (formGroup: AbstractControl): ValidationErrors | null => {
       const dniControl = formGroup.get(dniValor);
 
-      if (String(dniControl?.value).length === 7) {
+      if (String(dniControl?.value).length === 8) {
         dniControl?.setErrors(null);
       } else {
         dniControl?.setErrors({ noEsDNI: true})

@@ -221,8 +221,8 @@ export class StudentEditComponent implements OnInit {
   verificarDNI() {
     const dni = this.studentForm.get('dni')?.value;
 
-    // Si la cantidad de números  no es 7
-    if (String(dni).length !== 7 && this.formSubmitted) return true;
+    // Si la cantidad de números  no es 8
+    if (String(dni).length !== 8 && this.formSubmitted) return true;
 
     return false;
   }
@@ -232,7 +232,7 @@ export class StudentEditComponent implements OnInit {
     return (formGroup: AbstractControl): ValidationErrors | null => {
       const dniControl = formGroup.get(dniValor);
 
-      if (String(dniControl?.value).length === 7) {
+      if (String(dniControl?.value).length === 8) {
         dniControl?.setErrors(null);
       } else {
         dniControl?.setErrors({ noEsDNI: true})

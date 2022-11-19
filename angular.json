@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "sweetalert2",
+              "pdfmake/build/pdfmake",
+              "pdfmake/build/vfs_fonts"
+            ],
             "outputPath": "dist/forcrack",
             "index": "src/index.html",
             "main": "src/main.ts",
