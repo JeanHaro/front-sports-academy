@@ -63,8 +63,10 @@
                         <button class="btn btn-warn" (click)="eliminarRegistro(registro.uid)">Eliminar</button>
                     </td><!-- Contenedor de Botones -->
                 </tr>
+                    
+                <p *ngIf="registros.length == 0">No hay registros</p>
             </tbody><!-- Lista -->
-        </table><!-- Tabla de Horarios -->
+        </table><!-- Tabla de Registros -->
     </div><!-- Contenedor Tabla -->
 </div><!-- Horario-->
 

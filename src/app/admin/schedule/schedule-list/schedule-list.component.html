@@ -36,6 +36,10 @@
                         <button class="btn btn-warn" (click)="eliminarHorario(horario.uid)">Eliminar</button>
                     </td><!-- Contenedor de Botones -->
                 </tr>
+
+                <tr *ngIf="horarios.length == 0">
+                    <td colspan="10">No hay horarios</td>
+                </tr>
             </tbody><!-- Lista -->
         </table><!-- Tabla de Horarios -->
     </div><!-- Contenedor Tabla -->
