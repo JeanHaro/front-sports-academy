@@ -255,8 +255,8 @@ export class FormComponent implements OnInit {
         {
           alignment: 'justify',
           columns: [
-            { text: 'Información del estudiante', style: 'subheader2' },
-            { text: 'Información del horario', style: 'subheader2' }
+            { text: 'Información del horario', style: 'subheader2' },
+            { text: 'Información del estudiante', style: 'subheader2' }
           ]
         },
         {
