@@ -119,6 +119,18 @@
         border-radius: 20px;  
       }
 
+      a {
+        color: var(--colorTerciario);
+      }
+
+      // Notificaciones
+      .sidenav__link-notify {
+        @media (min-width: 768px) {
+          display: none;
+          visibility: hidden;
+        }
+      }
+
       // Tipo
       .sidenav__link-title {
         display: flex;
@@ -153,7 +165,6 @@
 
           display: block;
 
-          color: var(--colorTerciario);
           padding: 2rem 1rem;
           cursor: pointer;
           z-index: 5;
@@ -211,6 +222,8 @@
       display: flex;
       align-items: center;
       
+      position: relative;
+
       box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
 
       @media (min-width: 768px) {
@@ -279,6 +292,142 @@
         p {
             align-self: flex-end;
             margin-left: 0.5rem;
+        }
+      }
+
+      // Botón de notificaciones
+      .admin__header-notify {
+        display: none;
+        visibility: hidden;
+
+        color: var(--colorPrincipal);
+        border-radius: 1rem;
+        margin-right: 1rem;
+        padding: 1rem 2rem;
+        font-size: 2.3rem;
+
+        transition: 0.5s ease;
+
+        &:active {
+          background-color: var(--colorTerciario);
+        }
+
+        @media (min-width: 768px) {
+          display: inline-block;
+          visibility: visible;
+        }
+
+        .admin__header-icon {
+          cursor: pointer;
+        }
+      }
+
+      // TODO: Check
+      #check-notify {
+        display: none;
+        visibility: hidden;
+      }
+
+      #check-notify:checked ~ .admin__header-notifications {
+        @media (min-width: 768px) {
+          display: block;
+          visibility: visible;
+        }
+      }
+
+      // Contenedor de las notificaciones
+      .admin__header-notifications {
+        display: none;
+        visibility: hidden;
+
+        position: absolute;
+        top: 78%;
+        right: 0;
+
+        // Triangulo
+        .admin__header-triangle {
+          position: relative;
+          right: -83%;
+          bottom: 100%;
+
+          width: 0;
+          height: 0;
+          border-bottom: 20px solid var(--colorBlanco);
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+
+          z-index: 10;
+        }
+
+        // Notificaciones
+        .admin__notifications-content {
+          width: 300px;
+          max-height: calc(100vh - 40rem);
+          overflow-y: scroll;
+
+          background-color: var(--colorBlanco);
+          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+
+          @media (min-width: 1400px) {
+            width: 350px;
+          }
+
+          // Scroll
+          &::-webkit-scrollbar {
+            -webkit-appearance: none;
+          }
+          
+          &::-webkit-scrollbar:vertical {
+              width: 6px;
+          }
+          
+          &::-webkit-scrollbar-button:increment,
+          &::-webkit-scrollbar-button {
+              display: none;
+          } 
+          
+          &::-webkit-scrollbar:horizontal {
+              height: 6px;
+          }
+          
+          &::-webkit-scrollbar-thumb {
+              background-color: var(--colorSecundario);
+              border-radius: 20px;
+          }
+          
+          &::-webkit-scrollbar-track {
+              border-radius: 20px;  
+          }
+    
+          @media (min-width: 768px) {
+            // Notificación
+            .admin__notify-card {
+              display: flex;
+              align-items: center;
+    
+              padding: 1rem;
+              border-bottom: 1px solid var(--colorPrincipal);
+
+              &:last-child {
+                border-bottom: none;
+              }
+    
+              .admin__notify-icon {
+                width: 20px;
+                height: 20px;
+                padding: 1rem;
+                border-radius: 50%;
+                border: 2px solid var(--colorPrincipal);
+                color: var(--colorPrincipal);
+    
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                margin-right: 1rem;
+              }
+            }
+          }
         }
       }
     }

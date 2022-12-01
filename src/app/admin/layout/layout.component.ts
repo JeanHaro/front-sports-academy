@@ -6,7 +6,10 @@ import {
   faChevronDown,
   faListCheck,
   faUser,
-  faRightFromBracket
+  faRightFromBracket,
+  faBell,
+  faExclamation,
+  faCircleExclamation
 } from '@fortawesome/free-solid-svg-icons';
 
 // Servicios
@@ -25,6 +28,9 @@ export class LayoutComponent {
   faListCheck = faListCheck;
   faUser = faUser;
   faRightFromBracket = faRightFromBracket;
+  faBell = faBell;
+  faCircleExclamation = faCircleExclamation;
+  faExclamation = faExclamation;
 
   constructor (private adminService: AdminService) {}
 
@@ -33,6 +39,7 @@ export class LayoutComponent {
     let titleSchedule = document.getElementById('title-schedule');
     let titleForm = document.getElementById('title-form');
     let titleStudent = document.getElementById('title-student');
+    let titleNotify = document.getElementById('title-notify');
 
     let listSchedule = document.querySelector('.sidenav__link-schedule ul');
     let listForm = document.querySelector('.sidenav__link-form ul');
@@ -54,6 +61,10 @@ export class LayoutComponent {
     if (titleStudent === element) {
       titleStudent?.classList.toggle('color-white');
       listStudent?.classList.toggle('hidden');
+    }
+
+    if (titleNotify === element) {
+      titleNotify?.classList.toggle('color-white');
     }
   }
 

@@ -53,12 +53,21 @@
 
         <ul class="hidden">
           <li>
-            <a routerLink="students" routerLinkActive="active" >Lista de Alumnos</a>
+            <a routerLink="students" routerLinkActive="active">Lista de Alumnos</a>
           </li>
         </ul><!-- Categorias -->
       </div><!-- Alumnos -->
 
-      <div class="sidenav__link-student">
+      <div class="sidenav__link-notify">
+        <a routerLink="notify" id="title-notify" class="sidenav__link-title" (click)="showNav($event)">
+          <div>
+            <fa-icon [icon]="faCircleExclamation"></fa-icon>
+            <p>Notificaciones</p>
+          </div>
+        </a>
+      </div><!-- Notificaciones -->
+
+      <div class="sidenav__link-close">
         <a (click)="logout()" class="sidenav__link-title">
           <div>
             <fa-icon [icon]="faRightFromBracket"></fa-icon>
@@ -79,10 +88,46 @@
         <h1>Forcrack</h1>
         <p>Perú</p>
       </div><!-- Titulo -->
+
+      <label for="check-notify" class="admin__header-notify">
+        <fa-icon class="admin__header-icon" [icon]="faBell"></fa-icon>
+      </label><!-- Botón de notificaciones -->
+
+      <input type="checkbox" id="check-notify">
+      <div id="notifications" class="admin__header-notifications animate__animated animate__fadeIn">
+        <div class="admin__header-triangle"></div><!-- Triangulo -->
+        
+        <div class="admin__notifications-content">
+          <div class="admin__notify-card">
+            <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
+            <p>Alumno le falta 1 día(s) para que pueda cancelar su matrícula, acaba el 30/11/2022</p>
+          </div><!-- Notificacion -->
+  
+          <div class="admin__notify-card">
+            <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
+            <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
+          </div><!-- Notificacion -->
+  
+          <div class="admin__notify-card">
+            <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
+            <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
+          </div><!-- Notificacion -->
+  
+          <div class="admin__notify-card">
+            <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
+            <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
+          </div><!-- Notificacion -->
+  
+          <div class="admin__notify-card">
+            <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
+            <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
+          </div><!-- Notificacion -->
+        </div><!-- Notificaciones -->
+      </div><!-- Contenedor de las notificaciones -->
     </div><!-- Cabecera -->
 
     <div class="admin__content-information">
       <router-outlet></router-outlet>
-    </div><!-- Información -->
-  </div><!-- Contenido -->
+    </div><!-- Contenido -->
+  </div><!-- Información -->
 </main><!-- Admin -->
