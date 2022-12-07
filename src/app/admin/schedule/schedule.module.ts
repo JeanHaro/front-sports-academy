@@ -15,11 +15,10 @@ import { ScheduleUniqueComponent } from './schedule-unique/schedule-unique.compo
 
 // Modulos
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 // Routing
 import { ScheduleRoutingModule } from './schedule.routing';
-import { SharedModule } from 'src/app/shared/shared.module';
-
 
 @NgModule({
   declarations: [
@@ -31,11 +30,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    SharedModule,
     ScheduleRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class ScheduleModule { }

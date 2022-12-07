@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 // Modulos
 import { AdminRoutingModule } from './admin.routing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 // Componentes
 import { LayoutComponent } from './layout/layout.component';
@@ -15,7 +16,8 @@ import { LayoutComponent } from './layout/layout.component';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SharedModule
   ]
 })
 export class AdminModule { }

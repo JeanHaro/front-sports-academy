@@ -94,34 +94,34 @@
       </label><!-- Botón de notificaciones -->
 
       <input type="checkbox" id="check-notify">
-      <div id="notifications" class="admin__header-notifications animate__animated animate__fadeIn">
+      <div *ngIf="(notificaciones$ | async) as notify" id="notifications" class="admin__header-notifications animate__animated animate__fadeIn">
         <div class="admin__header-triangle"></div><!-- Triangulo -->
         
         <div class="admin__notifications-content">
-          <div class="admin__notify-card">
-            <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
-            <p>Alumno le falta 1 día(s) para que pueda cancelar su matrícula, acaba el 30/11/2022</p>
+          <div class="admin__notify-card" *ngIf="notify.length === 0; else elseNotify">
+            <p>No hay notificaciones</p>
           </div><!-- Notificacion -->
-  
-          <div class="admin__notify-card">
-            <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
-            <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-          </div><!-- Notificacion -->
-  
-          <div class="admin__notify-card">
-            <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
-            <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-          </div><!-- Notificacion -->
-  
-          <div class="admin__notify-card">
-            <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
-            <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-          </div><!-- Notificacion -->
-  
-          <div class="admin__notify-card">
-            <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
-            <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-          </div><!-- Notificacion -->
+
+          <ng-template #elseNotify>
+              <div *ngFor="let notify of notify" class="admin__notify-card">
+                <fa-icon class="admin__notify-icon" [icon]="faExclamation"></fa-icon>
+                <div *ngIf="notify.tipo === 'registro'; else elseTipo">
+                  <p *ngIf="notify.diasA >= 0; else elseDias">{{ notify.nombre }} le queda {{ notify.diasA }} día(s) con {{ notify.horasA }} hora(s) y {{ notify.minutosA }} minuto(s) para que pueda cancelar su pago mensual, vence el {{ notify.fecha_pago | formDate }}</p>
+                  
+                  <ng-template #elseDias>
+                    <p>{{ notify.nombre }} debe el pago mensual desde hace {{ notify.diasD }} día(s) con {{ notify.horasD }} hora(s) y {{ notify.minutosD }} minuto(s), venció el {{ notify.fecha_pago | formDate }}</p>
+                  </ng-template>
+                </div>
+                
+                <ng-template #elseTipo>
+                  <p *ngIf="notify.diasA >= 0; else elseDias">{{ notify.nombre }} le queda {{ notify.diasA }} día(s) con {{ notify.horasA }} hora(s) y {{ notify.minutosA }} minuto(s) para que pueda cancelar su matricula, vence el {{ notify.fecha_inicio | formDate }}</p>
+                  
+                  <ng-template #elseDias>
+                    <p>{{ notify.nombre }} debe la matricula desde hace {{ notify.diasD }} día(s) con {{ notify.horasD }} hora(s) y {{ notify.minutosD }} minuto(s), venció el {{ notify.fecha_inicio | formDate }}</p>
+                  </ng-template>
+                </ng-template>
+              </div><!-- Notificacion -->
+          </ng-template>
         </div><!-- Notificaciones -->
       </div><!-- Contenedor de las notificaciones -->
     </div><!-- Cabecera -->
