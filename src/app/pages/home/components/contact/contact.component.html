@@ -4,25 +4,25 @@
 
         <p>Completa el siguiente formulario, y un miembro de nuestro equipo se pondrá en contacto con usted</p>
 
-        <form class="home__contact-form">
+        <form autocomplete="off" [formGroup]="contactForm" (ngSubmit)="enviarContactanos()" class="home__contact-form">
             <div class="contact__form-2">
                 <div class="contact__form-name content-input">
-                    <input class="none input" type="text" id="contact-name" placeholder="Ingrese su nombre*" required>
+                    <input class="none input" type="text" placeholder="Ingrese su nombre*" required formControlName="nombre">
                 </div><!-- Nombre -->
 
                 <div class="contact__form-email content-input">
-                    <input class="none input" type="email" id="contact-email" placeholder="Ingrese su correo electrónico*" required>
+                    <input class="none input" type="email" placeholder="Ingrese su correo electrónico*" required formControlName="email">
                 </div><!-- Email -->
             </div><!-- Contenedor de 2 inputs-->
 
 
             <div class="contact__form-2">
                 <div class="contact__form-phone content-input">
-                    <input class="none input" type="tel" id="contact-phone" placeholder="Ingrese su celular*" required>
+                    <input class="none input" type="tel" placeholder="Ingrese su celular*" required formControlName="celular">
                 </div><!-- Teléfono -->
 
                 <div class="contact__form-affair content-input" (click)="selectClick($event)">
-                    <input class="none input" type="text" id="input-select" placeholder="Seleccionar asunto*" [value]="valores.valueAffairs" readonly required>
+                    <input class="none input" type="text" placeholder="Seleccionar asunto*" [value]="valores.valueAffairs" readonly required formControlName="asunto">
 
                     <div class="option">
                         <div (mouseover)="viewSelect('Reclamación')">Reclamación</div>
@@ -32,7 +32,7 @@
             </div><!-- Contenedor de 2 inputs -->
 
             <div class="contact__form-message content-input">
-                <textarea class="none input" id="contact-message" placeholder="Ingrese el mensaje*" required></textarea>
+                <textarea class="none input" placeholder="Ingrese el mensaje*" required formControlName="mensaje"></textarea>
             </div><!-- Mensaje -->
 
             <div class="contact__form-submit">

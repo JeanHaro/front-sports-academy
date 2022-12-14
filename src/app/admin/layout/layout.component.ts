@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 
 // Observaciones
 import { Observable } from 'rxjs';
@@ -62,14 +62,13 @@ export class LayoutComponent {
     private notifyService: NotifyService
   ) {
     this.notificaciones$ = this.notifyService.notify$;
-    console.log(this.notificaciones$);
   }
 
   ngOnInit(): void {
     this.obtenerMatriculas();
     this.obtenerRegistros();
   }
-
+  
   // TODO: Datos de las notificaciones con el tiempo
   notifyData (inicio: Date, element: EnrollmentForm | StudentForm, tipo: string) {
     // Fecha hoy

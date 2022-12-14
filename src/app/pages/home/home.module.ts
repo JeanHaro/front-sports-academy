@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Formularios
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // Componentes 
 import { HomeComponent } from './components/home/home.component';
 
@@ -24,7 +27,9 @@ import { HomeRoutingModule } from './home.routing';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }
