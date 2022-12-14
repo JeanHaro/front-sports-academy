@@ -233,6 +233,10 @@ export class FormComponent implements OnInit {
           lineHeight: 2
         },
         {
+          text: 'El costo de los pagos mensuales es de: S/ 450',
+          lineHeight: 2
+        },
+        {
           text: `Tu código para el pago es: ${valueForm.codigo}`,
           lineHeight: 2
         },
