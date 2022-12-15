@@ -1,41 +1,29 @@
 <div class="notify">
-    <div class="notify__card">
-        <fa-icon class="notify__card-icon" [icon]="faExclamation"></fa-icon>
-        <p>Alumno le falta 1 día(s) para que pueda cancelar su matrícula, acaba el 30/11/2022</p>
-    </div><!-- Notificacion -->
+    <div *ngIf="(notificaciones$ | async) as notify">
+        <div class="notify__card" *ngIf="notify.length === 0; else elseNotify">
+            <p>No hay notificaciones</p>
+        </div><!-- Notificacion -->
 
-    <div class="notify__card">
-        <fa-icon class="notify__card-icon" [icon]="faExclamation"></fa-icon>
-        <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-    </div><!-- Notificacion -->
+        <ng-template #elseNotify>
+            <div *ngFor="let notify of notify" class="notify__card">
+                <fa-icon class="notify__card-icon" [icon]="faExclamation"></fa-icon>
 
-    <div class="notify__card">
-        <fa-icon class="notify__card-icon" [icon]="faExclamation"></fa-icon>
-        <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-    </div><!-- Notificacion -->
-
-    <div class="notify__card">
-        <fa-icon class="notify__card-icon" [icon]="faExclamation"></fa-icon>
-        <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-    </div><!-- Notificacion -->
-
-    <div class="notify__card">
-        <fa-icon class="notify__card-icon" [icon]="faExclamation"></fa-icon>
-        <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-    </div><!-- Notificacion -->
-
-    <div class="notify__card">
-        <fa-icon class="notify__card-icon" [icon]="faExclamation"></fa-icon>
-        <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-    </div><!-- Notificacion -->
-
-    <div class="notify__card">
-        <fa-icon class="notify__card-icon" [icon]="faExclamation"></fa-icon>
-        <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-    </div><!-- Notificacion -->
-
-    <div class="notify__card">
-        <fa-icon class="notify__card-icon" [icon]="faExclamation"></fa-icon>
-        <p>Alumno le falta 2 día(s) para que pueda cancelar su pago mensual, acaba el 01/12/2022</p>
-    </div><!-- Notificacion -->
+                <div *ngIf="notify.tipo === 'registro'; else elseTipo">
+                    <p *ngIf="notify.diasA >= 0; else elseDias">{{ notify.nombre }} le queda {{ notify.diasA }} día(s) con {{ notify.horasA }} hora(s) y {{ notify.minutosA }} minuto(s) para que pueda cancelar su pago mensual, vence el {{ notify.fecha_pago | formDate }}</p>
+                    
+                    <ng-template #elseDias>
+                        <p>{{ notify.nombre }} debe el pago mensual desde hace {{ notify.diasD }} día(s) con {{ notify.horasD }} hora(s) y {{ notify.minutosD }} minuto(s), venció el {{ notify.fecha_pago | formDate }}</p>
+                    </ng-template>
+                </div>
+                
+                <ng-template #elseTipo>
+                <p *ngIf="notify.diasA >= 0; else elseDias">{{ notify.nombre }} le queda {{ notify.diasA }} día(s) con {{ notify.horasA }} hora(s) y {{ notify.minutosA }} minuto(s) para que pueda cancelar su matricula, vence el {{ notify.fecha_inicio | formDate }}</p>
+                
+                <ng-template #elseDias>
+                    <p>{{ notify.nombre }} debe la matricula desde hace {{ notify.diasD }} día(s) con {{ notify.horasD }} hora(s) y {{ notify.minutosD }} minuto(s), venció el {{ notify.fecha_inicio | formDate }}</p>
+                </ng-template>
+                </ng-template>
+            </div>
+        </ng-template>
+    </div>
 </div><!-- Notificaciones -->

@@ -6,6 +6,7 @@ import { NotifyComponent } from './components/notify.component';
 
 // Modulos
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 // Routing
 import { NotifyRoutingModule } from './notify.routing';
@@ -17,7 +18,8 @@ import { NotifyRoutingModule } from './notify.routing';
   imports: [
     CommonModule,
     NotifyRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SharedModule
   ]
 })
 export class NotifyModule { }
