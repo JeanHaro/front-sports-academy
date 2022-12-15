@@ -276,7 +276,11 @@ video {
 
 .text-warn-top {
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem !important;
+}
+
+.margin-b0 {
+    margin-bottom: 0 !important;
 }
 
 // Pages - parte invisible

@@ -90,6 +90,11 @@ export class ContactComponent {
   enviarContactanos() {
     this.formSubmitted = true;
 
+    // Verificar que el formulario es correcto al enviar
+    if (this.contactForm.invalid) {
+      return;
+    }
+
     this.contactService.enviarContacto(this.contactForm.value)
     .subscribe({
       next: (resp) => {
