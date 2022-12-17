@@ -205,9 +205,9 @@ export class FormComponent implements OnInit {
     let fecha_inicial = format(new Date(yearI, monthI, dayI), 'dd/MM/yyyy');
 
     // Fecha final
-    let yearF = new Date(valueSchedule[0].fecha_inicial).getUTCFullYear();
-    let monthF = new Date(valueSchedule[0].fecha_inicial).getUTCMonth();
-    let dayF = new Date(valueSchedule[0].fecha_inicial).getUTCDate();
+    let yearF = new Date(valueSchedule[0].fecha_final).getUTCFullYear();
+    let monthF = new Date(valueSchedule[0].fecha_final).getUTCMonth();
+    let dayF = new Date(valueSchedule[0].fecha_final).getUTCDate();
     // date-fns
     let fecha_final = format(new Date(yearF, monthF, dayF), 'dd/MM/yyyy');
 
@@ -216,7 +216,7 @@ export class FormComponent implements OnInit {
         { text: 'Forcrack Perú', style: 'header', width: '100%' },
         { text: '_________________________________________________________', lineHeight: 2},
         {
-          text: 'Información del registro',
+          text: 'Información de la matrícula',
           style: 'subheader1',
           alignment: 'center'
         },

@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 
 // SweetAlert2
 import Swal from 'sweetalert2';
+// PDFMake
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
 // Date-fns
 import { format } from 'date-fns';
@@ -180,10 +184,139 @@ export class StudentFormComponent implements OnInit {
     this.studentService.createStudent(this.studentForm.value)
     .subscribe({
       next: (resp) => {
+        this.crearPDF();
         this.router.navigateByUrl('/admin/students');
       }, 
       error: (err) => Swal.fire('Error', err.error.msg, 'error')
     })
+  }
+
+  // TODO: Generar PDF
+  crearPDF() {
+    const valueForm = this.studentForm.value;
+
+    const valueSchedule = this.horarios.filter(horario => horario.uid === valueForm.horario);
+
+    // Fecha inicial
+    let yearI = new Date(valueSchedule[0].fecha_inicial).getUTCFullYear();
+    let monthI = new Date(valueSchedule[0].fecha_inicial).getUTCMonth();
+    let dayI = new Date(valueSchedule[0].fecha_inicial).getUTCDate();
+    // date-fns
+    let fecha_inicial = format(new Date(yearI, monthI, dayI), 'dd/MM/yyyy');
+
+    // Fecha final
+    let yearF = new Date(valueSchedule[0].fecha_final).getUTCFullYear();
+    let monthF = new Date(valueSchedule[0].fecha_final).getUTCMonth();
+    let dayF = new Date(valueSchedule[0].fecha_final).getUTCDate();
+    // date-fns
+    let fecha_final = format(new Date(yearF, monthF, dayF), 'dd/MM/yyyy');
+
+    const pdfDefinition: any = {
+      content: [
+        { text: 'Forcrack Perú', style: 'header', width: '100%' },
+        { text: '_________________________________________________________', lineHeight: 2},
+        {
+          text: 'Información del registro',
+          style: 'subheader1',
+          alignment: 'center'
+        },
+        {
+          text: '¡Felicidades! Ya estás registrad@ como alumno de nuestra institución deportiva',
+          lineHeight: 2
+        },
+        {
+          text: 'Toda información divulgada del documento no será responsabilidad de la academia',
+          lineHeight: 2
+        },
+        {
+          text: 'Información para el pago', 
+          style: 'subheader2' 
+        },
+        {
+          text: 'El costo de la matrícula es: S/ 80',
+          lineHeight: 2
+        },
+        {
+          text: 'El costo de los pagos mensuales es de: S/ 450',
+          lineHeight: 2
+        },
+        {
+          text: `Tu código para el pago es: ${valueForm.codigo}`,
+          lineHeight: 2
+        },
+        {
+          text: 'Depositar a esta cuenta:',
+          lineHeight: 2
+        },
+        {
+          style: 'tableExample',
+          table: {
+            body: [
+              ['Nombre', 'N° de cuenta', 'CCI'],
+              ['Forcrack', '205-16486468-1-25', '056454684646665']
+            ]
+          },
+        },
+        {
+          text: ' '
+        },
+        {
+          alignment: 'justify',
+          columns: [
+            { text: 'Información del horario', style: 'subheader2' },
+            { text: 'Información del estudiante', style: 'subheader2' }
+          ]
+        },
+        {
+          alignment: 'justify',
+          columns: [
+            {
+              ul: [
+                `Nombre: ${valueSchedule[0].nombre}`,
+                `Turno: ${valueSchedule[0].turno}`,
+                `Edad mínima: ${valueSchedule[0].edad_min}`,
+                `Edad máxima: ${valueSchedule[0].edad_max}`,
+                `Hora: ${valueSchedule[0].hora_inicial} - ${valueSchedule[0].hora_final}`,
+                `Fecha de inicio: ${fecha_inicial}`,
+                `Fecha de fin: ${fecha_final}`,
+              ],
+              lineHeight: 2
+            },
+            {
+              ul: [
+                `Nombre: ${valueForm.nombre}`,
+                `Apellido: ${valueForm.apellido}`,
+                `Email: ${valueForm.email}`,
+                `DNI: ${valueForm.dni}`,
+                `Edad: ${valueForm.edad}`,
+                `Celular: ${valueForm.celular}`,
+              ],
+              lineHeight: 2
+            }
+          ]
+        }
+      ],
+      
+      styles: {
+        header: {
+          fontSize: 22,
+          bold: true,
+        },
+        subheader1: {
+          fontSize: 18,
+          bold: true,
+          lineHeight: 2
+        },
+        subheader2: {
+          fontSize: 14,
+          bold: true,
+          lineHeight: 2
+        },
+      }
+    }
+
+    const pdf = pdfMake.createPdf(pdfDefinition);
+    pdf.download();
   }
 
   // TODO: Si el campo no es valido
