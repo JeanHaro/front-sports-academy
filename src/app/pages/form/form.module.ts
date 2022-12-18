@@ -10,6 +10,9 @@ import { FormComponent } from './components/form.component';
 // Routing
 import { FormRoutingModule } from './form.routing';
 
+// Modulos
+import { SharedModule } from 'src/app/shared/shared.module';
+
 @NgModule({
   declarations: [
     FormComponent
@@ -18,7 +21,8 @@ import { FormRoutingModule } from './form.routing';
     CommonModule,
     FormRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class FormModule { }

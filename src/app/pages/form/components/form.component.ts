@@ -35,6 +35,8 @@ export class FormComponent implements OnInit {
   horas: ScheduleForm[] = [];
 
   horarios: ScheduleForm[] = [];
+  primerHorario!: ScheduleForm;
+  ultimoHorario!: ScheduleForm;
 
   // Valores de los select
   valores = {
@@ -91,11 +93,52 @@ export class FormComponent implements OnInit {
         for (let i = 0; i < this.horarios.length; i++) {
           this.horarios[i].order = i + 1;
         }
+
+        // Obtener horarios luego o igual a la fecha de hoy
+        let horario = this.horarios.filter(horario => {
+          // Fecha hoy
+          let year = new Date().getFullYear();
+          let month = new Date().getMonth();
+          let day = new Date().getDate();
+          // date-fns
+          let today = format(new Date(year, month, day), 'yyyy-MM-dd');
+
+          // Fecha inicial del horario
+          let yearS = new Date(horario.fecha_inicial).getUTCFullYear();
+          let monthS = new Date(horario.fecha_inicial).getUTCMonth();
+          let dayS = new Date(horario.fecha_inicial).getUTCDate();
+          // date-fns
+          let fechaInicial = format(new Date(yearS, monthS, dayS), 'yyyy-MM-dd');
+
+          if (fechaInicial >= today) return true;
+
+          return false;
+        });
+
+        this.ordenFechas(horario);
       },
       error: (err) => {
         Swal.fire('Error', err.error.msg, 'error');
       }
     })
+  }
+
+  // TODO: Ordenando los horarios de la fecha inicial menor al mayor
+  ordenFechas (horarios: ScheduleForm[]) {
+    let horario = horarios.sort((a, b) => {
+      if (a.fecha_inicial > b.fecha_inicial) {
+        return 1;
+      }
+
+      if (a.fecha_inicial < b.fecha_inicial) {
+        return -1;
+      }
+
+      return 0
+    });
+
+    this.primerHorario = horario[0];
+    this.ultimoHorario = horario[horario.length - 1];
   }
 
   // TODO: Obtener hora del horario
