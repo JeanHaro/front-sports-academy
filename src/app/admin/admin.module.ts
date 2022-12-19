@@ -11,7 +11,7 @@ import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
-    LayoutComponent,
+    LayoutComponent
   ],
   imports: [
     CommonModule,

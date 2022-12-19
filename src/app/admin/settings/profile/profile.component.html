@@ -1,0 +1,32 @@
+<div class="profile">
+    <div class="profile__info">
+        <h3>Mi perfil</h3>
+
+        <img src="../../../../assets/img/user.png" alt="Imagen de usuario">
+
+        <p><span>Email:</span> admin@admin.com</p>
+    </div><!-- Información del Perfil -->
+
+    <div class="profile__edit">
+        <h3>Editar perfil</h3>
+
+        <form class="profile__edit-form">
+            <div class="profile__form-email content-input">
+                <fa-icon class="profile__edit-icon" [icon]="faEnvelope"></fa-icon>
+                <input class="none input" type="email" placeholder="Correo electrónico">
+            </div><!-- Email -->
+    
+            <div class="profile__form-password content-input">
+                <fa-icon class="profile__edit-icon" [icon]="faLock"></fa-icon>
+                <input class="none input" type="password" placeholder="Contraseña actual">
+            </div><!-- Password actual -->
+
+            <div class="profile__form-password content-input">
+                <fa-icon class="profile__edit-icon" [icon]="faLock"></fa-icon>
+                <input class="none input" type="password" placeholder="Contraseña nueva">
+            </div><!-- Password nuevo -->
+    
+            <button class="btn btn-orange" type="submit">Actualizar información</button>
+        </form><!-- Formulario -->
+    </div><!-- Actualización del perfil -->
+</div><!-- Perfil -->

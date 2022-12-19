@@ -53,7 +53,24 @@
 
         <ul class="hidden">
           <li>
-            <a routerLink="students" routerLinkActive="active">Lista de Alumnos</a>
+            <a routerLink="students" routerLinkActive="active">Lista de alumnos</a>
+          </li>
+        </ul><!-- Categorias -->
+      </div><!-- Alumnos -->
+
+      <div class="sidenav__link-setting">
+        <div class="sidenav__link-title" id="title-setting" (click)="showNav($event)">
+          <div>
+            <fa-icon [icon]="faGear"></fa-icon>
+            <p>Configuraciones</p>
+          </div>
+
+          <fa-icon [icon]="faChevronDown"></fa-icon>
+        </div><!-- Tipo -->
+
+        <ul class="hidden">
+          <li>
+            <a routerLink="settings/profile" routerLinkActive="active">Editar perfil</a>
           </li>
         </ul><!-- Categorias -->
       </div><!-- Alumnos -->

@@ -15,7 +15,8 @@ import {
   faRightFromBracket,
   faBell,
   faExclamation,
-  faCircleExclamation
+  faCircleExclamation,
+  faGear
 } from '@fortawesome/free-solid-svg-icons';
 
 // Interfaces
@@ -51,6 +52,7 @@ export class LayoutComponent {
   faBell = faBell;
   faCircleExclamation = faCircleExclamation;
   faExclamation = faExclamation;
+  faGear = faGear;
 
   // Variables - observable
   notificaciones$!: Observable<NotifyForm[]>;
@@ -282,11 +284,13 @@ export class LayoutComponent {
     let titleSchedule = document.getElementById('title-schedule');
     let titleForm = document.getElementById('title-form');
     let titleStudent = document.getElementById('title-student');
+    let titleSetting = document.getElementById('title-setting');
     let titleNotify = document.getElementById('title-notify');
 
     let listSchedule = document.querySelector('.sidenav__link-schedule ul');
     let listForm = document.querySelector('.sidenav__link-form ul');
     let listStudent = document.querySelector('.sidenav__link-student ul');
+    let listSetting = document.querySelector('.sidenav__link-setting ul');
     
     let element = $event.currentTarget;
 
@@ -304,6 +308,11 @@ export class LayoutComponent {
     if (titleStudent === element) {
       titleStudent?.classList.toggle('color-white');
       listStudent?.classList.toggle('hidden');
+    }
+
+    if (titleSetting === element) {
+      titleSetting?.classList.toggle('color-white');
+      listSetting?.classList.toggle('hidden');
     }
 
     if (titleNotify === element) {

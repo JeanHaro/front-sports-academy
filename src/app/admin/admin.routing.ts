@@ -29,6 +29,10 @@ const routes: Routes = [
             {
                 path: 'notify',
                 loadChildren: () => import('./notify/notify.module').then(m => m.NotifyModule)
+            },
+            {
+                path: 'settings',
+                loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
             }
         ]
     }
