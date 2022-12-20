@@ -22,7 +22,7 @@ import {
 // Interfaces
 import { EnrollmentForm } from 'src/app/interfaces/enrollment-form.interface';
 import { StudentForm } from 'src/app/interfaces/student-form.interface';
-import { NotifyForm } from 'src/app/interfaces/notify.interface';
+import { NotifyForm } from 'src/app/interfaces/notify-form.interface';
 
 // Servicios
 import { AdminService } from 'src/app/services/admin.service';

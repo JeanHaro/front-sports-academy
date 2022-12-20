@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 // Interfaces
-import { NotifyForm } from '../interfaces/notify.interface';
+import { NotifyForm } from '../interfaces/notify-form.interface';
 
 @Injectable({
   providedIn: 'root'

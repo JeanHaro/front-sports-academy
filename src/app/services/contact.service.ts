@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 // Interfaces
-import { ContactForm } from '../interfaces/contact.interface';
+import { ContactForm } from '../interfaces/contact-form.interface';
 
 // Environment
 import { environment } from 'src/environments/environment';

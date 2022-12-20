@@ -4,26 +4,26 @@
 
         <img src="../../../../assets/img/user.png" alt="Imagen de usuario">
 
-        <p><span>Email:</span> admin@admin.com</p>
+        <p><span>Email: </span>{{ email }}</p>
     </div><!-- Información del Perfil -->
 
     <div class="profile__edit">
         <h3>Editar perfil</h3>
 
-        <form class="profile__edit-form">
+        <form autocomplete="off" [formGroup]="adminForm" (ngSubmit)="actualizarAdmin()" class="profile__edit-form">
             <div class="profile__form-email content-input">
                 <fa-icon class="profile__edit-icon" [icon]="faEnvelope"></fa-icon>
-                <input class="none input" type="email" placeholder="Correo electrónico">
+                <input class="none input" type="email" placeholder="Correo electrónico" formControlName="email">
             </div><!-- Email -->
     
             <div class="profile__form-password content-input">
                 <fa-icon class="profile__edit-icon" [icon]="faLock"></fa-icon>
-                <input class="none input" type="password" placeholder="Contraseña actual">
+                <input class="none input" type="password" placeholder="Contraseña actual" formControlName="password_actual" autocomplete="on">
             </div><!-- Password actual -->
 
             <div class="profile__form-password content-input">
                 <fa-icon class="profile__edit-icon" [icon]="faLock"></fa-icon>
-                <input class="none input" type="password" placeholder="Contraseña nueva">
+                <input class="none input" type="password" placeholder="Contraseña nueva" formControlName="password_nueva" autocomplete="on">
             </div><!-- Password nuevo -->
     
             <button class="btn btn-orange" type="submit">Actualizar información</button>

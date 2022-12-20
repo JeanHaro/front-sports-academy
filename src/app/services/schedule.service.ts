@@ -48,10 +48,10 @@ export class ScheduleService {
   }
 
   // TODO: Actualizar horario
-  updateSchedule (id: string, changes: Partial<ScheduleForm>) {
+  updateSchedule (id: string, formData: ScheduleForm) {
     const token = localStorage.getItem('token') || '';
 
-    return this.http.put(`${base_url}/horario/${id}`, changes, {
+    return this.http.put(`${base_url}/horario/${id}`, formData, {
       headers: {
         'x-token': token
       }

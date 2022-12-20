@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 // Interfaces
-import { NotifyForm } from 'src/app/interfaces/notify.interface';
+import { NotifyForm } from 'src/app/interfaces/notify-form.interface';
 
 // Servicios
 import { NotifyService } from 'src/app/services/notify.service';

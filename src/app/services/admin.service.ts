@@ -10,6 +10,7 @@ import { tap, map, catchError } from 'rxjs/operators';
 // Interfaces
 import { RegisterForm } from '../interfaces/register-form.interface';
 import { LoginForm } from '../interfaces/login-form.interface';
+import { AdminForm } from '../interfaces/admin-form.interface';
 
 // Environment
 import { environment } from 'src/environments/environment';
@@ -21,6 +22,9 @@ const base_url = environment.base_url;
   providedIn: 'root'
 })
 export class AdminService {
+
+  // Variables
+  private admin!: string;
 
   constructor (
     private http: HttpClient,
@@ -43,7 +47,8 @@ export class AdminService {
       }
     }).pipe(
       tap((resp: any) => {
-        localStorage.setItem('token', resp.token)
+        localStorage.setItem('token', resp.token),
+        this.admin = resp.uid
       }),
       map(resp => true),
       catchError(error => of(false))
@@ -66,5 +71,27 @@ export class AdminService {
         localStorage.setItem('token', resp.token)
       })
     )
+  }
+
+  // TODO: Obtener información del admin
+  getAdmin() {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.get<AdminForm>(`${base_url}/admin/${this.admin}`, {
+      headers: {
+        'x-token': token
+      }
+    })
+  }
+
+  // TODO: Actualizar admin
+  updateAdmin (changes: Partial<RegisterForm>) {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.put(`${base_url}/admin/${this.admin}`, changes, {
+      headers: {
+        'x-token': token
+      }
+    })
   }
 }
