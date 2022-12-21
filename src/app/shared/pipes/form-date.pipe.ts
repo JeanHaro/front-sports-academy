@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 })
 export class FormDatePipe implements PipeTransform {
 
-  transform(value: Date): any {
+  transform(value: Date): string {
     let year = new Date(value).getUTCFullYear();
     let month = new Date(value).getUTCMonth();
     let day = new Date(value).getUTCDate();

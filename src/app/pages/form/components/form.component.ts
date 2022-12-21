@@ -36,7 +36,9 @@ export class FormComponent implements OnInit {
 
   horarios: ScheduleForm[] = [];
   primerHorario!: ScheduleForm;
+  primeraFecha!: string;
   ultimoHorario!: ScheduleForm;
+  ultimaFecha!: string;
 
   // Valores de los select
   valores = {
@@ -137,8 +139,23 @@ export class FormComponent implements OnInit {
       return 0
     });
 
+    // Primer horario
     this.primerHorario = horario[0];
+
+    let yearS = new Date(this.primerHorario.fecha_inicial).getUTCFullYear();
+    let monthS = new Date(this.primerHorario.fecha_inicial).getUTCMonth();
+    let dayS = new Date(this.primerHorario.fecha_inicial).getUTCDate();
+  
+    this.primeraFecha = format(new Date(yearS, monthS, dayS), 'dd/MM/yyyy');
+
+    // Ultimo horario
     this.ultimoHorario = horario[horario.length - 1];
+
+    let yearE = new Date(this.ultimoHorario.fecha_inicial).getUTCFullYear();
+    let monthE = new Date(this.ultimoHorario.fecha_inicial).getUTCMonth();
+    let dayE = new Date(this.ultimoHorario.fecha_inicial).getUTCDate();
+  
+    this.ultimaFecha = format(new Date(yearE, monthE, dayE), 'dd/MM/yyyy');
   }
 
   // TODO: Obtener hora del horario

@@ -8,7 +8,7 @@
     </div><!-- Información del Perfil -->
 
     <div class="profile__edit">
-        <h3>Editar perfil</h3>
+        <h3>Modifical Email</h3>
 
         <form autocomplete="off" [formGroup]="adminForm" (ngSubmit)="actualizarAdmin()" class="profile__edit-form">
             <div class="profile__form-email content-input">
@@ -18,15 +18,28 @@
     
             <div class="profile__form-password content-input">
                 <fa-icon class="profile__edit-icon" [icon]="faLock"></fa-icon>
-                <input class="none input" type="password" placeholder="Contraseña actual" formControlName="password_actual" autocomplete="on">
+                <input class="none input" type="password" placeholder="Contraseña" formControlName="password" autocomplete="on">
+            </div><!-- Password actual -->
+    
+            <button class="btn btn-orange" type="submit">Actualizar email</button>
+        </form><!-- Formulario -->
+    </div><!-- Actualización del perfil -->
+
+    <div class="profile__edit">
+        <h3>Modificar Contraseña</h3>
+
+        <form autocomplete="off" [formGroup]="adminForm" (ngSubmit)="actualizarAdmin()" class="profile__edit-form">
+            <div class="profile__form-password content-input">
+                <fa-icon class="profile__edit-icon" [icon]="faLock"></fa-icon>
+                <input class="none input" type="password" placeholder="Contraseña actual" formControlName="password" autocomplete="on">
             </div><!-- Password actual -->
 
             <div class="profile__form-password content-input">
                 <fa-icon class="profile__edit-icon" [icon]="faLock"></fa-icon>
-                <input class="none input" type="password" placeholder="Contraseña nueva" formControlName="password_nueva" autocomplete="on">
+                <input class="none input" type="password" placeholder="Contraseña nueva"formControlName="password_nueva" autocomplete="on">
             </div><!-- Password nuevo -->
     
-            <button class="btn btn-orange" type="submit">Actualizar información</button>
+            <button class="btn btn-orange" type="submit">Actualizar contraseña</button>
         </form><!-- Formulario -->
     </div><!-- Actualización del perfil -->
 </div><!-- Perfil -->

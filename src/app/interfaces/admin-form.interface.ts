@@ -1,4 +1,6 @@
 export interface AdminForm {
+    uid?: string;
     email: string;
-    uid: string;
+    password: string;
+    password_nueva?: string;
 }

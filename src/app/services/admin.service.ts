@@ -85,7 +85,7 @@ export class AdminService {
   }
 
   // TODO: Actualizar admin
-  updateAdmin (changes: Partial<RegisterForm>) {
+  updateAdmin (changes: Partial<AdminForm>) {
     const token = localStorage.getItem('token') || '';
 
     return this.http.put(`${base_url}/admin/${this.admin}`, changes, {
