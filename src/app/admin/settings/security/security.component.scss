@@ -1,0 +1,85 @@
+// Seguridad
+.security__admin {
+    background-color: var(--colorBlanco);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+
+    h3 {
+        color: var(--colorPrincipal);
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--colorPrincipal);
+    }
+
+    // Opcion
+    .security__admin-1 {
+        margin: 2rem 0 1rem;
+
+        display: flex;
+        flex-direction: column;
+
+
+        @media (min-width: 610px) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;   
+        }
+
+        #double-authentication {
+            display: none;
+            visibility: hidden;
+        }
+
+        #double-authentication:checked ~ label {
+            background-color: var(--colorSecundario);
+
+            .circle {
+                right: 2px;
+                left: auto;
+            }
+        }
+
+        // Boton
+        label {
+            position: relative;
+            
+            align-self: flex-end;
+
+            margin-top: 1.5rem;
+            width: 45px;
+            height: 20px;
+            border-radius: 2rem;
+            background-color: var(--colorPrincipal);
+            cursor: pointer;
+
+            transition: 0.5s ease;
+
+            @media (min-width: 640px) {
+                align-self: auto;
+
+                margin-top: 0;
+                margin-left: 2rem;
+                width: 65px;
+            }
+
+            @media (min-width: 975px) {
+                width: 55px;
+            }
+
+            .circle {
+                position: absolute;
+                left: 2px;
+                top: 2px;
+                bottom: 0;
+
+                border-radius: 50%;
+                width: 16px;
+                height: 16px;
+                background-color: var(--colorBlanco);
+                transition: 0.5s ease;
+                z-index: 1;
+            }
+        }
+    }
+}

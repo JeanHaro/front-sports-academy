@@ -12,10 +12,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // Routing
 import { SettingsRoutingModule } from './settings.routing';
+import { SecurityComponent } from './security/security.component';
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    SecurityComponent
   ],
   imports: [
     CommonModule,
