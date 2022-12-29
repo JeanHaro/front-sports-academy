@@ -1,0 +1,66 @@
+// Container
+.auth__code {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Formulario
+    .auth__code-form {
+        background-color: var(--colorTerciario);
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.6);
+
+        display: flex;
+        flex-direction: column;
+
+        .auth__code-icon {
+            align-self: flex-end;
+
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: var(--colorNegro);
+            margin-bottom: 2rem;
+            transition: 0.5s ease;
+
+            &:hover {
+                color: var(--colorSecundario);
+            }
+        }
+
+        // Contenido del formulario
+        .auth__code-content {
+            .auth__code-time {
+                margin: 1rem 0;
+                text-align: center;
+                font-size: 4.5rem;
+                color: var(--colorSecundario);
+                font-weight: 700;
+            }
+
+            a {
+                display: block;
+
+                color: var(--colorSecundario);
+                text-decoration: underline;
+                margin-bottom: 1rem;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            button {
+                margin-top: 1rem;
+                width: 100%;
+            }
+        }
+        
+    }
+}

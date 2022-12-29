@@ -1,0 +1,19 @@
+<div class="auth__code animate__animated animate__bounceOutLeft hidden" id="modal-auth">
+    <form class="auth__code-form">
+        <fa-icon (click)="cerrarModal()" class="auth__code-icon" [icon]="faXmark"></fa-icon>
+
+        <div class="auth__code-content">
+            <p>Tiempo disponible para añadir el código: </p>
+
+            <p class="auth__code-time" id="count-code">
+                60 
+            </p>
+
+            <a (click)="timer(60)">Reenviar el código</a>
+
+            <input class="input none" type="number" id="auth-code" placeholder="Colocar el código">
+
+            <button class="btn btn-orange" type="submit">Ingresar</button>
+        </div><!-- Contenido del formulario -->
+    </form><!-- Formulario -->
+</div><!-- Container -->

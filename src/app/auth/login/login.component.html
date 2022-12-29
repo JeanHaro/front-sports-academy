@@ -29,9 +29,13 @@
                 </div>
     
                 <div class="auth__form-submit">
-                    <button type="submit" class="btn btn-orange">Iniciar sesión</button>
+                    <button (click)="abrirModal()" class="btn btn-orange">Iniciar sesión</button>
                 </div>
             </form><!-- Formulario -->
         </section><!-- Sección derecha -->
     </div><!-- Contenedor -->
 </main><!-- Login -->
+
+<div class="modal__auth">
+    <app-modal-login [tiempo]="time"></app-modal-login>
+</div>

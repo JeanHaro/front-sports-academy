@@ -8,7 +8,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 // Servicios
-import { AdminService } from 'src/app/services/admin.service';
+import { AdminService } from 'src/app/services/admin.service'; 
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,9 @@ import { AdminService } from 'src/app/services/admin.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  // Variables
   public formSubmitted = false;
+  time: any;
 
   // TODO: Validaciones del formulario
   public loginForm: FormGroup = this.fb.group({
@@ -29,6 +31,33 @@ export class LoginComponent {
     private adminService: AdminService,
     private router: Router
   ) { }
+
+  abrirModal() {
+    let modal = document.getElementById('modal-auth');
+    
+    modal?.classList.remove('animate__bounceOutLeft');
+    modal?.classList.remove('hidden');
+    modal?.classList.add('animate__bounceInLeft');
+
+    this.timer(60);
+  }
+
+  timer (value: number) {
+    let timer = document.getElementById('count-code');
+
+    timer!.innerHTML = `${value}`;
+
+    if (value == 0) {
+      alert('Tiempo concluido!');
+    } else {
+      value--;
+      
+      this.time = setTimeout(() => {
+        this.timer(value)
+      }, 1000);
+    }
+  }
+
 
   // TODO: Iniciar sesión
   login() {
