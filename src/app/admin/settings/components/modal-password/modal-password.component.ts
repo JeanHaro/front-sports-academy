@@ -100,6 +100,7 @@ export class ModalPasswordComponent implements OnInit, OnChanges {
     this.adminService.updateAdmin(this.securityForm.value)
     .subscribe({
       next: (resp) => {
+        this.cerrarModal();
         this.obtenerAdmin();
       },
       error: (err) => {
