@@ -6,18 +6,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Componentes
 import { ProfileComponent } from './profile/profile.component';
+import { SecurityComponent } from './security/security.component';
+import { ModalPasswordComponent } from './components/modal-password/modal-password.component';
 
 // Modulos
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // Routing
 import { SettingsRoutingModule } from './settings.routing';
-import { SecurityComponent } from './security/security.component';
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    SecurityComponent
+    SecurityComponent,
+    ModalPasswordComponent
   ],
   imports: [
     CommonModule,

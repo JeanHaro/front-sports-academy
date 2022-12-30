@@ -3,4 +3,5 @@ export interface AdminForm {
     email: string;
     password: string;
     password_nueva?: string;
+    code: boolean;
 }

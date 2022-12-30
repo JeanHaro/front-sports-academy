@@ -31,9 +31,6 @@ export class ProfileComponent implements OnInit {
   formSubmitted = false;
   adminForm!: FormGroup;
 
-  /* formPassSubmitted = false;
-  adminPassForm!: FormGroup; */
-
   // Iconos
   faEnvelope = faEnvelope;
   faLock = faLock;
@@ -59,15 +56,6 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  // TODO: Estructura y validación del formulario
-  /* private buildPassForm() {
-    this.adminPassForm = this.fb.group({
-      email: [''],
-      password: [''],
-      password_nueva: ['']
-    })
-  } */
-
   // TODO: Datos al formulario
   dataForm() {
     this.adminForm = this.fb.group({
@@ -76,14 +64,6 @@ export class ProfileComponent implements OnInit {
       password_nueva: ['']
     })
   }
-
-  /* dataPassForm() {
-    this.adminForm = this.fb.group({
-      email: [this.admin.email],
-      password: [''],
-      password_nueva: ['']
-    })
-  } */
 
   // TODO: Obtener admin
   obtenerAdmin() {
@@ -95,12 +75,11 @@ export class ProfileComponent implements OnInit {
         this.email = this.admin.email;
 
         this.dataForm();
-        // this.dataPassForm();
       }
     })
   }
 
-  // TODO: Actualizar Email del Admin
+  // TODO: Actualizar Admin
   actualizarAdmin() {
     this.formSubmitted = true;
 
@@ -119,24 +98,4 @@ export class ProfileComponent implements OnInit {
       }
     })
   }
-
-  // TODO: Actualizar Password del Admin
-  /* actualizarPassAdmin() {
-    this.formPassSubmitted = true;
-
-    // Verificar que el formulario es correcto al crear
-    if (this.adminPassForm.invalid) {
-      return;
-    }
-
-    this.adminService.updateAdmin(this.adminPassForm.value)
-    .subscribe({
-      next: (resp) => {
-        this.obtenerAdmin();
-      },
-      error: (err) => {
-        Swal.fire('Error', err.error.msg, 'error')
-      }
-    })
-  } */
 }

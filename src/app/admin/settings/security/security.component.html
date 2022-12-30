@@ -1,12 +1,20 @@
 <div class="security__admin">
     <h3>Seguridad de la cuenta</h3>
 
-    <div class="security__admin-1">
-        <input type="checkbox" id="double-authentication">
+    <div>
+        <div class="security__admin-1">
+            <input (change)="obtenerCheck($event)" type="checkbox" id="double-authentication" [checked]="code">
+    
+            <p>Doble autenticación en el inicio de sesión mediante un código de verificación de cuenta que se enviará a su correo electrónico</p>
+            <label for="double-authentication">
+                <div class="circle"></div>
+            </label><!-- Boton -->
+        </div><!-- Opcion  -->
 
-        <p>Doble autenticación en el inicio de sesión mediante un código de verificación de cuenta que se enviará a su correo electrónico</p>
-        <label for="double-authentication">
-            <div class="circle"></div>
-        </label><!-- Boton -->
-    </div><!-- Opcion  -->
+        <button (click)="abrirModal()" class="btn btn-orange" type="button">Guardar</button>
+
+        <div class="modal__pass">
+            <app-modal-password [codigo]="code"></app-modal-password>
+        </div>
+    </div>
 </div><!-- Seguridad -->

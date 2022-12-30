@@ -21,6 +21,7 @@ export class ModalLoginComponent implements OnInit {
     
   }
 
+  // TODO: Cerrar modal
   cerrarModal() {
     let modal = document.getElementById('modal-auth');
     

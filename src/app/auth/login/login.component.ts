@@ -32,6 +32,7 @@ export class LoginComponent {
     private router: Router
   ) { }
 
+  // TODO: Abrir modal
   abrirModal() {
     let modal = document.getElementById('modal-auth');
     
@@ -42,6 +43,7 @@ export class LoginComponent {
     this.timer(60);
   }
 
+  // TODO: Contador
   timer (value: number) {
     let timer = document.getElementById('count-code');
 
