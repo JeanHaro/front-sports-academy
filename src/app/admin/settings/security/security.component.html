@@ -3,7 +3,7 @@
 
     <div>
         <div class="security__admin-1">
-            <input (change)="obtenerCheck($event)" type="checkbox" id="double-authentication" [checked]="code">
+            <input (input)="obtenerCheck($event)" type="checkbox" id="double-authentication">
     
             <p>Doble autenticación en el inicio de sesión mediante un código de verificación de cuenta que se enviará a su correo electrónico</p>
             <label for="double-authentication">

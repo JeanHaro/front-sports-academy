@@ -55,5 +55,4 @@ export class SecurityComponent implements OnInit {
       
     return this.code = false;
   }
-
 }

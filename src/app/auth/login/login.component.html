@@ -21,15 +21,15 @@
     
             <form class="auth__form-content" autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="auth__form-email">
-                    <input class="none input" type="email"  id="email-auth" placeholder="Corre electrónico*" required formControlName="email">
+                    <input class="none input" type="email" (input)="obtenerEmail($event)" placeholder="Corre electrónico*" required formControlName="email">
                 </div>
     
                 <div class="auth__form-password">
-                    <input class="none input" type="password" id="password-auth" placeholder="Contraseña*" required formControlName="password" autocomplete="on">
+                    <input class="none input" type="password" (input)="obtenerPass($event)" placeholder="Contraseña*" required formControlName="password" autocomplete="on">
                 </div>
     
                 <div class="auth__form-submit">
-                    <button (click)="abrirModal()" class="btn btn-orange">Iniciar sesión</button>
+                    <button class="btn btn-orange">Iniciar sesión</button>
                 </div>
             </form><!-- Formulario -->
         </section><!-- Sección derecha -->
@@ -37,5 +37,5 @@
 </main><!-- Login -->
 
 <div class="modal__auth">
-    <app-modal-login [tiempo]="time"></app-modal-login>
+    <app-modal-login [tiempo]="time" [code]="code" [email]="email" [password]="password"></app-modal-login>
 </div>

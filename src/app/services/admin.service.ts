@@ -73,6 +73,16 @@ export class AdminService {
     )
   }
 
+  // TODO: Obtener código del admin mediante el login y envío del codigo al email
+  sendCode (formData: AdminForm) {
+    return this.http.post(`${base_url}/auth/code`, formData)
+  }
+
+  // TODO: Obtener todos los admin
+  getAllAdmin() {
+    return this.http.get<AdminForm>(`${base_url}/admin`)
+  }
+
   // TODO: Obtener información del admin
   getAdmin() {
     const token = localStorage.getItem('token') || '';
