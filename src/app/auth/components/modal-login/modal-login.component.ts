@@ -77,6 +77,8 @@ export class ModalLoginComponent implements OnChanges {
 
   // TODO: Contador
   timer (value: number) {
+    clearTimeout(this.tiempo);
+
     let timer = document.getElementById('count-code');
 
     timer!.innerHTML = `${value}`;
@@ -101,15 +103,14 @@ export class ModalLoginComponent implements OnChanges {
   }
 
   // TODO: Reenviar código
-  resendCode () {
-    console.log(this.loginForm.value);
-    
+  resendCode () {    
     return this.sendCode(this.loginForm.value)
   }
 
   // TODO: Obtener codigo
   obtenerCodigo (e: any) {
-    return this.codigo = e.target.value;
+    this.codigo = e.target.value;
+    this.dataForm();
   }
 
   // TODO: Iniciar sesión
