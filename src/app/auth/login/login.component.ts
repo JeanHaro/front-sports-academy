@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
     timer!.innerHTML = `${value}`;
 
     if (value == 0) {
-      alert('Tiempo concluido!');
+      Swal.fire('¡Aviso!', 'Tiempo concluido', 'warning');
     } else {
       value--;
 
