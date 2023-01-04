@@ -115,6 +115,8 @@ export class LoginComponent implements OnInit {
 
   // TODO: Iniciar sesión
   login() {
+    this.formSubmitted = true;
+
     if (this.loginForm.invalid) return;
 
     if (this.code) {
@@ -135,4 +137,12 @@ export class LoginComponent implements OnInit {
       })
     }
   }
+
+    // TODO: Si el campo no es valido
+    campoNoValido (campo: string): boolean {
+      // Si se envió y no es valido
+      if (this.loginForm.get(campo)?.invalid && this.formSubmitted) return true;
+      
+      return false;
+    }
 }

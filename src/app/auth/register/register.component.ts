@@ -34,7 +34,6 @@ export class RegisterComponent {
   // TODO: Crear admin
   createAdmin() {
     this.formSubmitted = true;
-    console.log(this.registerForm.value);
 
     // Verificar que el formulario es correcto al crear
     if (this.registerForm.invalid) {

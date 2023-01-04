@@ -51,7 +51,6 @@ export class ModalPasswordComponent implements OnInit, OnChanges {
     let modal = document.getElementById('modal-pass');
     
     modal?.classList.add('animate__bounceOutLeft');
-    modal?.classList.add('hidden');
     modal?.classList.remove('animate__bounceInLeft');
   }
 

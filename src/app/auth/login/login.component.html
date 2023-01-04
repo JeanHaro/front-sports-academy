@@ -22,10 +22,12 @@
             <form class="auth__form-content" autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
                 <div class="auth__form-email">
                     <input class="none input" type="email" (input)="obtenerEmail($event)" placeholder="Corre electrónico*" required formControlName="email">
+                    <p class="text-warn" *ngIf="campoNoValido('email')">* El email es obligatorio y tiene que ser válido</p>
                 </div>
     
                 <div class="auth__form-password">
                     <input class="none input" type="password" (input)="obtenerPass($event)" placeholder="Contraseña*" required formControlName="password" autocomplete="on">
+                    <p class="text-warn" *ngIf="campoNoValido('password')">* La contraseña es obligatoria</p>
                 </div>
     
                 <div class="auth__form-submit">
