@@ -14,10 +14,6 @@ La página tiene como nombre Forcrack Perú se basa en un registro de matriculas
 
 Que utiliza:
 - Consumo de API REST
- - CRUD en Admin
- - CRUD en Horarios
- - CRUD en Matriculas
- - CRUD en Registros
 - Lazy Loading
 - Componentes, Pipe, Servicios, Interfaces y Guardianes
 - FormControl y librerías como Validators para los formularios
