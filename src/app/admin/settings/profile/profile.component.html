@@ -11,6 +11,7 @@
         <h3>Modifical Email</h3>
 
         <form autocomplete="off" [formGroup]="adminForm" (ngSubmit)="actualizarAdmin()" class="profile__edit-form">
+            <p class="text-warn text-warn-top" *ngIf="campoNoValido('email')">* El email debe ser valido</p>
             <div class="profile__form-email content-input">
                 <fa-icon class="profile__edit-icon" [icon]="faEnvelope"></fa-icon>
                 <input class="none input" type="email" placeholder="Correo electrónico" formControlName="email">

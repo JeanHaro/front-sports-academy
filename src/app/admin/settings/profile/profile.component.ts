@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
   // TODO: Estructura y validación del formulario
   private buildForm() {
     this.adminForm = this.fb.group({
-      email: [''],
+      email: ['', [Validators.email, Validators.required]],
       password: [''],
       password_nueva: ['']
     })
@@ -59,7 +59,7 @@ export class ProfileComponent implements OnInit {
   // TODO: Datos al formulario
   dataForm() {
     this.adminForm = this.fb.group({
-      email: [this.admin.email],
+      email: [this.admin.email, [Validators.email, Validators.required]],
       password: [''],
       password_nueva: ['']
     })
@@ -77,6 +77,14 @@ export class ProfileComponent implements OnInit {
         this.dataForm();
       }
     })
+  }
+
+  // TODO: Si el campo no es valido
+  campoNoValido (campo: string): boolean {
+    // Si se envió y no es valido
+    if (this.adminForm.get(campo)?.invalid && this.formSubmitted) return true;
+    
+    return false;
   }
 
   // TODO: Actualizar Admin
