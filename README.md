@@ -30,4 +30,4 @@ Que utiliza:
 - Cuenta con consumo de servicios para enviar email al correo desde la sección de "Contáctanos"
 
 ## Proyectos Vinculados
-Proyecto realizado con la parte backend llamada <a href="https://github.com/JeanHaro/back-apistore">**back_sports_academy**</a>
+Proyecto realizado con la parte backend llamada <a href="https://github.com/JeanHaro/back-sports-academy">**back_sports_academy**</a>
